@@ -9,8 +9,9 @@ export interface IUser {
 
 export interface IPerfomanceIndicatorData {    
     days: string[]
-    dng1: number[]
-    dng2: number[]
-    dng3: number[]
-    dng4: number[]    
+    data: {
+        title: string,
+        color: string,
+        params: number[]
+    }[]   
 }

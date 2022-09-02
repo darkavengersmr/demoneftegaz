@@ -12,6 +12,7 @@ import {
     Legend,
   } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import PerfomanceData from './perfomance-data';
 
 ChartJS.register(
     CategoryScale,
@@ -23,38 +24,33 @@ ChartJS.register(
     Legend
 )
 
-const lineChartData = {
-labels: initialPerfomanceIndicator.days,
-datasets: [
-    {
-    data: initialPerfomanceIndicator.dng1,
-    label: "ПДНГ1",
-    borderColor: "#0000ff",
-    fill: true,
-    lineTension: 0.5
-    },
-    {
-    data: initialPerfomanceIndicator.dng2,
-    label: "ДДНГ2",
-    borderColor: "#00ff00",
-    fill: true,
-    lineTension: 0.5
-    },
-    {
-    data: initialPerfomanceIndicator.dng3,
-    label: "ДДНГ3",
-    borderColor: "#ff0000",
-    fill: true,
-    lineTension: 0.5
-    },
-    {
-    data: initialPerfomanceIndicator.dng4,
-    label: "ПДНГ4",
-    borderColor: "#00ffff",
-    fill: true,
-    lineTension: 0.5
-    },
-]
+type chartDataType = {
+    labels: string[],
+    datasets: {
+        data: number[]
+        label: string
+        borderColor: string,
+        fill: boolean,
+        lineTension: number
+    }[]
+}
+
+const lineChartData = () => {
+    const chartData: chartDataType = {
+        labels: initialPerfomanceIndicator.days,
+        datasets: []
+    }
+    for (let i=0; i<8; i++) {
+        chartData.datasets.push({
+            data: initialPerfomanceIndicator.data[i].params,
+            label: initialPerfomanceIndicator.data[i].title,
+            borderColor: initialPerfomanceIndicator.data[i].color,
+            fill: true,
+            lineTension: 0.5
+        })
+    }
+
+    return chartData
 }
 
 const PerfomanceIndicator: React.FC = () => {
@@ -64,7 +60,7 @@ const PerfomanceIndicator: React.FC = () => {
         <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">
             <Typography variant="h6">Добыча нефти за неделю</Typography>
             <Line                                        
-                        data={lineChartData}
+                        data={lineChartData()}
                         options={{
                             plugins: {
                                 legend: {
@@ -73,6 +69,7 @@ const PerfomanceIndicator: React.FC = () => {
                             }
                           }}
             />
+            <PerfomanceData data={initialPerfomanceIndicator} />
         </Container>
       </>
       )
