@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx"
 import { IUser } from "../interfaces/interfaces"
-import { initialUser } from "./mock-data/mock-data"
+import { initialUser } from "./mock-data/user"
 
 class User {
     data: IUser = initialUser

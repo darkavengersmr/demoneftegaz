@@ -1,14 +1,4 @@
-import { IPerfomanceIndicatorData, IUser } from "../../interfaces/interfaces";
-import userPhoto from "../../img/user.jpg"
-
-export const initialUser: IUser = {
-    surname: "Тестов",
-    name: "Демо",
-    patronymic: "Мокович",
-    login: "TestovDM",
-    email: "TestovDM@demoneftegaz.ru",
-    photo: `url(${userPhoto})`
-}
+import { IPerfomanceIndicatorData } from "../../interfaces/interfaces";
 
 export const initialPerfomanceIndicator: IPerfomanceIndicatorData = {
     days: ['12.сен','13.сен','14.сен','15.сен','16.сен','17.сен','18.сен'], 

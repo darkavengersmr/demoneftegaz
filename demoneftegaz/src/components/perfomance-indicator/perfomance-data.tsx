@@ -7,7 +7,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { IPerfomanceIndicatorData } from '../../interfaces/interfaces';
-import { useMemo } from 'react';
 import { Typography } from '@mui/material';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -20,22 +19,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+const tableHeadStyle = { 
+    p: "12px 1px 12px 1px", 
+    fontSize: "0.8rem", 
+    background: "#FFCE07"
+}
+
+const tableCellStyle = { 
+    p: "12px 1px 12px 1px", 
+    fontSize: "0.8rem"
+}
+
 interface IPerfomanceDataProps {
     data: IPerfomanceIndicatorData
 }
 
 const PerfomanceData = ({data}: IPerfomanceDataProps) => {
-
-    const tableHeadStyle = useMemo(() => ({ 
-        p: "12px 1px 12px 1px", 
-        fontSize: "0.8rem", 
-        background: "#FFCE07"
-    }), []);
-
-    const tableCellStyle = useMemo(() => ({ 
-        p: "12px 1px 12px 1px", 
-        fontSize: "0.8rem"
-    }), []);
 
   return (
     <>

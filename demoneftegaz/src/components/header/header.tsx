@@ -107,7 +107,7 @@ const Header: React.FC = observer(() => {
             </ListItem>
         </List>   
         <List>
-            <ListItem sx={{ m: -2, p: -2 }}>
+            <ListItem sx={{ m: -2, p: -2 }} onClick={() => navigateAndCloseDrawer("/phonebook")}>
                 <ListItemButton>
                 <ListItemIcon>
                     <MailIcon />

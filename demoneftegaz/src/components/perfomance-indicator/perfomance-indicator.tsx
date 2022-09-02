@@ -1,4 +1,4 @@
-import { initialPerfomanceIndicator } from '../../store/mock-data/mock-data';
+import { initialPerfomanceIndicator } from '../../store/mock-data/perfomance-indicator';
 
 import { Container, Typography } from '@mui/material';
 import {
