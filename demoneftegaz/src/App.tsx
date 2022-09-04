@@ -1,13 +1,16 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import MainPagePage from "./pages/main-page-page";
-import VisitorAppPage from "./pages/visitor-app-page";
+import VisitorRequestPage from "./pages/visitor-request-page";
 import NewComponentPage from "./pages/new-component-page";
 import PhoneBookPage from "./pages/phonebook-page";
+import UserInfoPage from "./pages/user-info-page";
+import OfficialEmailsPage from "./pages/official-emails.page";
+import VisitorRequestRegistryPage from "./pages/visitors-request-registry-page";
 
 const portalTheme = createTheme({
   typography: {
-    fontSize: 12    
+    fontSize: 12        
   },
   palette: {
     mode: 'light', 
@@ -32,7 +35,10 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPagePage />} />
           <Route path="phonebook" element={<PhoneBookPage />} />
-          <Route path="visitor" element={<VisitorAppPage />} />
+          <Route path="official-emails" element={<OfficialEmailsPage />} />
+          <Route path="userinfo/:id" element={<UserInfoPage />} />
+          <Route path="visitors" element={<VisitorRequestPage />} />
+          <Route path="visitors-registry" element={<VisitorRequestRegistryPage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 

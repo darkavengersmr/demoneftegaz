@@ -6,10 +6,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
+import { Button, Grid, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { IPerson } from '../../interfaces/interfaces';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
@@ -34,28 +33,27 @@ const tableCellStyle = {
     
 }
 
-const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'E-mail', 'Телефон']
+const phoneBookTableHead = ['Название', 'Подразделение', 'Адрес', 'E-mail', 'Телефон', 'ФИО и должность ответственного' ]
 
-type PhoneBookProps = {
-    personsByFilter: (filter: string) => IPerson[]
+type OfficialEmailsProps = {
+    officialEmailsByFilter: (filter: string) => IPerson[] 
 }
 
-const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
+const OfficialEmails = ({officialEmailsByFilter}: OfficialEmailsProps) => {
     
     const [find, setFind] = useState("")
-    const [filteredPersons, setFilteredPersons] = useState(personsByFilter(find))  
-    const navigate = useNavigate()  
+    const [filteredPersons, setFilteredPersons] = useState(officialEmailsByFilter(find))  
 
     const handleFindField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFind(e.target.value)
-        setFilteredPersons(personsByFilter(e.target.value))
+        setFilteredPersons(officialEmailsByFilter(e.target.value))
     }
 
     return (
       <>
       <Container>
       <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold'}}>
-        Телефонный справочник / сотрудники
+        Телефонный справочник / официальные ящики
         </Typography>
       <Grid container justifyContent="space-between" >
       <TextField id="standard-basic" 
@@ -88,27 +86,27 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
             { filteredPersons.map((person) =>(
                 <StyledTableRow key={person.login}>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
-                    <Avatar alt="Фото" 
-                            src={person.photo? person.photo.slice(4, -1) : ""} 
-                            sx={{ width: 56, height: 56 }}
-                    />
-                </TableCell>
-                <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${person.id}`)}>
                     <Typography sx={{ fontWeight: 'bold' }}>
-                        {person.surname} {person.name} {person.patronymic}
+                        {person.official} 
                     </Typography>
                 </TableCell>
-                <TableCell component="th" scope="row" sx={tableCellStyle}>
-                  {person.jobTitle}
-                </TableCell>
+                
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
                   {person.departament}
+                </TableCell>
+                <TableCell component="th" scope="row" sx={tableCellStyle}>
+                  {person.adress} ({person.description})
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
                     <a href={`mailto:${person.email}`} target="_top">{person.email}</a>
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
                   {person.phoneNumber}
+                </TableCell>
+                <TableCell component="th" scope="row" sx={tableCellStyle}>
+                    <Typography sx={{ fontWeight: 'bold' }}>
+                        {person.surname} {person.name} {person.patronymic} ({person.jobTitle})
+                    </Typography>
                 </TableCell>
               </StyledTableRow>
             ))}           
@@ -121,4 +119,4 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
       )
   }
     
-  export default PhoneBook;
+  export default OfficialEmails;

@@ -1,9 +1,17 @@
+import { IPerfomanceIndicatorData, IProductionData } from "../../interfaces/interfaces";
 import PerfomanceIndicator from "../perfomance-indicator";
 
-const MainPage: React.FC = () => {
+type MainPageProps = {
+  initialPerfomanceIndicator: IPerfomanceIndicatorData
+  initialProductionData: IProductionData[]
+}
+
+const MainPage = ({initialPerfomanceIndicator, initialProductionData}: MainPageProps) => {
   return (
     <>
-    <PerfomanceIndicator />
+      <PerfomanceIndicator initialPerfomanceIndicator={initialPerfomanceIndicator} 
+                           initialProductionData={initialProductionData}
+      />
     </>
     
     )
