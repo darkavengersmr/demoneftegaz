@@ -172,8 +172,8 @@ const Header: React.FC = observer(() => {
             </AccordionSummary>
             <AccordionDetails sx={{ m: -2, p: -2 }}>
                 {addMenuItem("Перечень заявок на пропуск посетителя", "/visitors-registry", { mt: -2, ml: 2, p: -2 }, "")}
-                {addMenuItem("Служебные записки о выходе сотрудника в выходные дни", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
-                {addMenuItem("Служебные записки об отсутствии работника на работе", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}                
+                {addMenuItem("Служебные записки о выходе сотрудника в выходные дни", "/work-weekend-registry", { mt: -2, ml: 2, p: -2 })}
+                {addMenuItem("Служебные записки об отсутствии работника на работе", "/work-absense-registry", { mt: -2, ml: 2, p: -2 })}                
             </AccordionDetails>
           </Accordion>
 
@@ -185,8 +185,8 @@ const Header: React.FC = observer(() => {
             {addMenuItem("Нормативное обеспечение бизнеса", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Заявка в ЦДС", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Заявка на пропуск посетителя", "/visitors", { mt: -2, mb: -2, p: -2 })}
-            {addMenuItem("Служебная записка о выходе сотрудника в выходные дни", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Служебная записка об отсутствии сотрудника на работе", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Служебная записка о выходе сотрудника в выходные дни", "/work-weekend", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Служебная записка об отсутствии сотрудника на работе", "/work-absense", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Заявка на транспорт", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Автоматизированная база рационализаторских предложений", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Шаблоны документов", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}

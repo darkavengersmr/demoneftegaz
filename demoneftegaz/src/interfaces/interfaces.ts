@@ -11,6 +11,7 @@ export interface IUser {
     photo: string
     jobTitle: string
     departament: string
+    departament_chief: number
     phoneNumber: string
     role: IRoles[]
     PKZI_name: string
@@ -49,6 +50,7 @@ export interface IPerson {
     photo: string
     jobTitle: string
     departament: string
+    departament_chief: number
     phoneNumber: string
     role: IRoles[]
     PKZI_name: string
@@ -79,5 +81,34 @@ export interface INewVisitorRequest {
     date: string
     time_in: string
     time_out: string
+    owner: number    
+}
+
+export interface IWorkAbsenseWeekend {
+    id: number
+    number: string
+    create_date: string
+    create_time: string
+    person: number    
+    justification: string
+    absense_date_in: string
+    absense_date_out: string
+    absense_time_in: string
+    absense_time_out: string
+    status: string
+    owner: number
+    agreement_person: number
+    agreement_date: string
+    agreement_time: string
+}
+
+export interface INewWorkAbsenseWeekendRequest {
+    person: number
+    agreement_person: number
+    justification: string
+    absense_date_in: string
+    absense_date_out: string
+    absense_time_in: string
+    absense_time_out: string    
     owner: number    
 }

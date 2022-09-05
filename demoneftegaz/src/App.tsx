@@ -7,6 +7,10 @@ import PhoneBookPage from "./pages/phonebook-page";
 import UserInfoPage from "./pages/user-info-page";
 import OfficialEmailsPage from "./pages/official-emails.page";
 import VisitorRequestRegistryPage from "./pages/visitors-request-registry-page";
+import WorkAbsensePage from "./pages/work-absense-page";
+import WorkAbsenseRegistryPage from "./pages/work-absense-registry-page";
+import WorkWeekendRequestRegistryPage from "./pages/work-weekend-registry-page";
+import WorkWeekendRequestPage from "./pages/work-weekend-page";
 
 const portalTheme = createTheme({
   typography: {
@@ -39,6 +43,10 @@ function App() {
           <Route path="userinfo/:id" element={<UserInfoPage />} />
           <Route path="visitors" element={<VisitorRequestPage />} />
           <Route path="visitors-registry" element={<VisitorRequestRegistryPage />} />
+          <Route path="work-absense" element={<WorkAbsensePage />} />
+          <Route path="work-absense-registry" element={<WorkAbsenseRegistryPage />} />
+          <Route path="work-weekend" element={<WorkWeekendRequestPage />} />
+          <Route path="work-weekend-registry" element={<WorkWeekendRequestRegistryPage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 

@@ -1,5 +1,5 @@
 import { SelectChangeEvent } from "@mui/material";
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 
 interface TValidateTypes {
   [key: string]: {
@@ -15,7 +15,8 @@ interface IUseInputCustom {
 interface IUseInputStandard {
   value: string
   error: boolean
-  onChange: (e: React.KeyboardEvent<HTMLInputElement> | 
+  onChange: (e: SyntheticEvent<Element, Event> |
+                React.KeyboardEvent<HTMLInputElement> | 
                 React.ChangeEvent<HTMLSelectElement | 
                 HTMLInputElement |
                 HTMLTextAreaElement> | 
@@ -73,7 +74,8 @@ const useInput = (initial: string, validateType: string): [IUseInputStandard, IU
   let resultStandard: IUseInputStandard = {
     value,
     error,    
-    onChange: (e: React.KeyboardEvent<HTMLInputElement> | 
+    onChange: (e: SyntheticEvent<Element, Event> | 
+                  React.KeyboardEvent<HTMLInputElement> | 
                   React.ChangeEvent<HTMLSelectElement | 
                   HTMLInputElement |
                   HTMLTextAreaElement> | 

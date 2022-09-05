@@ -12,6 +12,7 @@ export const initialUser: IUser = {
     photo: `url(${TestovDM})`,
     jobTitle: "Разработчик",
     departament: "Отдел по разработке портальных решений",
+    departament_chief: 16,
     phoneNumber: "+79064163208",
     role: ['admin'],
     PKZI_name: "DNG_P-TestovAM",

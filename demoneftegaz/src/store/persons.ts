@@ -13,8 +13,12 @@ class Person {
         return this.data
     }
 
-    getById(id: string): IPerson | undefined{        
-        return this.data.find((person) => person.id === parseInt(id))        
+    getById(id: number): IPerson | undefined{        
+        return this.data.find((person) => person.id === id)        
+    }
+
+    getByTabnumber(tabnumber: string): IPerson | undefined{        
+        return this.data.find((person) => person.tabnumber === tabnumber)        
     }
 
     getPersonsByFilter(filter: string): IPerson[] {

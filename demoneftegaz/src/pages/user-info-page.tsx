@@ -7,7 +7,7 @@ import user from "../store/user"
 const UserInfoPage: React.FC = () => {
 
     const { id = "-1" } = useParams()
-    const person = persons.getById(id)
+    const person = persons.getById(parseInt(id))
 
     return (
       <>

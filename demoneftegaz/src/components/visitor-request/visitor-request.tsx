@@ -82,7 +82,7 @@ const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
       <TextField
           id="outlined-multiline-static"
-          label="Обоснование (укажите конкретную цель посещения"
+          label="Обоснование (укажите конкретную цель посещения)"
           multiline
           sx={{ mt: 1, minWidth: 600 }}
           {...justification}           

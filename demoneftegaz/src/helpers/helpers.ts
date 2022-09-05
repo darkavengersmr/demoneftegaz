@@ -1,5 +1,5 @@
 export function dateNow(dayBias: number): string {
-    var d = new Date(new Date().setDate(new Date().getDate()+dayBias)),
+    let d = new Date(new Date().setDate(new Date().getDate()+dayBias)),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
         year = d.getFullYear();
@@ -10,4 +10,9 @@ export function dateNow(dayBias: number): string {
         day = '0' + day;
 
     return [day, month, year].join('.');
+}
+
+export function timeNow(): string {
+    const d = new Date(new Date().setDate(new Date().getDate()))      
+    return [d.getHours(), d.getMinutes()].join(':');
 }
