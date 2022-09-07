@@ -1,3 +1,4 @@
+
 export type IRoles = 'admin' | 'user' | 'guest'
 
 export interface IUser {
@@ -22,13 +23,13 @@ export interface IUser {
     official: string
 }
 
-export interface IPerfomanceIndicatorData {    
-    days: string[]
-    data: {
-        title: string,
-        color: string,
-        params: number[]
-    }[]   
+export interface IPerfomanceIndicatorData {
+  days: string[];
+  data: {
+    title: string;
+    color: string;
+    params: number[];
+  }[];
 }
 
 export interface IProductionData {    
@@ -60,6 +61,16 @@ export interface IPerson {
     map: string
     official: string   
 } 
+
+export interface INews {
+  id: number;
+  coverImageUrl: string;
+  title: string;
+  date: Date;
+  description: string;
+  content: string;
+  typeOfNews: "news" | "main" | "hidden";
+}
 
 export interface IVisitorRequest {
     id: number
@@ -183,3 +194,4 @@ export interface INewAskChiefRequest {
     question_category: string
     owner: number    
 }
+

@@ -131,9 +131,33 @@ const Header: React.FC = observer(() => {
         </AccordionSummary>
         <AccordionDetails sx={{ m: -2, p: -2 }}>
           <List>
+
+            <ListItem sx={{ m: -2, p: -2 }}>
+                <ListItemButton>
+                <ListItemIcon>
+                    <InboxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Корпоративные коммуникации" />
+                </ListItemButton>
+            </ListItem>
+        </List>
+        </AccordionSummary>
+        <AccordionDetails sx={{ m: -2, p: -2 }}>
+          <List>
+              <ListItem sx={{ mt: -2, mb: -2, p: -2 }}>
+                  <ListItemButton>
+                  <ListItemIcon>
+                      <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Новости" onClick={() => navigateAndCloseDrawer("/news")}/>
+                  </ListItemButton>
+              </ListItem>
+          </List>
+
             {addMenuItem("Сотрудники", "/phonebook", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Официальные ящики", "/official-emails", { mt: -2, mb: -2, p: -2 })}            
           </List>  
+
         </AccordionDetails>
       </Accordion>
 

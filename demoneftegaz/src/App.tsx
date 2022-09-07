@@ -4,6 +4,7 @@ import MainPagePage from "./pages/main-page-page";
 import VisitorRequestPage from "./pages/visitor-request-page";
 import NewComponentPage from "./pages/new-component-page";
 import PhoneBookPage from "./pages/phonebook-page";
+import NewsPage from "./pages/news-page";
 import UserInfoPage from "./pages/user-info-page";
 import OfficialEmailsPage from "./pages/official-emails.page";
 import VisitorRequestRegistryPage from "./pages/visitors-request-registry-page";
@@ -44,6 +45,8 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPagePage />} />
           <Route path="phonebook" element={<PhoneBookPage />} />
+          <Route path="visitor" element={<VisitorAppPage />} />
+          <Route path="news" element={<NewsPage />} />
           <Route path="official-emails" element={<OfficialEmailsPage />} />
           <Route path="userinfo/:id" element={<UserInfoPage />} />
           <Route path="visitors" element={<VisitorRequestPage />} />
