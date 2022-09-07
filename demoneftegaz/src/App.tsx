@@ -4,6 +4,7 @@ import MainPagePage from "./pages/main-page-page";
 import VisitorAppPage from "./pages/visitor-app-page";
 import NewComponentPage from "./pages/new-component-page";
 import PhoneBookPage from "./pages/phonebook-page";
+import NewsPage from "./pages/news-page";
 
 const portalTheme = createTheme({
   typography: {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={<MainPagePage />} />
           <Route path="phonebook" element={<PhoneBookPage />} />
           <Route path="visitor" element={<VisitorAppPage />} />
+          <Route path="news" element={<NewsPage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 

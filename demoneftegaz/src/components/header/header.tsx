@@ -236,9 +236,16 @@ const Header: React.FC = observer(() => {
         </List>
         </AccordionSummary>
         <AccordionDetails sx={{ m: -2, p: -2 }}>
-          <Typography>
-            Lorem ipsum dolor
-          </Typography>
+          <List>
+              <ListItem sx={{ mt: -2, mb: -2, p: -2 }}>
+                  <ListItemButton>
+                  <ListItemIcon>
+                      <InboxIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Новости" onClick={() => navigateAndCloseDrawer("/news")}/>
+                  </ListItemButton>
+              </ListItem>
+          </List>
         </AccordionDetails>
       </Accordion>
       <Accordion>
