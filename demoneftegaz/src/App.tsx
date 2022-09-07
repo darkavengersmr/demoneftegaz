@@ -11,6 +11,11 @@ import WorkAbsensePage from "./pages/work-absense-page";
 import WorkAbsenseRegistryPage from "./pages/work-absense-registry-page";
 import WorkWeekendRequestRegistryPage from "./pages/work-weekend-registry-page";
 import WorkWeekendRequestPage from "./pages/work-weekend-page";
+import CdsRequestPage from "./pages/cds-request-page";
+import TransportRequestPage from "./pages/transport-page";
+import TransportRequestRegistryPage from "./pages/transport-registry-page";
+import AskChiefPage from "./pages/ask-chief-page";
+import AskChiefRegistryPage from "./pages/ask-chief-registry-page";
 
 const portalTheme = createTheme({
   typography: {
@@ -47,6 +52,11 @@ function App() {
           <Route path="work-absense-registry" element={<WorkAbsenseRegistryPage />} />
           <Route path="work-weekend" element={<WorkWeekendRequestPage />} />
           <Route path="work-weekend-registry" element={<WorkWeekendRequestRegistryPage />} />
+          <Route path="cds" element={<CdsRequestPage />} />
+          <Route path="transport" element={<TransportRequestPage />} />
+          <Route path="transport-registry" element={<TransportRequestRegistryPage />} />
+          <Route path="ask-chief" element={<AskChiefPage />} />
+          <Route path="ask-chief-registry" element={<AskChiefRegistryPage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 

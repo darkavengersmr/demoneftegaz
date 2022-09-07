@@ -177,17 +177,63 @@ const Header: React.FC = observer(() => {
             </AccordionDetails>
           </Accordion>
 
+          <Accordion>
+            <AccordionSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              sx={{ m: -2, p: -2 }}
+            >
+              <List>{addMenuItem("Приемная ГД", "", { m: -2, ml: 0, p: -2 })}</List>
+            </AccordionSummary>
+            <AccordionDetails sx={{ m: -2, p: -2 }}>
+                {addMenuItem("Вопросы Генеральному Директору", "/ask-chief-registry", { mt: -2, ml: 2, p: -2 }, "")}                
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion>
+            <AccordionSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              sx={{ m: -2, p: -2 }}
+            >
+              <List>{addMenuItem("Транспортное управление", "", { m: -2, ml: 0, p: -2 })}</List>
+            </AccordionSummary>
+            <AccordionDetails sx={{ m: -2, p: -2 }}>
+                {addMenuItem("Заявки на организацию массовых поездок", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
+                {addMenuItem("Реестр заявок на транспорт", "/transport-registry", { mt: -2, ml: 2, p: -2 })}
+                {addMenuItem("Согласование заявок на транспорт", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}                
+                {addMenuItem("Справочник мест подачи автомобиля", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
+            </AccordionDetails>
+          </Accordion>
+
         </AccordionDetails>
       </Accordion>
 
       <List>{addMenuItem("Модули", "", { m: -2, p: -2 })}</List>
       <List>
-            {addMenuItem("Нормативное обеспечение бизнеса", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Заявка в ЦДС", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Заявка в ЦДС", "/cds", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Заявка на пропуск посетителя", "/visitors", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Служебная записка о выходе сотрудника в выходные дни", "/work-weekend", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Служебная записка об отсутствии сотрудника на работе", "/work-absense", { mt: -2, mb: -2, p: -2 })}
-            {addMenuItem("Заявка на транспорт", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Заявка на транспорт", "/transport", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Задать вопрос ГД", "/ask-chief", { mt: -2, mb: -2, p: -2 })}
+            
+            <Accordion>
+              <AccordionSummary
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+                sx={{ m: -2, p: -2 }}
+              >
+                <List>{addMenuItem("Журналы регистрации нарядов-допусков", "", { m: -2, ml: 0, p: -2 })}</List>
+              </AccordionSummary>
+              <AccordionDetails sx={{ m: -2, p: -2 }}>
+                  {addMenuItem("Газоопасные работы", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
+                  {addMenuItem("Работа на высоте", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
+                  {addMenuItem("Работы повышенной опасности", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}                
+                  {addMenuItem("Огневые работы", "/new", { mt: -2, ml: 2, p: -2 })}
+              </AccordionDetails>
+            </Accordion>
+
             {addMenuItem("Автоматизированная база рационализаторских предложений", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Шаблоны документов", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Стандартные формы договоров", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}

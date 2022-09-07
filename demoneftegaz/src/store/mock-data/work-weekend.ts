@@ -3,7 +3,7 @@ import { IWorkAbsenseWeekend } from "../../interfaces/interfaces"
 export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     {
         id: 0,
-        number: "ДНГ/О/1",
+        number: "ДНГ/В/1",
         create_date: "09.09.2022",
         create_time: "8:15",
         person: 4,
@@ -20,7 +20,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 1,
-        number: "ДНГ/О/2",
+        number: "ДНГ/В/2",
         create_date: "09.09.2022",
         create_time: "9:17",
         person: 6,
@@ -37,7 +37,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 2,
-        number: "ДНГ/О/3",
+        number: "ДНГ/В/3",
         create_date: "09.09.2022",
         create_time: "9:22",
         person: 8,
@@ -54,7 +54,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 3,
-        number: "ДНГ/О/4",
+        number: "ДНГ/В/4",
         create_date: "09.09.2022",
         create_time: "8:55",
         person: 2,
@@ -71,7 +71,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 4,
-        number: "ДНГ/О/5",
+        number: "ДНГ/В/5",
         create_date: "09.09.2022",
         create_time: "8:15",
         person: 0,
@@ -88,7 +88,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 5,
-        number: "ДНГ/О/6",
+        number: "ДНГ/В/6",
         create_date: "08.09.2022",
         create_time: "9:17",
         person: 9,
@@ -105,7 +105,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 6,
-        number: "ДНГ/О/7",
+        number: "ДНГ/В/7",
         create_date: "09.09.2022",
         create_time: "9:22",
         person: 12,
@@ -122,7 +122,7 @@ export const initialWorkWeekend: IWorkAbsenseWeekend[] = [
     },
     {
         id: 7,
-        number: "ДНГ/О/8",
+        number: "ДНГ/В/8",
         create_date: "15.09.2022",
         create_time: "8:55",
         person: 0,

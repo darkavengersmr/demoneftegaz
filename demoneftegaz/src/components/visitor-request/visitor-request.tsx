@@ -13,7 +13,7 @@ type VisitorRequestProps = {
 const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
   // eslint-disable-next-line
-  const [visitorsType, visitorsTypeAction] = useInput("Работник сторонней организации", "positiveNumber")
+  const [visitorsType, visitorsTypeAction] = useInput("Работник сторонней организации", "notNullText")
   const [visitorsTitle, visitorsTitleAction] = useInput("", "notNullText")
   const [justification, justificationAction] = useInput("", "notNullText")
   const [date, dateAction] = useInput("", "notNullText")

@@ -6,7 +6,7 @@ export const initialUser: IUser = {
     tabnumber: "1608743",
     surname: "Тестов",
     name: "Андрей",
-    patronymic: "Мокович",
+    patronymic: "Васильевич",
     login: "TestovAM",
     email: "TestovAM@demoneftegaz.ru",
     photo: `url(${TestovDM})`,

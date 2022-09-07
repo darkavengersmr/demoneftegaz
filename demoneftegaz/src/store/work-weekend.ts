@@ -31,7 +31,7 @@ class WorkWeekendRequest {
     workWeekendRequest(request: INewWorkAbsenseWeekendRequest) {        
         this.data.push({
             id: this.data.length,
-            number: `ДНГ/О/${this.data.length + 1}`,
+            number: `ДНГ/В/${this.data.length + 1}`,
             create_date: dateNow(0),
             create_time: timeNow(),
             person: request.person,

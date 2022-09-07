@@ -1,13 +1,13 @@
 import Header from "../components/header";
-import VisitorRequest from "../components/visitor-request";
-import visitors from '../store/visitor-request'
+import askChiefReuestsStore from '../store/ask-chief'
 import user from '../store/user'
-import VisitorRequestRegistryForm from "../components/visitor-request/registry-form";
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
+import AskChiefRequest from "../components/ask-chief";
+import AskChiefRequestRegistryForm from "../components/ask-chief/registry-form/registry-form";
 
-const VisitorRequestPage: React.FC = () => {
+const AskChiefRequestPage: React.FC = () => {
 
     const [tab, setTab] = useState('request');
 
@@ -27,25 +27,24 @@ const VisitorRequestPage: React.FC = () => {
             indicatorColor="secondary"
             aria-label="secondary tabs example"
           >
-            <Tab value="request" label="Новая заявка" />
-            <Tab value="registry" label="Мои заявки" />                     
+            <Tab value="request" label="Задать вопрос" />
+            <Tab value="registry" label="Мои вопросы" />            
           </Tabs>
         </Box>
 
         { tab === "request" && 
-          <VisitorRequest user={user.data}
-                          visitorRequest={visitors.addVisitorRequest.bind(visitors)}
+          <AskChiefRequest user={user.data}
+                           askChiefRequests={askChiefReuestsStore.askChiefRequest.bind(askChiefReuestsStore)}
           />
         }
         { tab === "registry" &&
-          <VisitorRequestRegistryForm visitors={visitors.getByOwnerId(user.data.id)}                                    
-                                      title="Мои заявки на пропуск посетителей"
+          <AskChiefRequestRegistryForm askChiefRequests={askChiefReuestsStore.getByOwnerId(user.data.id)}                                       
           />
         }
-
+        
       </>
       
       )
   }
     
-export default observer(VisitorRequestPage);
+export default observer(AskChiefRequestPage);

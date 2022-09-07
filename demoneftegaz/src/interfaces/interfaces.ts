@@ -112,3 +112,74 @@ export interface INewWorkAbsenseWeekendRequest {
     absense_time_out: string    
     owner: number    
 }
+
+export interface ICdsRequest {
+    fullname: string
+    jobTitle: string
+    email: string
+    phoneNumber: string
+    adress: string
+    title: string
+    description: string
+    file: string
+}
+
+export interface ITransport {
+    id: number
+    number: string
+    create_date: string
+    create_time: string
+    person: number
+    personsCount: number
+    owner: number
+    from: string
+    destination: string
+    date: string
+    time_in: string
+    time_out: string
+    justification: string    
+    status: string
+    need_agreement_chief: boolean
+    agreement_person: number
+    agreement_date: string
+    agreement_time: string
+    car: string
+    driver: string
+    description: string
+}
+
+export interface INewTransportRequest {    
+    person: number
+    personsCount: number
+    owner: number
+    from: string
+    destination: string
+    date: string
+    time_in: string
+    time_out: string
+    justification: string        
+    need_agreement_chief: boolean
+    agreement_person: number
+    agreement_date: string
+    agreement_time: string    
+}
+
+export interface IAskChief {
+    id: number    
+    title: string
+    question: string    
+    question_category: string
+    answer: string
+    create_date: string
+    create_time: string        
+    owner: number
+    status: string
+
+}
+
+export interface INewAskChiefRequest {   
+    title: string  
+    question: string    
+    question_category: string
+    owner: number    
+}
