@@ -1,4 +1,4 @@
-import { initialPerfomanceIndicator } from '../../store/mock-data/perfomance-indicator';
+import { dateNow } from '../../helpers/helpers'
 
 import { Container, Typography } from '@mui/material';
 import {
@@ -13,6 +13,7 @@ import {
   } from 'chart.js'
 import { Line } from 'react-chartjs-2'
 import PerfomanceData from './perfomance-data';
+import { IPerfomanceIndicatorData, IProductionData } from '../../interfaces/interfaces';
 
 ChartJS.register(
     CategoryScale,
@@ -35,7 +36,7 @@ type chartDataType = {
     }[]
 }
 
-const lineChartData = () => {
+const lineChartData = (initialPerfomanceIndicator: IPerfomanceIndicatorData) => {
     const chartData: chartDataType = {
         labels: initialPerfomanceIndicator.days,
         datasets: []
@@ -53,14 +54,20 @@ const lineChartData = () => {
     return chartData
 }
 
-const PerfomanceIndicator: React.FC = () => {
+
+type MainPageProps = {
+    initialPerfomanceIndicator: IPerfomanceIndicatorData
+    initialProductionData: IProductionData[]
+}
+
+const PerfomanceIndicator = ({initialPerfomanceIndicator, initialProductionData}: MainPageProps) => {
     return (
       <>
         
         <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">
-            <Typography variant="h6">Добыча нефти за неделю</Typography>
+            <Typography variant="h6">Добыча нефти за неделю {dateNow(-6)}-{dateNow(0)}</Typography>
             <Line                                        
-                        data={lineChartData()}
+                        data={lineChartData(initialPerfomanceIndicator)}
                         options={{
                             plugins: {
                                 legend: {
@@ -69,7 +76,7 @@ const PerfomanceIndicator: React.FC = () => {
                             }
                           }}
             />
-            <PerfomanceData data={initialPerfomanceIndicator} />
+            <PerfomanceData data={initialProductionData} />
         </Container>
       </>
       )

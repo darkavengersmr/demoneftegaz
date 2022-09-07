@@ -1,4 +1,4 @@
-import { IPerfomanceIndicatorData } from "../../interfaces/interfaces";
+import { IPerfomanceIndicatorData, IProductionData } from "../../interfaces/interfaces";
 
 export const initialPerfomanceIndicator: IPerfomanceIndicatorData = {
     days: ['12.сен','13.сен','14.сен','15.сен','16.сен','17.сен','18.сен'], 
@@ -25,7 +25,7 @@ export const initialPerfomanceIndicator: IPerfomanceIndicatorData = {
         },
         {
             title: "НДНГ-5",
-            color: "#44ff66",
+            color: "#5613AA",
             params: [134032, 146702, 156454, 132200, 112174, 132354, 133647],
         },
         {
@@ -45,4 +45,42 @@ export const initialPerfomanceIndicator: IPerfomanceIndicatorData = {
         },
     ],
 }
+
+export const initialProductionData: IProductionData[] = [
+    {
+        title: "Добыча нефти",
+        monthFact: 901066,
+        monthFactProc: 102.1,
+        yearFact: 6247985,
+        yearFactProc: 90.3
+    },
+    {
+        title: "Сдача нефти",
+        monthFact: 911066,
+        monthFactProc: 104.2,
+        yearFact: 6257985,
+        yearFactProc: 90.3
+    },
+    {
+        title: "Добыча жидкости",
+        monthFact: 6125,
+        monthFactProc: 101.1,
+        yearFact: 42985,
+        yearFactProc: 96.3
+    },
+    {
+        title: "Использование газа",
+        monthFact: 37985,
+        monthFactProc: 106,
+        yearFact: 317932,
+        yearFactProc: 93.4
+    },
+    {
+        title: "Закачка эффективная",
+        monthFact: 2478,
+        monthFactProc: 103,
+        yearFact: 21985,
+        yearFactProc: 94.7
+    },
+]
 

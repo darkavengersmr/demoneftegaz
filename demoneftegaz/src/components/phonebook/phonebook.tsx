@@ -6,10 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button, TextField, Typography } from '@mui/material';
-import persons from "../../store/persons"
+import { Avatar, Button, Grid, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { IPerson } from '../../interfaces/interfaces';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -33,36 +34,44 @@ const tableCellStyle = {
     
 }
 
-const phoneBookTableHead = ['Фото', 'ФИО', 'Должность', 'Подразделение', 'E-mail', 'Телефон']
+const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'E-mail', 'Телефон']
 
-const PhoneBook = () => {
+type PhoneBookProps = {
+    personsByFilter: (filter: string) => IPerson[]
+}
+
+const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
     
     const [find, setFind] = useState("")
-    const [filteredPersons, setFilteredPersons] = useState(persons.getByFilter(find))    
+    const [filteredPersons, setFilteredPersons] = useState(personsByFilter(find))  
+    const navigate = useNavigate()  
 
     const handleFindField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setFind(e.target.value)
-        setFilteredPersons(persons.getByFilter(e.target.value))
+        setFilteredPersons(personsByFilter(e.target.value))
     }
 
     return (
       <>
-      
       <Container>
-      <Typography variant="h6" sx={{ mt: 2, ml: 2, fontWeight: 'bold'}}>Телефонный справочник</Typography>
+      <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold'}}>
+        Телефонный справочник / сотрудники
+        </Typography>
+      <Grid container justifyContent="space-between" >
       <TextField id="standard-basic" 
                  label="Введите ФИО, подразделение или номер телефона" 
                  variant="standard" 
-                 sx={{ mb: 2, ml: 2, width: 400}}
+                 sx={{ mb: 2, width: 400}}
                  onChange={(e) => handleFindField(e)}                 
                  value={find}
       />      
-      <Button variant="contained" sx={{ m: 1 }}>Экспорт в Excel</Button>
+      <Button variant="contained" sx={{ mt: 2, mb: 2 }}>Экспорт в Excel</Button>
 
       { filteredPersons.length === 0 && 
         <Typography variant="body1" sx={{ mt: 2, ml: 2 }}>Сотрудники не найдены</Typography>
       }
-
+      </Grid>
+      
       { filteredPersons.length>0 && 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 800 }} aria-label="customized table">
@@ -84,7 +93,7 @@ const PhoneBook = () => {
                             sx={{ width: 56, height: 56 }}
                     />
                 </TableCell>
-                <TableCell component="th" scope="row" sx={tableCellStyle}>
+                <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${person.id}`)}>
                     <Typography sx={{ fontWeight: 'bold' }}>
                         {person.surname} {person.name} {person.patronymic}
                     </Typography>
@@ -96,7 +105,7 @@ const PhoneBook = () => {
                   {person.departament}
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
-                <a href={`mailto:${person.email}`} target="_top">{person.email}</a>
+                    <a href={`mailto:${person.email}`} target="_top">{person.email}</a>
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
                   {person.phoneNumber}

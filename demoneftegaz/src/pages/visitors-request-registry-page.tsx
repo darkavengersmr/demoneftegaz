@@ -1,0 +1,18 @@
+import { observer } from "mobx-react-lite";
+import Header from "../components/header";
+import VisitorRequestRegistryForm from "../components/visitor-request/registry-form";
+import visitors from '../store/visitor-request'
+
+const VisitorRequestRegistryPage: React.FC = () => {
+    return (
+      <>
+        <Header />
+        <VisitorRequestRegistryForm visitors={visitors.getAll()}                                     
+                                    title="Реестр заявок на пропуск посетителей"
+        />
+      </>
+      
+      )
+  }
+    
+export default observer(VisitorRequestRegistryPage);
