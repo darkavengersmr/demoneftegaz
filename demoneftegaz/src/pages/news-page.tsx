@@ -1,3 +1,4 @@
+import Footer from "../components/footer";
 import Header from "../components/header";
 import NewsComponent from "../components/news";
 
@@ -8,6 +9,7 @@ const NewsPage: React.FC = () => {
       <>
         <Header />
         <NewsComponent news={news} header="Новости"/>
+        <Footer />  
       </>
       
       )

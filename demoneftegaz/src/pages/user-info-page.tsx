@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import Footer from "../components/footer";
 import Header from "../components/header";
 import UserInfo from "../components/user-info";
 import persons from "../store/persons";
@@ -13,7 +14,9 @@ const UserInfoPage: React.FC = () => {
       <>
         <Header />
         <UserInfo person={person} user={user.data}/>
+        <Footer />  
       </>
+      
       
       )
   }

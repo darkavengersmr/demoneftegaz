@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 import AskChiefRequest from "../components/ask-chief";
 import AskChiefRequestRegistryForm from "../components/ask-chief/registry-form/registry-form";
+import Footer from "../components/footer";
 
 const AskChiefRequestPage: React.FC = () => {
 
@@ -41,7 +42,7 @@ const AskChiefRequestPage: React.FC = () => {
           <AskChiefRequestRegistryForm askChiefRequests={askChiefReuestsStore.getByOwnerId(user.data.id)}                                       
           />
         }
-        
+       <Footer />    
       </>
       
       )

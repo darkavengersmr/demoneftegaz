@@ -3,6 +3,7 @@ import Header from "../components/header";
 import persons from "../store/persons"
 import TransportRequestRegistryForm from "../components/transport/registry-form";
 import transport from "../store/transport";
+import Footer from "../components/footer";
 
 const TransportRequestRegistryPage: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const TransportRequestRegistryPage: React.FC = () => {
                                         personById={persons.getById.bind(persons)}
                                         title="Реестр заявок на транспорт"
         />
+         <Footer />  
       </>
       
       )

@@ -1,4 +1,5 @@
 import { observer } from "mobx-react-lite";
+import Footer from "../components/footer";
 import Header from "../components/header";
 import PhoneBook from "../components/phonebook";
 import persons from "../store/persons";
@@ -8,6 +9,7 @@ const PhoneBookPage: React.FC = () => {
       <>
         <Header />
         <PhoneBook personsByFilter={persons.getPersonsByFilter.bind(persons)}/>
+        <Footer />  
       </>
       
       )

@@ -219,3 +219,17 @@ export interface INewWorkPermitRequest {
     workplace: string
     work_nature: string    
 }
+
+export interface IFileStorage {
+    id?: string,
+    filename: string,    
+    title: string,
+    create_date_time: string,
+    modify_date_time: string,
+    library: string,
+    owner: number,
+    meta: {
+        [key: string]: string | number | boolean
+    }
+}
+

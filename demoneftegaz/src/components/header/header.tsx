@@ -29,6 +29,11 @@ const Header: React.FC = observer(() => {
       setAnchorEl(null);
     }
 
+    const handleToMyDocs = () => {      
+      navigate(`/my-docs`)
+      setAnchorEl(null);
+    }
+
     const toggleDrawer = (event: boolean) => setMenu(event)
 
     const navigateAndCloseDrawer = (url: string): void => {
@@ -102,6 +107,7 @@ const Header: React.FC = observer(() => {
                 onClose={handleClose}
               >
                 <MenuItem onClick={handleToProfile}>Мой профиль</MenuItem>
+                <MenuItem onClick={handleToMyDocs}>Мои документы</MenuItem>
                 <MenuItem onClick={handleClose}>Настройки</MenuItem>
               </Menu>
             </div>
@@ -238,12 +244,10 @@ const Header: React.FC = observer(() => {
                   {addMenuItem("Огневые работы", "/work-permit-og", { mt: -2, ml: 2, p: -2 })}
               </AccordionDetails>
             </Accordion>
-
-            {addMenuItem("Автоматизированная база рационализаторских предложений", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Шаблоны документов", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Стандартные формы договоров", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Перечень документации на объектах", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}            
-            {addMenuItem("Матрицы рисков и контрольных процедур (МРиКП)", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}            
+            
+            {addMenuItem("Шаблоны документов", "/fs-docs-templates", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Стандартные формы договоров", "/fs-contract-templates", { mt: -2, mb: -2, p: -2 })}                     
+            {addMenuItem("Матрицы рисков и контрольных процедур", "/fs-risk-matrix", { mt: -2, mb: -2, p: -2 })}            
       </List>
       
       <Accordion TransitionProps={{ unmountOnExit: true }}>

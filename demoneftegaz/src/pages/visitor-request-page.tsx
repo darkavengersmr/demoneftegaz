@@ -6,6 +6,7 @@ import VisitorRequestRegistryForm from "../components/visitor-request/registry-f
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
+import Footer from "../components/footer";
 
 const VisitorRequestPage: React.FC = () => {
 
@@ -42,7 +43,7 @@ const VisitorRequestPage: React.FC = () => {
                                       title="Мои заявки на пропуск посетителей"
           />
         }
-
+       <Footer />  
       </>
       
       )

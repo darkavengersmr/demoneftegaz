@@ -33,7 +33,7 @@ const NewsComponent = ({news, header, forciblyNarrow}: NewsComponentProps) => {
         {
           news.getMainNews().map(mainNews => {
             return (
-              <Grid item xs={12} sm={12} md={12} lg={forciblyNarrow ? 12 : 6}>
+              <Grid item xs={12} sm={12} md={12} lg={forciblyNarrow ? 12 : 6} key={mainNews.id}>
                 <NewsCardComponent 
                   news={mainNews}
                   open={handleOpenNewsModal}
@@ -51,7 +51,7 @@ const NewsComponent = ({news, header, forciblyNarrow}: NewsComponentProps) => {
         {
           news.getNews().map(mainNews => {
             return (
-              <Grid item xs={12} sm={12} md={12} lg={forciblyNarrow ? 12 : 6}>
+              <Grid item xs={12} sm={12} md={12} lg={forciblyNarrow ? 12 : 6} key={mainNews.id}>
                 <NewsCardComponent 
                   news={mainNews} 
                   open={handleOpenNewsModal}

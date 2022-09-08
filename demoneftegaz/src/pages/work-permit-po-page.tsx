@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 import { WorkPermitIssueRequest, WorkPermitReceiveRequest } from "../components/work-permit";
 import WorkPermitRegistryForm from "../components/work-permit/registry-form";
+import Footer from "../components/footer";
 
 const WorkPermitPORequestPage: React.FC = () => {
 
@@ -56,7 +57,7 @@ const WorkPermitPORequestPage: React.FC = () => {
                                    title="Журнал регистрации нарядов-допусков на проведение работ повышенной опасности"
           />
         }
-        
+      <Footer />    
       </>
       
       )

@@ -3,6 +3,7 @@ import Header from "../components/header";
 import WorkAbsenseWeekendRegistryForm from "../components/work-absense-weekend/registry-form";
 import workWeekend from "../store/work-weekend"
 import persons from "../store/persons"
+import Footer from "../components/footer";
 
 const WorkWeekendRequestRegistryPage: React.FC = () => {
     return (
@@ -12,6 +13,7 @@ const WorkWeekendRequestRegistryPage: React.FC = () => {
                                  personById={persons.getById.bind(persons)}
                                  title="Реестр служебных записок на работу в выходной день"
         />
+        <Footer />  
       </>
       
       )

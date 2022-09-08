@@ -4,6 +4,7 @@ import MainPage from "../components/main-page/main-page";
 import NewsComponent from "../components/news";
 import news from "../store/news";
 import { initialPerfomanceIndicator, initialProductionData } from "../store/mock-data/perfomance-indicator"
+import Footer from "../components/footer";
 
 
 const MainPagePage: React.FC = () => {
@@ -22,7 +23,8 @@ const MainPagePage: React.FC = () => {
           <MainPage initialPerfomanceIndicator={initialPerfomanceIndicator} 
                 initialProductionData={initialProductionData}                
           /> 
-        </Box>     
+        </Box>
+        <Footer />     
       </>
       )
   }

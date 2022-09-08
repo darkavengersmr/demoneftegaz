@@ -7,6 +7,7 @@ import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { Box, Tab, Tabs } from "@mui/material";
 import WorkAbsenseRegistryForm from "../components/work-absense-weekend/registry-form";
+import Footer from "../components/footer";
 
 const WorkAbsenseRequestPage: React.FC = () => {
 
@@ -62,7 +63,7 @@ const WorkAbsenseRequestPage: React.FC = () => {
                                    title="Cлужебные записки на отсутствие на рабочем месте / Все мои документы"
           />
         }
-        
+         <Footer />  
       </>
       
       )

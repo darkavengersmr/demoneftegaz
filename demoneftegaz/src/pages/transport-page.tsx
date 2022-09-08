@@ -7,6 +7,7 @@ import { Box, Tab, Tabs } from "@mui/material";
 import TransportRequest from "../components/transport";
 import transport from "../store/transport";
 import TransportRequestRegistryForm from "../components/transport/registry-form";
+import Footer from "../components/footer";
 
 const TransportRequestPage: React.FC = () => {
 
@@ -61,7 +62,7 @@ const TransportRequestPage: React.FC = () => {
                                    title="Заявки на транспорт / Все мои документы"
           />
         }
-        
+       <Footer />    
       </>
       
       )

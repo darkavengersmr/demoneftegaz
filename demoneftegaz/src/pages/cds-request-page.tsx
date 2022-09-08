@@ -3,6 +3,7 @@ import user from '../store/user'
 import { observer } from "mobx-react-lite";
 import CdsRequest from "../components/cds-request";
 import { ICdsRequest } from "../interfaces/interfaces";
+import Footer from "../components/footer";
 const CdsRequestPage: React.FC = () => {
 
     const sendCdsRequest = (request: ICdsRequest) => {
@@ -16,7 +17,7 @@ const CdsRequestPage: React.FC = () => {
         <CdsRequest user={user.data}
                     cdsRequest={sendCdsRequest}
         />
-
+      <Footer />  
       </>
       
       )
