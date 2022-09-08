@@ -1,29 +1,31 @@
-import { Box } from "@mui/material";
+import { Grid } from "@mui/material";
 import Header from "../components/header";
 import MainPage from "../components/main-page/main-page";
 import NewsComponent from "../components/news";
 import news from "../store/news";
 import { initialPerfomanceIndicator, initialProductionData } from "../store/mock-data/perfomance-indicator"
 import Footer from "../components/footer";
-
+import NewDocs from "../components/new-docs";
+import NewTasks from "../components/new-tasks";
 
 const MainPagePage: React.FC = () => {
     return (
       <>
         <Header />
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-evenly"
-          }}
-        >
-          <Box sx={{width: 0.55}}>
+        <Grid container justifyContent="center" columnSpacing={4}>
+          <Grid item sx={{ width: "55%"}}>
             <NewsComponent news={news} header="Новости" forciblyNarrow={true}/>
-          </Box>
-          <MainPage initialPerfomanceIndicator={initialPerfomanceIndicator} 
-                initialProductionData={initialProductionData}                
-          /> 
-        </Box>
+          </Grid>
+          <Grid item sx={{ width: "45%" }}>
+            <MainPage initialPerfomanceIndicator={initialPerfomanceIndicator} 
+                      initialProductionData={initialProductionData}                
+            /> 
+            <NewTasks />
+            <NewDocs />
+          </Grid>
+          
+        </Grid>
+
         <Footer />     
       </>
       )

@@ -40,7 +40,7 @@ const CdsRequest = ({user, cdsRequest}: CdsRequestProps) => {
     <>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
-      <Typography variant="h5" sx={{ mt: 3}}>Заявка в ЦДС</Typography>
+      <Typography variant="h5" sx={{ mt: 3}}>Заявка в ЕДС</Typography>
 
       <TextField
           id="outlined-multiline-static"

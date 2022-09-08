@@ -46,7 +46,7 @@ const PerfomanceData = ({data}: IPerfomanceDataProps) => {
     <Typography variant="h5" sx={{ mt: 2, mb: 1}}>Выполнение основных показателей на {dateNow(0)}</Typography>
 
     <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 300 }} aria-label="customized table">
+        <Table aria-label="customized table">
         <TableHead>
           <TableRow>
             {perfomanceDataTableHead.map((title) => (

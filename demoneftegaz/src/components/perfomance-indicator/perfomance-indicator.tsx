@@ -64,8 +64,10 @@ const PerfomanceIndicator = ({initialPerfomanceIndicator, initialProductionData}
     return (
       <>
         
-        <Container sx={{ mt: "3rem", mb: "2rem", width: "45%" }}>
-            <Typography variant="h5">Добыча нефти за неделю {dateNow(-6)}-{dateNow(0)}</Typography>
+        <Container sx={{ mt: "3rem", mb: "2rem" }}>
+            <Typography variant="h5" sx={{mb: 1}}>
+                Добыча нефти за неделю {dateNow(-6)}-{dateNow(0)}
+                </Typography>
             <Line                                        
                         data={lineChartData(initialPerfomanceIndicator)}
                         options={{

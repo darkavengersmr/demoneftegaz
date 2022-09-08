@@ -1,21 +1,25 @@
 import { observer } from "mobx-react-lite"
-import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SxProps, Toolbar, Tooltip, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SpeedDial, SpeedDialAction, SpeedDialIcon, SxProps, Toolbar, Tooltip, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import headerBackground from "../../img/logo.png";
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import WeekendIcon from '@mui/icons-material/Weekend';
+import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import PeopleOutlineIcon from '@mui/icons-material/PeopleOutline';
+import SosIcon from '@mui/icons-material/Sos';
 
+import headerBackground from "../../img/logo.png";
 import system from "../../store/system"
 import user from "../../store/user";
-
 
 const Header: React.FC = observer(() => {
     const [menu, setMenu] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const navigate = useNavigate();
-  
+
     const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
       setAnchorEl(event.currentTarget);
     };
@@ -40,6 +44,14 @@ const Header: React.FC = observer(() => {
       navigate(url);
       setMenu(false);
     }
+
+    const actions = [
+      { icon: <PeopleOutlineIcon onClick={() => navigate('/work-absense')} />, name: 'Отпроситься' },
+      { icon: <WeekendIcon onClick={() => navigate('/work-weekend')} />, name: 'Поработать в выходные' },
+      { icon: <DirectionsCarIcon onClick={() => navigate('/transport')} />, name: 'Подать заявку на транспорт' },
+      { icon: <SosIcon onClick={() => navigate('/cds')} />, name: 'Подать заявку в ЕДС' },
+      { icon: <AddAPhotoIcon onClick={() => navigate('/new')} />, name: 'Предложить новость' },  
+    ];
 
     const addMenuItem = (title: string, url: string, sx: SxProps, color: string = "") => {
       let navigate = () => {}
@@ -78,7 +90,7 @@ const Header: React.FC = observer(() => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={() => navigate('/')}>
             Портал Демонефтегаз
           </Typography>
 
@@ -224,7 +236,7 @@ const Header: React.FC = observer(() => {
 
       <List>{addMenuItem("Модули", "", { m: -2, p: -2 })}</List>
       <List>
-            {addMenuItem("Заявка в ЦДС", "/cds", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Заявка в ЕДС", "/cds", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Заявка на пропуск посетителя", "/visitors", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Служебная записка о выходе сотрудника в выходные дни", "/work-weekend", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Служебная записка об отсутствии сотрудника на работе", "/work-absense", { mt: -2, mb: -2, p: -2 })}
@@ -294,6 +306,20 @@ const Header: React.FC = observer(() => {
       </List>
 
     </Drawer>    
+
+    <SpeedDial
+        ariaLabel="SpeedDial basic example"
+        sx={{ position: 'fixed', bottom: 32, right: 32 }}
+        icon={<SpeedDialIcon />}
+      >
+        {actions.map((action) => (
+          <SpeedDialAction
+            key={action.name}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </SpeedDial>
 
     {system.getNotification()}
     </>
