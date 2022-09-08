@@ -10,6 +10,7 @@ import headerBackground from "../../img/logo.png";
 import system from "../../store/system"
 import user from "../../store/user";
 
+
 const Header: React.FC = observer(() => {
     const [menu, setMenu] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -115,66 +116,54 @@ const Header: React.FC = observer(() => {
     onClose={() => toggleDrawer(false)}
     PaperProps={{
       sx: {
-        width: 400
+        width: 450
       }
     }}
-    >
+    >   
+
         <List>{addMenuItem("Главная", "/", { m: -2, p: -2 })}</List>
 
-        <Accordion>
-        <AccordionSummary
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-          sx={{ m: -2, p: -2 }}
+        <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary              
+          sx={{ m: -2, p: -2}}          
         >
           <List>{addMenuItem("Телефонный справочник", "", { m: -2, p: -2 })}</List>
         </AccordionSummary>
-        <AccordionDetails sx={{ m: -2, p: -2 }}>
+        <AccordionDetails sx={{ m: -2, p: -2}}>
           <List>
-
-            <ListItem sx={{ m: -2, p: -2 }}>
-                <ListItemButton>
-                <ListItemIcon>
-                    <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="Корпоративные коммуникации" />
-                </ListItemButton>
-            </ListItem>
-        </List>
-        </AccordionSummary>
-        <AccordionDetails sx={{ m: -2, p: -2 }}>
-          <List>
-              <ListItem sx={{ mt: -2, mb: -2, p: -2 }}>
-                  <ListItemButton>
-                  <ListItemIcon>
-                      <InboxIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Новости" onClick={() => navigateAndCloseDrawer("/news")}/>
-                  </ListItemButton>
-              </ListItem>
-          </List>
-
             {addMenuItem("Сотрудники", "/phonebook", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Официальные ящики", "/official-emails", { mt: -2, mb: -2, p: -2 })}            
           </List>  
-
         </AccordionDetails>
       </Accordion>
 
-      <Accordion>
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          aria-controls="panel2a-content"
-          id="panel2a-header"
           sx={{ m: -2, p: -2 }}
         >
-          <List>{addMenuItem("Подразделения", "", { m: -2, p: -2 })}</List>
+          <List>{addMenuItem("Корпоративные коммуникации", "", { m: -2, p: -2 })}</List>
+        </AccordionSummary>
+        <AccordionDetails sx={{ m: -2, p: -2 }}>
+            {addMenuItem("Новости", "/news", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Корпоративная культура", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Корпоративные СМИ", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Внутренние коммуникации", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Корпоративные мероприятия", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Линейка продуктов корпоративного Банка", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Опросы", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+        </AccordionDetails>
+      </Accordion>
+
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
+        <AccordionSummary
+          sx={{ m: -2, p: -2}}
+        >
+          <List>{addMenuItem("Подразделения", "", { m: -2, p: -2})}</List>
         </AccordionSummary>
         <AccordionDetails sx={{ m: -2, p: -2 }}>
 
-          <Accordion>
+          <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
               sx={{ m: -2, p: -2 }}
             >
               <List>{addMenuItem("АХУ", "", { m: -2, ml: 0, p: -2 }, "#BBBBBB")}</List>
@@ -186,13 +175,11 @@ const Header: React.FC = observer(() => {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion>
+          <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{ m: -2, p: -2 }}
+              sx={{ m: -2, p: -2}}
             >
-              <List>{addMenuItem("Бюро пропусков", "", { m: -2, ml: 0, p: -2 })}</List>
+              <List>{addMenuItem("Бюро пропусков", "", { m: -2, ml: 0, p: -2})}</List>
             </AccordionSummary>
             <AccordionDetails sx={{ m: -2, p: -2 }}>
                 {addMenuItem("Перечень заявок на пропуск посетителя", "/visitors-registry", { mt: -2, ml: 2, p: -2 }, "")}
@@ -201,10 +188,8 @@ const Header: React.FC = observer(() => {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion>
+          <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
               sx={{ m: -2, p: -2 }}
             >
               <List>{addMenuItem("Приемная ГД", "", { m: -2, ml: 0, p: -2 })}</List>
@@ -214,10 +199,8 @@ const Header: React.FC = observer(() => {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion>
+          <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              aria-controls="panel1a-content"
-              id="panel1a-header"
               sx={{ m: -2, p: -2 }}
             >
               <List>{addMenuItem("Транспортное управление", "", { m: -2, ml: 0, p: -2 })}</List>
@@ -242,34 +225,29 @@ const Header: React.FC = observer(() => {
             {addMenuItem("Заявка на транспорт", "/transport", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Задать вопрос ГД", "/ask-chief", { mt: -2, mb: -2, p: -2 })}
             
-            <Accordion>
+            <Accordion TransitionProps={{ unmountOnExit: true }}>
               <AccordionSummary
-                aria-controls="panel1a-content"
-                id="panel1a-header"
                 sx={{ m: -2, p: -2 }}
               >
                 <List>{addMenuItem("Журналы регистрации нарядов-допусков", "", { m: -2, ml: 0, p: -2 })}</List>
               </AccordionSummary>
               <AccordionDetails sx={{ m: -2, p: -2 }}>
-                  {addMenuItem("Газоопасные работы", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
-                  {addMenuItem("Работа на высоте", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}
-                  {addMenuItem("Работы повышенной опасности", "/new", { mt: -2, ml: 2, p: -2 }, "#BBBBBB")}                
-                  {addMenuItem("Огневые работы", "/new", { mt: -2, ml: 2, p: -2 })}
+                  {addMenuItem("Газоопасные работы", "/work-permit-go", { mt: -2, ml: 2, p: -2 })}
+                  {addMenuItem("Работа на высоте", "/work-permit-vs", { mt: -2, ml: 2, p: -2 })}
+                  {addMenuItem("Работы повышенной опасности", "/work-permit-po", { mt: -2, ml: 2, p: -2 })}                
+                  {addMenuItem("Огневые работы", "/work-permit-og", { mt: -2, ml: 2, p: -2 })}
               </AccordionDetails>
             </Accordion>
 
             {addMenuItem("Автоматизированная база рационализаторских предложений", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Шаблоны документов", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Стандартные формы договоров", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Перечень документации на объектах", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Журналы регистрации нарядов-допусков", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
+            {addMenuItem("Перечень документации на объектах", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}            
             {addMenuItem("Матрицы рисков и контрольных процедур (МРиКП)", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}            
       </List>
-
-      <Accordion>
+      
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          aria-controls="panel1a-content"
-          id="panel1a-header"
           sx={{ m: -2, p: -2 }}
         >
           <List>{addMenuItem("Профсоюз", "", { m: -2, p: -2 }, "#BBBBBB")}</List>
@@ -286,10 +264,8 @@ const Header: React.FC = observer(() => {
         </List>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          aria-controls="panel2a-content"
-          id="panel2a-header"
           sx={{ m: -2, p: -2 }}
         >
           <List>{addMenuItem("Кадровые вопросы", "", { m: -2, p: -2 }, "#BBBBBB")}</List>
@@ -306,31 +282,13 @@ const Header: React.FC = observer(() => {
         </List>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
-        <AccordionSummary
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-          sx={{ m: -2, p: -2 }}
-        >
-          <List>{addMenuItem("Корпоративные коммуникации", "", { m: -2, p: -2 }, "#BBBBBB")}</List>
-        </AccordionSummary>
-        <AccordionDetails sx={{ m: -2, p: -2 }}>
-            {addMenuItem("Новости", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Корпоративная культура", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Корпоративные СМИ", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Внутренние коммуникации", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Корпоративные мероприятия", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Линейка продуктов корпоративного Банка", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-            {addMenuItem("Опросы", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
-        </AccordionDetails>
-      </Accordion>
-      
+
       <List>
         {addMenuItem("Рабочие группы", "/new", { m: -2, p: -2 }, "#BBBBBB")}
         {addMenuItem("График совещаний", "/new", { m: -2, p: -2 }, "#BBBBBB")}
         {addMenuItem("Тестирование", "/new", { m: -2, p: -2 }, "#BBBBBB")}
       </List>
-     
+
     </Drawer>    
 
     {system.getNotification()}

@@ -66,7 +66,7 @@ export interface INews {
   id: number;
   coverImageUrl: string;
   title: string;
-  date: Date;
+  date: string;
   description: string;
   content: string;
   typeOfNews: "news" | "main" | "hidden";
@@ -195,3 +195,27 @@ export interface INewAskChiefRequest {
     owner: number    
 }
 
+export interface IWorkPermit {
+    id: number
+    journal: string
+    number: string
+    create_date: string
+    create_time: string
+    process_departament: string
+    person_issued: number
+    person_received: number
+    workplace: string
+    work_nature: string
+    status: string
+    complete_date: string
+    complete_time: string
+}
+
+export interface INewWorkPermitRequest {    
+    journal: string        
+    process_departament: string
+    person_issued: number
+    person_received: number
+    workplace: string
+    work_nature: string    
+}

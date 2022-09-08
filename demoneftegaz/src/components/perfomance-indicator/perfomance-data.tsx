@@ -43,7 +43,7 @@ const PerfomanceData = ({data}: IPerfomanceDataProps) => {
 
   return (
     <>
-    <Typography variant="h6" sx={{ mt: 2, mb: 1}}>Выполнение основных показателей на {dateNow(0)}</Typography>
+    <Typography variant="h5" sx={{ mt: 2, mb: 1}}>Выполнение основных показателей на {dateNow(0)}</Typography>
 
     <TableContainer component={Paper}>
         <Table sx={{ minWidth: 300 }} aria-label="customized table">

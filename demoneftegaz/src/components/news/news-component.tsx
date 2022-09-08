@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Divider, Grid, IconButton, Modal, Typography } from "@mui/material";
+import { Box, Button, Divider, Grid, IconButton, Modal, Typography } from "@mui/material";
 import NewsCardComponent from "./news-card";
 
 import News from "../../store/news"
@@ -6,6 +6,7 @@ import React from "react";
 import { INews } from "../../interfaces/interfaces";
 import NewsContentComponent from "./news-content";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+
 type NewsComponentProps = {
   news: typeof News
   header: string
@@ -19,7 +20,7 @@ const NewsComponent = ({news, header, forciblyNarrow}: NewsComponentProps) => {
 
   return (
     <>
-      <Grid container spacing={2} sx={{p: 1}}>
+      <Grid container spacing={2} sx={{p: 0, ml: 2, mt: 2, width: "95%"}}>
         {
           news.hasMainNews() &&
           <Grid item xs={12} sx={{h: 1}}>
@@ -69,11 +70,11 @@ const NewsComponent = ({news, header, forciblyNarrow}: NewsComponentProps) => {
       >
         <Box sx={{
           position: 'absolute' as 'absolute',
-          top: 'calc(64px + 12px)',
+          top: 'calc(12px)',
           left: '50%',
           transform: 'translate(-50%, 0)',
-          width: 0.5,
-          maxHeight: "calc(100% - 64px - 24px)",
+          width: 0.6,
+          maxHeight: "calc(100% - 24px)",
           bgcolor: 'background.paper',
           borderRadius: 1,
           boxShadow: 24,

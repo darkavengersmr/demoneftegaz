@@ -16,11 +16,11 @@ const MainPagePage: React.FC = () => {
             justifyContent: "space-evenly"
           }}
         >
-          <Box sx={{width: 0.5}}>
+          <Box sx={{width: 0.55}}>
             <NewsComponent news={news} header="Новости" forciblyNarrow={true}/>
           </Box>
           <MainPage initialPerfomanceIndicator={initialPerfomanceIndicator} 
-                initialProductionData={initialProductionData}
+                initialProductionData={initialProductionData}                
           /> 
         </Box>     
       </>

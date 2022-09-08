@@ -17,6 +17,10 @@ import TransportRequestPage from "./pages/transport-page";
 import TransportRequestRegistryPage from "./pages/transport-registry-page";
 import AskChiefPage from "./pages/ask-chief-page";
 import AskChiefRegistryPage from "./pages/ask-chief-registry-page";
+import WorkPermitGORequestPage from "./pages/work-permit-go-page";
+import WorkPermitOGRequestPage from "./pages/work-permit-og-page";
+import WorkPermitVSRequestPage from "./pages/work-permit-vs-page";
+import WorkPermitPORequestPage from "./pages/work-permit-po-page";
 
 const portalTheme = createTheme({
   typography: {
@@ -45,7 +49,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPagePage />} />
           <Route path="phonebook" element={<PhoneBookPage />} />
-          <Route path="visitor" element={<VisitorAppPage />} />
+          <Route path="visitor" element={<VisitorRequestPage />} />
           <Route path="news" element={<NewsPage />} />
           <Route path="official-emails" element={<OfficialEmailsPage />} />
           <Route path="userinfo/:id" element={<UserInfoPage />} />
@@ -60,6 +64,10 @@ function App() {
           <Route path="transport-registry" element={<TransportRequestRegistryPage />} />
           <Route path="ask-chief" element={<AskChiefPage />} />
           <Route path="ask-chief-registry" element={<AskChiefRegistryPage />} />
+          <Route path="work-permit-go" element={<WorkPermitGORequestPage />} />
+          <Route path="work-permit-og" element={<WorkPermitOGRequestPage />} />
+          <Route path="work-permit-vs" element={<WorkPermitVSRequestPage />} />
+          <Route path="work-permit-po" element={<WorkPermitPORequestPage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 

@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, CardMedia, Paper, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 import { INews } from "../../../interfaces/interfaces";
 
 const NewsContentComponent = ({news}: {news: INews}) => {
@@ -17,7 +17,7 @@ const NewsContentComponent = ({news}: {news: INews}) => {
             {news.title}
           </Typography>
           <Typography component="div" sx={{p: 1, fontSize: "12px", color: "gray"}}>
-            {news.date.toLocaleString()}
+            {news.date}
           </Typography>
           <Typography component="div" sx={{p: 1, fontSize: "16px"}}>
             {news.description}

@@ -5,7 +5,7 @@ const NewsCardComponent = ({news, open}: {news: INews, open: {(news: INews): voi
     return (
       <Card key={news.id} sx={{ display: "flex", flexDirection: "row" }}>
         <CardMedia
-          sx={{maxWidth: "50%", p: 1, borderRadius: 3 }}
+          sx={{maxWidth: "50%", p: 1, borderRadius: 3, objectFit: "contain" }}
           component="img"
           image={news.coverImageUrl}
         >
@@ -15,7 +15,7 @@ const NewsCardComponent = ({news, open}: {news: INews, open: {(news: INews): voi
             {news.title}
           </Typography>
           <Typography component="div" sx={{p: 1, fontSize: "12px", color: "gray"}}>
-            {news.date.toLocaleString()}
+            {news.date}
           </Typography>
           <Typography component="div" sx={{p: 1, fontSize: "16px"}}>
             {news.description}
