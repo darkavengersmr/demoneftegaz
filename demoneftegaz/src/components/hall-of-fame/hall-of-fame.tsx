@@ -6,9 +6,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Avatar, Badge, Button, Grid, TextField, Typography } from '@mui/material';
+import { Avatar, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IPerson } from '../../interfaces/interfaces';
 
@@ -30,47 +29,34 @@ const tableHeadStyle = {
 
 const tableCellStyle = { 
     p: "8px 4px 8px 4px", 
-    fontSize: "0.8rem",    
+    fontSize: "0.8rem",
     
 }
 
-const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'E-mail', 'Телефон']
+const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'Достижения']
 
 type PhoneBookProps = {
-    personsByFilter: (filter: string) => IPerson[]
+  persons: IPerson[]
 }
 
-const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
+const HallOfFame = ({persons}: PhoneBookProps) => {
     
-    const [find, setFind] = useState("")
-    const [filteredPersons, setFilteredPersons] = useState(personsByFilter(find))  
     const navigate = useNavigate()  
-
-    const handleFindField = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFind(e.target.value)
-        setFilteredPersons(personsByFilter(e.target.value))
-    }
 
     return (
       <>
       <Container sx={{ mb: 10}}>
-      <Typography variant="h5" sx={{ mt: 3, mb: 1, fontWeight: 'bold'}}>
-        Телефонный справочник / сотрудники
+      <Typography variant="h5" sx={{ mt: 3, mb: 3, fontWeight: 'bold'}}>
+        Доска почета
         </Typography>
       <Grid container justifyContent="space-between" >
-      <TextField id="standard-basic" 
-                 label="Введите ФИО, подразделение или номер телефона" 
-                 variant="standard" 
-                 sx={{ mb: 2, width: 400}}
-                 onChange={(e) => handleFindField(e)}                 
-                 value={find}
-      />      
-      <Button variant="contained" sx={{ mt: 2, mb: 2 }}>Экспорт в Excel</Button>
+
+        { persons.length === 0 && 
+          <Typography variant="body1" sx={{ mt: 2, ml: 2 }}>Сотрудники не найдены</Typography>
+        }
       </Grid>
-      { filteredPersons.length === 0 && 
-        <Typography variant="body1" sx={{ mt: 2, ml: 2 }}>Сотрудники не найдены</Typography>
-      }
-      { filteredPersons.length>0 && 
+      
+      { persons.length>0 && 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 800 }} aria-label="customized table">
         <TableHead>
@@ -83,18 +69,16 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-            { filteredPersons.map((person) =>(
+            { persons.map((person) =>(
                 <StyledTableRow key={person.login}>
-                <TableCell component="th" scope="row" sx={tableCellStyle}>
-                    <Badge badgeContent={person.rating}>
+                <TableCell component="th" scope="row" sx={tableCellStyle}>              
                         <Avatar alt="Фото" 
                                 src={person.photo? person.photo.slice(4, -1) : ""} 
-                                sx={{ width: 56, height: 56 }}
-                        />
-                    </Badge>
+                                sx={{ width: 120, height: 120, ml: 2 }}
+                        />                    
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${person.id}`)}>
-                    <Typography sx={{ fontWeight: 'bold', cursor: "pointer" }}>
+                    <Typography sx={{ ml: 2, fontWeight: 'bold', cursor: "pointer" }}>
                         {person.surname} {person.name} {person.patronymic}
                     </Typography>
                 </TableCell>
@@ -105,10 +89,9 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
                   {person.departament}
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
-                    <a href={`mailto:${person.email}`} target="_top">{person.email}</a>
-                </TableCell>
-                <TableCell component="th" scope="row" sx={tableCellStyle}>
-                  {person.phoneNumber}
+                  <Typography sx={{ fontWeight: 'bold', mr: 2 }}>
+                    {person.rating_description}
+                  </Typography>  
                 </TableCell>
               </StyledTableRow>
             ))}           
@@ -121,4 +104,4 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
       )
   }
     
-  export default PhoneBook;
+  export default HallOfFame;

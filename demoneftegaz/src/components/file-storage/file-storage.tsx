@@ -4,7 +4,6 @@ import { DataGrid, GridColDef, GridRenderCellParams, GridValueGetterParams } fro
 import { localizedTextsMap } from "../../localization/mui-datagrid"
 import { IFileStorage, IPerson, IUser } from "../../interfaces/interfaces";
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
-import { Container } from "@mui/system";
 
 const multiline = (params: GridRenderCellParams<any, any, any>) => (
     <div>
@@ -20,9 +19,10 @@ type FileStorageProps = {
     add: (file: IFileStorage) => void,
     remove: (id: string) => void,
     meta: string[]
+    imgOptional?: string
 }
 
-const FileStorage = ({storage, user, personById, title, add, remove, meta}: FileStorageProps) => {
+const FileStorage = ({storage, user, personById, title, add, remove, meta, imgOptional}: FileStorageProps) => {
 
     const metainfoColumns = meta.map(info => {
         return {
@@ -83,21 +83,33 @@ const FileStorage = ({storage, user, personById, title, add, remove, meta}: File
 
   return (
     <>
-    <Typography variant="h5" sx={{mt: 5, ml: 4}}>{title}</Typography>
-    <Grid container justifyContent="flex-end">
-        <Button
-            variant="contained"
-            component="label"        
-            sx={{ mt: 4, mr: 4, justifyContent: "end" }} 
-            >
-                Добавить файл
-                <input
-                    type="file"
-                    hidden
-                />
-        </Button>
-    </Grid>    
-    <Box sx={{ ml: 4, mr:4, mb: 4, mt: 2, height: 600}}>
+    <Grid container justifyContent="space-between">
+
+    {
+        !imgOptional &&
+        <Typography variant="h5" sx={{mt: 4, ml: 4, mb: 2}}>{title}</Typography>
+    }
+    
+    {
+        imgOptional &&
+        <>
+        <Typography variant="h5" sx={{mt: 15, ml: 4, mb: 2}}>{title}</Typography>
+        <Box sx={{ ml: 4, mr:4, mb: 0, mt: 2, height: 150}}>
+            <img
+                src={`${imgOptional}?w=248`}
+                srcSet={`${imgOptional}?w=248&dpr=2 2x`}                
+                height="100%"
+                alt={title}
+                loading="lazy"
+            />
+        </Box>
+        </>
+    }
+    </Grid>
+    
+    
+
+    <Box sx={{ ml: 4, mr:4, mb: 0, mt: 2, height: 600}}>
       <DataGrid
         rows={storage}
         columns={columns}
@@ -126,6 +138,19 @@ const FileStorage = ({storage, user, personById, title, add, remove, meta}: File
           }}
       />
     </Box>
+    <Grid container justifyContent="flex-start">
+        <Button
+            variant="contained"
+            component="label"        
+            sx={{ mt: 1, mb: 10, ml: 4, justifyContent: "start" }} 
+            >
+                Добавить файл
+                <input
+                    type="file"
+                    hidden
+                />
+        </Button>
+    </Grid>
     </>
     )
 }

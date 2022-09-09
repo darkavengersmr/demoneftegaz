@@ -1,6 +1,7 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { useNavigate } from "react-router-dom";
 import { IPerson, IWorkPermit } from "../../../interfaces/interfaces";
 
 import { localizedTextsMap } from "../../../localization/mui-datagrid"
@@ -100,10 +101,13 @@ const WorkPermitRegistryForm = ({workPermitRegistry, personById, title}: WorkPer
     },
   ];
 
+  const navigate = useNavigate()
+
   return (
     <>
-    <Typography variant="h5" sx={{m: 4}}>{title}</Typography>
-
+    
+    <Typography variant="h5" sx={{m: 4}}>{title}</Typography> 
+  
     <Box sx={{ m: 2, height: 500}}>
       <DataGrid
         rows={workPermitRegistry}
@@ -133,6 +137,8 @@ const WorkPermitRegistryForm = ({workPermitRegistry, personById, title}: WorkPer
           }}
       />
     </Box>
+
+    <Button variant="contained" sx={{ mt: 0, ml: 2 }} onClick={()=>navigate('/new')}>Экспорт в Excel</Button>
     </>
     )
 }

@@ -26,6 +26,9 @@ import FSContractTemplatesPage from "./pages/fs-contract-templates"
 import FSRiskMatrixPage from "./pages/fs-risk-matrix"
 import MyDocsPage from "./pages/my-docs-page"
 import ResourceListPage from "./pages/resource-list-page";
+import HallOfFamePage from "./pages/hall-of-fame";
+import FSNewEmployeePage from "./pages/fs-new-employee";
+import FSYoungSpecialistPage from "./pages/fs-young-specialist";
 
 const portalTheme = createTheme({
   typography: {
@@ -53,11 +56,11 @@ function App() {
       <BrowserRouter> 
         <Routes>
           <Route path="/" element={<MainPagePage />} />
-          <Route path="phonebook" element={<PhoneBookPage />} />
-          <Route path="visitor" element={<VisitorRequestPage />} />
-          <Route path="news" element={<NewsPage />} />
+          <Route path="phonebook" element={<PhoneBookPage />} />                    
           <Route path="official-emails" element={<OfficialEmailsPage />} />
           <Route path="userinfo/:id" element={<UserInfoPage />} />
+          
+          <Route path="visitor" element={<VisitorRequestPage />} />
           <Route path="visitors" element={<VisitorRequestPage />} />
           <Route path="visitors-registry" element={<VisitorRequestRegistryPage />} />
           <Route path="work-absense" element={<WorkAbsensePage />} />
@@ -73,11 +76,17 @@ function App() {
           <Route path="work-permit-og" element={<WorkPermitOGRequestPage />} />
           <Route path="work-permit-vs" element={<WorkPermitVSRequestPage />} />
           <Route path="work-permit-po" element={<WorkPermitPORequestPage />} />
+
           <Route path="fs-docs-templates" element={<FSDocsTemplatesPage />} />          
           <Route path="fs-contract-templates" element={<FSContractTemplatesPage />} />
           <Route path="fs-risk-matrix" element={<FSRiskMatrixPage />} />
+          <Route path="fs-new-employee" element={<FSNewEmployeePage />} />
+          <Route path="fs-young-specialist" element={<FSYoungSpecialistPage />} />          
+
+          <Route path="news" element={<NewsPage />} />
           <Route path="my-docs" element={<MyDocsPage />} />
           <Route path="resource-list" element={<ResourceListPage />} />
+          <Route path="hall-of-fame" element={<HallOfFamePage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 

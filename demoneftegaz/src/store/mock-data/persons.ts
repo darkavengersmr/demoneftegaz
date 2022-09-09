@@ -11,6 +11,9 @@ import DokerovIP from "../../img/DokerovIP.jpg"
 import BashinAL from "../../img/BashinAL.jpg"
 import MongovaDB from "../../img/MongovaDB.jpg"
 import PostgresovSB from "../../img/PostgresovSB.jpg"
+import RabotnikovIP from "../../img/RabotnikovIP.jpg"
+import WorkerovPS from "../../img/WorkerovPS.jpg"
+import ProrabovIS from "../../img/ProrabovIS.jpg"
 
 export const initialPersons: IPerson[] = [
     {
@@ -120,7 +123,7 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         rating: 3, 
-        rating_description: "Лидер по число благодарностей от партнеров и заказчиков"
+        rating_description: "Лидер по числу благодарностей от партнеров и заказчиков"
     },
     {
         id: 5,
@@ -384,7 +387,7 @@ export const initialPersons: IPerson[] = [
         patronymic: "Скалярович",
         login: "ProrabovIS",
         email: "ProrabovIS@demoneftegaz.ru",
-        photo: "",
+        photo: `url(${ProrabovIS})`,
         jobTitle: "Начальник цеха",
         departament: "Цех 5",
         departament_chief: 16,
@@ -405,7 +408,7 @@ export const initialPersons: IPerson[] = [
         patronymic: "Стаханович",
         login: "WorkerovPS",
         email: "WorkerovPS@demoneftegaz.ru",
-        photo: "",
+        photo: `url(${WorkerovPS})`,
         jobTitle: "Мастер",
         departament: "Цех 5",
         departament_chief: 16,
@@ -416,7 +419,9 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Складской переулок, 83",
         description: "1 этаж, к.18",
         map: "",
-        official: ""
+        official: "",
+        rating: 5, 
+        rating_description: "Мастер золотые руки. Коллеги уважают, руководство ценит. Молодец, одним словом."
     },
     {
         id: 19,
@@ -426,7 +431,7 @@ export const initialPersons: IPerson[] = [
         patronymic: "Павлович",
         login: "RabotnikovIP",
         email: "RabotnikovIP@demoneftegaz.ru",
-        photo: "",
+        photo: `url(${RabotnikovIP})`,
         jobTitle: "Мастер",
         departament: "Цех 5",
         departament_chief: 16,

@@ -13,7 +13,7 @@ const UserInfoPage: React.FC = () => {
     return (
       <>
         <Header />
-        <UserInfo person={person} user={user.data}/>
+        <UserInfo person={person} user={user.data} like={persons.likeToPerson.bind(persons)} />
         <Footer />  
       </>
       

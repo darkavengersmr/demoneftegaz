@@ -14,7 +14,6 @@ import SosIcon from '@mui/icons-material/Sos';
 import headerBackground from "../../img/logo.png";
 import system from "../../store/system"
 import user from "../../store/user";
-import ListSubheader from "@mui/material/ListSubheader";
 
 const Header: React.FC = observer(() => {
     const [menu, setMenu] = useState(false);
@@ -91,9 +90,11 @@ const Header: React.FC = observer(() => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} onClick={() => navigate('/')}>
-            Портал Демонефтегаз
-          </Typography>
+
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, cursor: "pointer"}} onClick={() => navigate('/')}>            
+              Портал АО "Демонефтегаз"
+            </Typography>
+
 
             <div>
             <Typography component="span" variant="body1">
@@ -142,7 +143,7 @@ const Header: React.FC = observer(() => {
     }}
     >   
 
-      <List>{addMenuItem("Главная", "/", { m: -2, p: -2 })}</List>
+      <List sx={{mt: 1}}>{addMenuItem("Главная", "/", { m: -2, p: -2 })}</List>
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary 
@@ -154,6 +155,7 @@ const Header: React.FC = observer(() => {
           <List>
             {addMenuItem("Сотрудники", "/phonebook", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Официальные ящики", "/official-emails", { mt: -2, mb: -2, p: -2 })}            
+            {addMenuItem("Доска почета", "/hall-of-fame", { mt: -2, mb: -2, p: -2 })}
           </List>  
         </AccordionDetails>
       </Accordion>
@@ -168,6 +170,8 @@ const Header: React.FC = observer(() => {
         </AccordionSummary>
         <AccordionDetails sx={{p: 0}}>
             {addMenuItem("Новости", "/news", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Новому сотруднику", "/fs-new-employee", { mt: -2, mb: -2, p: -2 })}  
+            {addMenuItem("Молодому специалисту", "/fs-young-specialist ", { mt: -2, mb: -2, p: -2 })}                       
             {addMenuItem("Корпоративная культура", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Корпоративные СМИ", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}
             {addMenuItem("Внутренние коммуникации", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}

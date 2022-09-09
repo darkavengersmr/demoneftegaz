@@ -9,6 +9,7 @@ import Paper from '@mui/material/Paper';
 import { Avatar, Button, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { IPerson } from '../../interfaces/interfaces';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -37,6 +38,7 @@ const phoneBookTableHead = ['', '']
 type personInfoProps = {
     person: IPerson | undefined
     user: IPerson | undefined
+    like: (id: number) => void
 }
 
 const addStyledTableRow = (param: string, value: string) => {
@@ -54,21 +56,23 @@ const addStyledTableRow = (param: string, value: string) => {
     )
 }
 
-const PersonInfo = ({person, user}: personInfoProps): JSX.Element => {
+const PersonInfo = ({person, user, like}: personInfoProps): JSX.Element => {
 
 
     return (
       <>
-      <Container>      
-      <Grid container justifyContent="space-between" >            
-      <Typography variant="h6" sx={{ mt: 16, fontWeight: 'bold'}}>
-        {person?.surname} {person?.name} {person?.patronymic}
+      <Container sx={{ mb: 10}}>      
+      <Grid container justifyContent="space-between" >
+
+      <Typography variant="h5" sx={{ mt: 16, fontWeight: 'bold'}}>
+        {person?.surname} {person?.name} {person?.patronymic} <FavoriteBorderIcon onClick={()=> person ? like(person.id) : null}/>
       </Typography>
-      <Avatar alt="Фото" 
-        src={person?.photo ? person.photo.slice(4, -1) : ""} 
-        sx={{ width: 128, height: 128, mt: 2, mb: 2 }}
-      />
-      
+
+        <Avatar alt="Фото" 
+            src={person?.photo ? person.photo.slice(4, -1) : ""} 
+            sx={{ width: 128, height: 128, mt: 2, mb: 2 }}
+        />
+
       </Grid>
       { !person && 
         <Typography variant="body1" sx={{ mt: 2 }}>Сотрудник с таким ID не найден</Typography>

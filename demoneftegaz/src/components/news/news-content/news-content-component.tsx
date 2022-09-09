@@ -19,9 +19,11 @@ const NewsContentComponent = ({news}: {news: INews}) => {
           <Typography component="div" sx={{p: 1, fontSize: "12px", color: "gray"}}>
             {news.date}
           </Typography>
-          <Typography component="div" sx={{p: 1, fontSize: "16px"}}>
+          { /*
+            <Typography component="div" sx={{p: 1, fontSize: "16px"}}>
             {news.description}
           </Typography>
+          */}          
           <Typography component="div" sx={{p: 1, fontSize: "16px"}}>
             {news.content}
           </Typography>

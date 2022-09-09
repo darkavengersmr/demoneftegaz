@@ -7,6 +7,8 @@ import { observer } from "mobx-react-lite";
 import FileStorage from "../components/file-storage";
 import Footer from "../components/footer";
 
+import contractTemplates from "../img/contract-templates.jpg"
+
 const FSContractTemplatesPage: React.FC = () => {
 
     return (
@@ -19,6 +21,7 @@ const FSContractTemplatesPage: React.FC = () => {
                        add={fileStorage.add.bind(fileStorage)}
                        remove={fileStorage.remove.bind(fileStorage)}
                        meta={["Номер и дата приказа", "Область действия"]}                  
+                       imgOptional={contractTemplates}
           />
 
       <Footer />    

@@ -28,7 +28,7 @@ const tableHeadStyle = {
 }
 
 const tableCellStyle = { 
-    p: "8px 4px 8px 4px", 
+    p: "16px 4px 16px 4px", 
     fontSize: "0.8rem",
     
 }
@@ -51,8 +51,8 @@ const OfficialEmails = ({officialEmailsByFilter}: OfficialEmailsProps) => {
 
     return (
       <>
-      <Container>
-      <Typography variant="h6" sx={{ mt: 2, fontWeight: 'bold'}}>
+      <Container sx={{ mb: 10}}>
+      <Typography variant="h5" sx={{ mt: 3, mb: 1, fontWeight: 'bold'}}>
         Телефонный справочник / официальные ящики
         </Typography>
       <Grid container justifyContent="space-between" >

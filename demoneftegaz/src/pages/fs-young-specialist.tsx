@@ -7,27 +7,27 @@ import { observer } from "mobx-react-lite";
 import FileStorage from "../components/file-storage";
 import Footer from "../components/footer";
 
-import docsTemplates from "../img/docs-templates.jpg"
+import youngSpecialist from "../img/young-specialist.jpg"
 
-const FSDocsTemplatesPage: React.FC = () => {
+const FSYoungSpecialistPage: React.FC = () => {
 
     return (
       <>
       <Header />      
-          <FileStorage storage={fileStorage.getLibrary("Шаблоны документов")}
-                       title="Шаблоны документов"
+          <FileStorage storage={fileStorage.getLibrary("Молодому специалисту")}
+                       title="Информация для молодых специалистов"
                        user={user.data}
                        personById={persons.getById.bind(persons)}
                        add={fileStorage.add.bind(fileStorage)}
                        remove={fileStorage.remove.bind(fileStorage)}
-                       meta={["Направление", "Примечание"]}       
-                       imgOptional={docsTemplates}           
+                       meta={["Комментарии"]}
+                       imgOptional={youngSpecialist}                  
           />
 
-      <Footer />  
+      <Footer />    
       </>
       
       )
   }
     
-export default observer(FSDocsTemplatesPage);
+export default observer(FSYoungSpecialistPage);
