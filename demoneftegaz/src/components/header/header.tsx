@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite"
-import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SpeedDial, SpeedDialAction, SpeedDialIcon, SxProps, Toolbar, Tooltip, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Badge, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SpeedDial, SpeedDialAction, SpeedDialIcon, SxProps, Toolbar, Tooltip, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import { useState } from "react";
@@ -100,7 +100,9 @@ const Header: React.FC = observer(() => {
             </Typography>            
               <Tooltip title="Профиль">              
               <IconButton onClick={handleMenu} sx={{ p: 0 }}>
-                <Avatar alt={user.getSurnameNP()} src={user.getPhotoUrl()} />
+                <Badge badgeContent={0}>
+                  <Avatar alt={user.getSurnameNP()} src={user.getPhotoUrl()} />
+                </Badge>
               </IconButton>
               </Tooltip>
               <Menu
@@ -154,6 +156,8 @@ const Header: React.FC = observer(() => {
           </List>  
         </AccordionDetails>
       </Accordion>
+
+      <List>{addMenuItem("Перечень информационных ресурсов Общества", "/resource-list", { m: -2, p: -2 })}</List>
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary

@@ -59,7 +59,9 @@ export interface IPerson {
     adress: string
     description: string
     map: string
-    official: string   
+    official: string
+    rating?: number
+    rating_description?: string   
 } 
 
 export interface INews {
@@ -233,3 +235,13 @@ export interface IFileStorage {
     }
 }
 
+export interface IResourceList {
+    img: string
+    title: string
+    author: string
+    rows?: number
+    cols?: number
+    featured?: boolean
+    owner?: string
+
+}

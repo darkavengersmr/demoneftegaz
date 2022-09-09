@@ -53,7 +53,9 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "2 этаж, к.23",
         map: "",
-        official: ""
+        official: "",
+        rating: 4, 
+        rating_description: "Профессионал своего дела. Грамотно решает самые сложные вопросы и находит выход из казалось бы безвыходных ситуаций"
     },
     {
         id: 2,
@@ -116,7 +118,9 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "8 этаж, к.811",
         map: "",
-        official: ""
+        official: "",
+        rating: 3, 
+        rating_description: "Лидер по число благодарностей от партнеров и заказчиков"
     },
     {
         id: 5,
@@ -179,7 +183,9 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "7 этаж, к.706",
         map: "",
-        official: ""
+        official: "",
+        rating: 3, 
+        rating_description: "Повелитель больших данных. Лучший в своем деле. Профессионал с большой буквы."
     },
     {
         id: 8,

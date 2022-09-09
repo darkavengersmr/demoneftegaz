@@ -25,6 +25,7 @@ import FSDocsTemplatesPage from "./pages/fs-docs-templates";
 import FSContractTemplatesPage from "./pages/fs-contract-templates"
 import FSRiskMatrixPage from "./pages/fs-risk-matrix"
 import MyDocsPage from "./pages/my-docs-page"
+import ResourceListPage from "./pages/resource-list-page";
 
 const portalTheme = createTheme({
   typography: {
@@ -76,6 +77,7 @@ function App() {
           <Route path="fs-contract-templates" element={<FSContractTemplatesPage />} />
           <Route path="fs-risk-matrix" element={<FSRiskMatrixPage />} />
           <Route path="my-docs" element={<MyDocsPage />} />
+          <Route path="resource-list" element={<ResourceListPage />} />
           <Route path="new" element={<NewComponentPage />} />
         </Routes>
       </BrowserRouter> 
