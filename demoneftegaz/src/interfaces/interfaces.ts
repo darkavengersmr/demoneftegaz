@@ -82,7 +82,7 @@ export interface INews {
   typeOfNews: "news" | "main" | "hidden";
 }
 
-export interface INewsInstance {
+export interface INewsClass {
     news: INews[]    
     getNews: () => INews[]
     hasMainNews: () => boolean
@@ -238,7 +238,7 @@ export interface INewWorkPermitRequest {
 }
 
 export interface IFileStorage {
-    id?: string,
+    id: string,
     filename: string,    
     title: string,
     create_date_time: string,
@@ -248,6 +248,23 @@ export interface IFileStorage {
     meta: {
         [key: string]: string | number | boolean
     }
+}
+
+export interface INewFileStorage {    
+    filename: string,    
+    title: string,    
+    library: string,
+    owner: number,
+    meta: {
+        [key: string]: string | number | boolean
+    }
+}
+
+export interface IFileStorageClass {
+    data: IFileStorage[]
+    getLibrary: (library: string) => IFileStorage[]
+    add: (file: INewFileStorage) => void
+    remove: (id: string) => void
 }
 
 export interface IResourceList {

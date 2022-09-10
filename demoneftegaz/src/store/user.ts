@@ -13,6 +13,10 @@ class User {
         return `${this.data.surname} ${this.data.name[0].toUpperCase()}.${this.data.patronymic[0].toUpperCase()}.`
     }
 
+    setDescription(description: string) {
+        this.data.description = description
+    }
+
     getPhotoUrl() {
         return this.data.photo.slice(4, -1)
     }

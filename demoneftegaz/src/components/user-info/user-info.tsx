@@ -6,10 +6,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button, Grid, Typography } from '@mui/material';
+import { Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { IPerson } from '../../interfaces/interfaces';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { useState } from 'react';
+import { useInput } from '../../hooks';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -33,13 +35,14 @@ const tableCellStyle = {
     
 }
 
-const phoneBookTableHead = ['', '']
+const phoneBookTableHead = ['', ' ']
 
 type personInfoProps = {
     person: IPerson | undefined
     user: IPerson | undefined
     like: (id: number) => void
     personById: (id: number) => IPerson | undefined
+    setDescription: (description: string) => void
 }
 
 const addStyledTableRow = (param: string, value: string) => {
@@ -57,7 +60,24 @@ const addStyledTableRow = (param: string, value: string) => {
     )
 }
 
-const PersonInfo = ({person, user, like, personById}: personInfoProps): JSX.Element => {
+const PersonInfo = ({person, user, like, personById, setDescription}: personInfoProps): JSX.Element => {
+
+    const [open, setOpen] = useState(false);
+    // eslint-disable-next-line 
+    const [newDescription, newDescriptionActions] = useInput(user?.description ? user?.description : "", "")
+
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+    };
+
+    const handleEdit = () => {
+        setDescription(newDescription.value);        
+        setOpen(false);
+    };
 
     return (
       <>
@@ -114,18 +134,45 @@ const PersonInfo = ({person, user, like, personById}: personInfoProps): JSX.Elem
               {person.substitute && addStyledTableRow('Отсутствие на работе', `${personById(person.substitute)!.surname} ${personById(person.substitute)!.name} ${personById(person.substitute)!.patronymic}`)}              
               {addStyledTableRow('Имя ключа ЛКЗИ', person.PKZI_name)}
               {addStyledTableRow('Дата действия сертификата ЛКЗИ', person.PKZI_date)}
-              {addStyledTableRow('Примечания', person.description)}
+              {person.id === user?.id ? addStyledTableRow('Примечания', user.description) : addStyledTableRow('Примечания', person.description)}              
                                 
         </TableBody>
       </Table>
     </TableContainer>
     {  person.id === user?.id &&
-        <Button variant="contained" sx={{ mt: 2, mb: 2 }}>Изменить</Button>
+        <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>handleClickOpen()}>Изменить</Button>
     }
     
     </>
     }
     </Container>
+
+    <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle>
+          Изменить информацию
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Вам для изменения доступны следующие поля:
+          </DialogContentText>
+          <TextField   
+                label="Примечание"
+                sx={{ mt: 1, width: "100%" }}
+                {...newDescription}               
+            />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleClose}>Отмена</Button>
+          <Button variant="contained" onClick={handleEdit}>
+            Сохранить
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
       )
   }

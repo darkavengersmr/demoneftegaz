@@ -1,9 +1,10 @@
 import { makeAutoObservable } from "mobx"
-import { IFileStorage } from "../interfaces/interfaces"
+import { dateNow, timeNow } from "../helpers/helpers"
+import { IFileStorage, INewFileStorage, IFileStorageClass } from "../interfaces/interfaces"
 import { initialFileStorage } from "./mock-data/file-storage"
 
-class FileStorage {
-    private data: IFileStorage[] = initialFileStorage
+class FileStorage implements IFileStorageClass {
+    data: IFileStorage[] = initialFileStorage
 
     constructor() {
         makeAutoObservable(this)
@@ -13,8 +14,13 @@ class FileStorage {
         return this.data.filter(doc => doc.library === library)        
     }
 
-    add(file: IFileStorage) {
-        this.data.push(file)
+    add(file: INewFileStorage) {
+        this.data.push({
+            ...file,
+            id: this.data.length.toString(),
+            create_date_time: `${dateNow(0)} ${timeNow()}`,
+            modify_date_time: `${dateNow(0)} ${timeNow()}`,            
+        })
     }
 
     remove(id: string) {

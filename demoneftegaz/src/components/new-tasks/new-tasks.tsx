@@ -24,7 +24,7 @@ const NewTasks = () => {
 
       {
         mockdata.map((el) => (
-          <Accordion>
+          <Accordion key={el.title}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"

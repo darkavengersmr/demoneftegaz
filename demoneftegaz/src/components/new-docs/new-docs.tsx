@@ -28,11 +28,11 @@ const NewDocs = () => {
 
       {
         mockdata.map((el) => (
-          <Accordion>
+          <Accordion key={el.title}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
-              id="panel1a-header"
+              id="panel1a-header"              
             >
             <Grid container sx={{ justifyContent:"space-between", m: 1}}>
               <Grid item>

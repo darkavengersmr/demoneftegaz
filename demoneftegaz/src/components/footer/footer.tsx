@@ -19,7 +19,7 @@ export default function Footer() {
   if (location.pathname === '/') {
     return (
         <>  
-        {globalFooter}      
+        {null && globalFooter}      
         <Paper sx={{ position: 'fixed', bottom: 0, left: "10%", right: "10%" }} elevation={3}>
             <Box sx={{ width: "95%"}}>
                 <BottomNavigation
@@ -41,7 +41,7 @@ export default function Footer() {
   } else {
     return (
         <>
-            {globalFooter}                           
+            {null && globalFooter}                           
         </>        
     )
   }

@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
 import Footer from "../components/footer";
 import Header from "../components/header";
@@ -14,7 +15,8 @@ const UserInfoPage: React.FC = () => {
       <>
         <Header />
         <UserInfo person={person} 
-                  user={user.data} 
+                  user={user.data}
+                  setDescription={user.setDescription.bind(user)} 
                   like={persons.likeToPerson.bind(persons)} 
                   personById={persons.getById.bind(persons)}
         />
@@ -25,4 +27,4 @@ const UserInfoPage: React.FC = () => {
       )
   }
     
-export default UserInfoPage;
+export default  observer(UserInfoPage);

@@ -1,9 +1,9 @@
 import { makeAutoObservable } from "mobx";
-import { INews, INewsInstance } from "../interfaces/interfaces";
+import { INews, INewsClass } from "../interfaces/interfaces";
 import { someNews } from "./mock-data/news-profsouz";
 
 
-class News implements INewsInstance {
+class News implements INewsClass {
   news: INews[] = someNews;
 
   constructor() {

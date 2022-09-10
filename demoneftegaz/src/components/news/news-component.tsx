@@ -2,12 +2,12 @@ import { Box, Button, Divider, Grid, IconButton, Modal, Typography } from "@mui/
 import NewsCardComponent from "./news-card";
 
 import React from "react";
-import { INews, INewsInstance } from "../../interfaces/interfaces";
+import { INews, INewsClass } from "../../interfaces/interfaces";
 import NewsContentComponent from "./news-content";
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 type NewsComponentProps = {
-  news: INewsInstance
+  news: INewsClass
   header: string
   forciblyNarrow?: boolean
 }

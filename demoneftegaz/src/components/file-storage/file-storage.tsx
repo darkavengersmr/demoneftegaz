@@ -1,9 +1,12 @@
-import { Button, Grid, Typography } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridRenderCellParams, GridValueGetterParams } from '@mui/x-data-grid';
 import { localizedTextsMap } from "../../localization/mui-datagrid"
-import { IFileStorage, IPerson, IUser } from "../../interfaces/interfaces";
+import { IFileStorage, INewFileStorage, IPerson, IUser } from "../../interfaces/interfaces";
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
+import React, { useState } from "react";
+import { useInput } from "../../hooks";
+import system from "../../store/system";
 
 const multiline = (params: GridRenderCellParams<any, any, any>) => (
     <div>
@@ -16,13 +19,73 @@ type FileStorageProps = {
     personById: (id: number) => IPerson | undefined,
     user: IUser,
     title: string,
-    add: (file: IFileStorage) => void,
+    add: (file: INewFileStorage) => void,
     remove: (id: string) => void,
     meta: string[]
     imgOptional?: string
+    library?: string
 }
 
-const FileStorage = ({storage, user, personById, title, add, remove, meta, imgOptional}: FileStorageProps) => {
+type customKeys = {
+    [key: string]: string
+}
+
+const newMeta = (meta: string[]): customKeys => {
+    const res = {} as customKeys
+    for (const key of meta) {        
+        res[key] = ""
+      }
+    return res
+}
+
+const FileStorage = ({storage, 
+                      user, 
+                      personById, 
+                      title, 
+                      add, 
+                      remove, 
+                      meta,
+                      library, 
+                      imgOptional}: FileStorageProps) => {
+
+    const [newFileMeta, setNewFileMeta] = useState(newMeta(meta))
+    const [newFileTitle, newFileTitleActions] = useInput("", "notNullText")   
+
+    const [open, setOpen] = useState(false);
+
+    const updateMeta = (title: string, e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const res = {} as customKeys
+        res[title] = e.target.value
+        setNewFileMeta({...newFileMeta, ...res})
+    }
+
+    const handleClickAdd = () => {
+        setOpen(true);
+    };
+
+    const handleClickUpload = () => {
+        if (newFileTitle.value.length>0) {
+            add({
+                title: newFileTitle.value,
+                filename: newFileTitle.value,
+                meta: newFileMeta,
+                library: library ? library : title, 
+                owner: user.id
+            })
+            system.sendNotification("Файл отправлен", "success")
+            setNewFileMeta(newMeta(meta))
+            newFileTitleActions.setInputValue("")  
+            setOpen(false);  
+        } else {
+            system.sendNotification("Не заполнены обязательные поля", "error")  
+        }
+        
+    };
+
+    const handleClose = () => {
+        setOpen(false);
+        setNewFileMeta(newMeta(meta))
+    };
 
     const metainfoColumns = meta.map(info => {
         return {
@@ -143,14 +206,64 @@ const FileStorage = ({storage, user, personById, title, add, remove, meta, imgOp
             variant="contained"
             component="label"        
             sx={{ mt: 1, mb: 10, ml: 4, justifyContent: "start" }} 
+            onClick={()=>handleClickAdd()}
             >
-                Добавить файл
+                Добавить файл                
+        </Button>
+    </Grid>
+
+    <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          Добавить новый файл
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Прежде чем загрузить файл к нему желательно добавить описание. 
+            Это позволит другим сотрудникам проще его находить.
+          </DialogContentText>
+          
+          <TextField                  
+                label="Название документа"
+                sx={{ mt: 1, width: "100%" }}
+                {...newFileTitle}               
+            />
+
+          {
+            meta.map((title) => (
+            
+            <TextField
+                key={title}                
+                label={title}            
+                sx={{ mt: 1, width: "100%" }}
+                value={newFileMeta[title]}
+                onChange={(e)=>updateMeta(title, e)}                
+            />
+            ))
+          }
+          
+          <Button
+            variant="contained"
+            component="label"        
+            sx={{ mt: 1, justifyContent: "start" }} 
+            >
+                Выберите файл
                 <input
                     type="file"
                     hidden
                 />
         </Button>
-    </Grid>
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" sx={{mb: 2}} onClick={handleClose}>Отмена</Button>
+          <Button variant="contained" sx={{mr: 2, mb: 2}} onClick={handleClickUpload}>Добавить</Button>
+        </DialogActions>
+      </Dialog>
+
     </>
     )
 }
