@@ -1,46 +1,25 @@
-# Getting Started with Create React App
+# Портал АО "Демонефтегаз"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend портала АО "Демонефтегаз". Используется Typescript/React/Mobx/Material UI/Chart.js.
 
-## Available Scripts
+Реализованы:
+- телефонный справочник c поиском, карточки сотрудников
+- справочник официальных ящиков подразделений (приемные руководителей)
+- новостной блок
+- виджет с информацией о выполнении производственных показателей
+- личный кабинет сотрудника с доступом к документам по категориям
+- различные виды заявок (на транспорт, на пропуск посетителя, в ЕДС
+- создание и согласование СЗ о работе в выходной день и об отсутствии на работе
+- журналы регистрации нарядов-допусков
+- обратная связь для ГД
+- компонент для работы с документами на примере разделов "Шаблоны документов", "Новому сотруднику", "Станлдартные формы договоров", "Молодому специалисту" и т.п.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you canвЂ™t go back!**
-
-If you arenвЂ™t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point youвЂ™re on your own.
-
-You donвЂ™t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldnвЂ™t feel obligated to use this feature. However we understand that this tool wouldnвЂ™t be useful if you couldnвЂ™t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![alt text](demoneftegaz/screenshots/portal1.jpg.jpg "portal1")
+![alt text](demoneftegaz/screenshots/portal2.jpg.jpg "portal2")
+![alt text](demoneftegaz/screenshots/portal3.jpg.jpg "portal3")
+![alt text](demoneftegaz/screenshots/portal4.jpg.jpg "portal4")
+![alt text](demoneftegaz/screenshots/portal5.jpg.jpg "portal5")
+![alt text](demoneftegaz/screenshots/portal6.jpg.jpg "portal6")
+![alt text](demoneftegaz/screenshots/portal7.jpg.jpg "portal7")
+![alt text](demoneftegaz/screenshots/portal8.jpg.jpg "portal8")
+![alt text](demoneftegaz/screenshots/portal9.jpg.jpg "portal9")
