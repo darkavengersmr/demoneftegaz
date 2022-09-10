@@ -23,3 +23,4 @@ Frontend портала АО "Демонефтегаз". Используется Typescript/React/Mobx/Material 
 ![alt text](demoneftegaz/screenshots/portal7.jpg "portal7")
 ![alt text](demoneftegaz/screenshots/portal8.jpg "portal8")
 ![alt text](demoneftegaz/screenshots/portal9.jpg "portal9")
+![alt text](demoneftegaz/screenshots/portal10.jpg "portal10")
