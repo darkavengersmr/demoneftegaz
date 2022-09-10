@@ -14,12 +14,12 @@ Frontend портала АО "Демонефтегаз". Используется Typescript/React/Mobx/Material 
 - обратная связь для ГД
 - компонент для работы с документами на примере разделов "Шаблоны документов", "Новому сотруднику", "Станлдартные формы договоров", "Молодому специалисту" и т.п.
 
-![alt text](demoneftegaz/screenshots/portal1.jpg.jpg "portal1")
-![alt text](demoneftegaz/screenshots/portal2.jpg.jpg "portal2")
-![alt text](demoneftegaz/screenshots/portal3.jpg.jpg "portal3")
-![alt text](demoneftegaz/screenshots/portal4.jpg.jpg "portal4")
-![alt text](demoneftegaz/screenshots/portal5.jpg.jpg "portal5")
-![alt text](demoneftegaz/screenshots/portal6.jpg.jpg "portal6")
-![alt text](demoneftegaz/screenshots/portal7.jpg.jpg "portal7")
-![alt text](demoneftegaz/screenshots/portal8.jpg.jpg "portal8")
-![alt text](demoneftegaz/screenshots/portal9.jpg.jpg "portal9")
+![alt text](screenshots/portal1.jpg "portal1")
+![alt text](screenshots/portal2.jpg "portal2")
+![alt text](screenshots/portal3.jpg "portal3")
+![alt text](screenshots/portal4.jpg "portal4")
+![alt text](screenshots/portal5.jpg "portal5")
+![alt text](screenshots/portal6.jpg "portal6")
+![alt text](screenshots/portal7.jpg "portal7")
+![alt text](screenshots/portal8.jpg "portal8")
+![alt text](screenshots/portal9.jpg "portal9")
