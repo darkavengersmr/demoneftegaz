@@ -56,8 +56,8 @@ const FileStorage = ({storage, user, personById, title, add, remove, meta, imgOp
           field: 'filename',
           headerName: 'Файл',
           width: 250,
-          editable: false,
-          renderCell: (params) => multiline(params)   
+          editable: false,  
+          renderCell: (params) => multiline(params)
         },
         ...metainfoColumns,
         {

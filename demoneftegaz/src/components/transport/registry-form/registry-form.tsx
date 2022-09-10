@@ -1,7 +1,7 @@
 import { Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { IPerson, ITransport, IWorkAbsenseWeekend } from "../../../interfaces/interfaces";
+import { IPerson, ITransport } from "../../../interfaces/interfaces";
 
 import { localizedTextsMap } from "../../../localization/mui-datagrid"
 

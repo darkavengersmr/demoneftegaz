@@ -3,15 +3,15 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import NewsComponent from "../components/news";
 
-import news from "../store/news";
+import news from "../store/news-ahu";
 
-const NewsPage: React.FC = () => {
+const NewsAhuPage: React.FC = () => {
     return (
       <>
         <Header />        
           <Grid container justifyContent="center" columnSpacing={4}>
             <Grid item sx={{ width: "95%"}}>
-              <NewsComponent news={news} header="Новости"/>
+              <NewsComponent news={news} header="Новости Административно-хозяйственного управления"/>
             </Grid>                    
           </Grid>
         <Footer />  
@@ -20,4 +20,4 @@ const NewsPage: React.FC = () => {
       )
   }
     
-export default NewsPage;
+export default NewsAhuPage;

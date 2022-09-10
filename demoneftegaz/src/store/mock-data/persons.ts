@@ -35,7 +35,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "6 этаж, к.632",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",        
     },
     {
         id: 1,
@@ -58,7 +61,10 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         rating: 4, 
-        rating_description: "Профессионал своего дела. Грамотно решает самые сложные вопросы и находит выход из казалось бы безвыходных ситуаций"
+        rating_description: "Профессионал своего дела. Грамотно решает самые сложные вопросы и находит выход из казалось бы безвыходных ситуаций",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 2,
@@ -79,7 +85,11 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "3 этаж, к.323",
         map: "",
-        official: ""        
+        official: "",
+        absense: "больничный",
+        absense_date_in: "12.09.2022",
+        absense_date_out: "24.09.2022",
+        substitute: 1,
     },
     {
         id: 3,
@@ -100,7 +110,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "1 этаж, к.11",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 4,
@@ -123,7 +136,10 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         rating: 3, 
-        rating_description: "Лидер по числу благодарностей от партнеров и заказчиков"
+        rating_description: "Лидер по числу благодарностей от партнеров и заказчиков",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 5,
@@ -144,7 +160,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "11 этаж, к.1112",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 6,
@@ -165,7 +184,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "12 этаж, к.1202",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 7,
@@ -188,7 +210,10 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         rating: 3, 
-        rating_description: "Повелитель больших данных. Лучший в своем деле. Профессионал с большой буквы."
+        rating_description: "Повелитель больших данных. Лучший в своем деле. Профессионал с большой буквы.",
+        absense: "командировка",
+        absense_date_in: "22.09.2022",
+        absense_date_out: "30.09.2022",
     },
     {
         id: 8,
@@ -209,7 +234,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "7 этаж, к.708",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 9,
@@ -230,7 +258,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "7 этаж, к.709",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 10,
@@ -251,7 +282,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "9 этаж, к.904",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 11,
@@ -272,7 +306,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "9 этаж, к.932",
         map: "",
-        official: ""
+        official: "",
+        absense: "обучение",
+        absense_date_in: "29.09.2022",
+        absense_date_out: "30.09.2022",
     },
     {
         id: 12,
@@ -293,7 +330,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "3 этаж, к.332",
         map: "",
-        official: "ДНГ Главный маркшейдер"
+        official: "ДНГ Главный маркшейдер",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 13,
@@ -314,7 +354,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "1 этаж, к.3",
         map: "",
-        official: "ДНГ Приемная ЗГД по персоналу"
+        official: "ДНГ Приемная ЗГД по персоналу",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 14,
@@ -335,7 +378,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "3 этаж, к.37",
         map: "",
-        official: "ДНГ Планово-бюджетное управление"
+        official: "ДНГ Планово-бюджетное управление",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 15,
@@ -356,7 +402,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "3 этаж, к.36",
         map: "",
-        official: "ДНГ Управление по охране труда"
+        official: "ДНГ Управление по охране труда",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 16,
@@ -377,7 +426,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Продуктовый проспект, 40",
         description: "3 этаж, к.31",
         map: "",
-        official: "ДНГ Руководство"
+        official: "ДНГ Руководство",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 17,
@@ -398,7 +450,10 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Складской переулок, 83",
         description: "1 этаж, к.14",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 18,
@@ -421,7 +476,10 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         rating: 5, 
-        rating_description: "Мастер золотые руки. Коллеги уважают, руководство ценит. Молодец, одним словом."
+        rating_description: "Мастер золотые руки. Коллеги уважают, руководство ценит. Молодец, одним словом.",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
     {
         id: 19,
@@ -442,6 +500,9 @@ export const initialPersons: IPerson[] = [
         adress: "г.Демо, Складской переулок, 83",
         description: "1 этаж, к.18",
         map: "",
-        official: ""
+        official: "",
+        absense: "",
+        absense_date_in: "",
+        absense_date_out: "",
     },
 ]

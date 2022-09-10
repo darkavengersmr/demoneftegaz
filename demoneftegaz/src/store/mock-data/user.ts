@@ -20,6 +20,9 @@ export const initialUser: IUser = {
     adress: "г.Демо, Продуктовый проспект, 40",
     description: "6 этаж, к.632",
     map: "",
-    official: ""
+    official: "",
+    absense: "",
+    absense_date_in: "",
+    absense_date_out: "",
 }
 

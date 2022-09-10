@@ -4,7 +4,7 @@ import MainPagePage from "./pages/main-page-page";
 import VisitorRequestPage from "./pages/visitor-request-page";
 import NewComponentPage from "./pages/new-component-page";
 import PhoneBookPage from "./pages/phonebook-page";
-import NewsPage from "./pages/news-page";
+import NewsPage from "./pages/news-main-page";
 import UserInfoPage from "./pages/user-info-page";
 import OfficialEmailsPage from "./pages/official-emails.page";
 import VisitorRequestRegistryPage from "./pages/visitors-request-registry-page";
@@ -29,6 +29,12 @@ import ResourceListPage from "./pages/resource-list-page";
 import HallOfFamePage from "./pages/hall-of-fame";
 import FSNewEmployeePage from "./pages/fs-new-employee";
 import FSYoungSpecialistPage from "./pages/fs-young-specialist";
+import NewsProfsouzPage from "./pages/news-profsouz";
+import FsProfsouzTemplates from "./pages/fs-profsouz-templates";
+import NewsAhuPage from "./pages/news-ahu";
+import FSFoodPage from "./pages/fs-food";
+import SrPersonalContacts from "./pages/sr-personal-contacts";
+import SRHealthPage from "./pages/sr-health";
 
 const portalTheme = createTheme({
   typography: {
@@ -82,12 +88,21 @@ function App() {
           <Route path="fs-risk-matrix" element={<FSRiskMatrixPage />} />
           <Route path="fs-new-employee" element={<FSNewEmployeePage />} />
           <Route path="fs-young-specialist" element={<FSYoungSpecialistPage />} />          
+          <Route path="fs-profsouz-templates" element={<FsProfsouzTemplates />} />
+          <Route path="fs-food" element={<FSFoodPage />} />    
 
           <Route path="news" element={<NewsPage />} />
+          <Route path="news-profsouz" element={<NewsProfsouzPage />} />
+          <Route path="news-ahu" element={<NewsAhuPage />} />
+
           <Route path="my-docs" element={<MyDocsPage />} />
           <Route path="resource-list" element={<ResourceListPage />} />
           <Route path="hall-of-fame" element={<HallOfFamePage />} />
+
           <Route path="new" element={<NewComponentPage />} />
+          <Route path="personal-contacts" element={<SrPersonalContacts />} />
+          <Route path="static-pdf" element={<SRHealthPage />} />
+
         </Routes>
       </BrowserRouter> 
     </ThemeProvider>

@@ -39,6 +39,7 @@ type personInfoProps = {
     person: IPerson | undefined
     user: IPerson | undefined
     like: (id: number) => void
+    personById: (id: number) => IPerson | undefined
 }
 
 const addStyledTableRow = (param: string, value: string) => {
@@ -56,8 +57,7 @@ const addStyledTableRow = (param: string, value: string) => {
     )
 }
 
-const PersonInfo = ({person, user, like}: personInfoProps): JSX.Element => {
-
+const PersonInfo = ({person, user, like, personById}: personInfoProps): JSX.Element => {
 
     return (
       <>
@@ -108,7 +108,10 @@ const PersonInfo = ({person, user, like}: personInfoProps): JSX.Element => {
               </StyledTableRow>
 
               {addStyledTableRow('Телефон', person.phoneNumber)}
-              {addStyledTableRow('Адрес', person.adress)}        
+              {addStyledTableRow('Адрес', person.adress)}                                    
+              {person.absense && addStyledTableRow('Отсутствие на работе', person.absense)}
+              {person.absense_date_in && person.absense_date_out && addStyledTableRow('Период отсутствия', `${person.absense_date_in} - ${person.absense_date_in}`)}
+              {person.substitute && addStyledTableRow('Отсутствие на работе', `${personById(person.substitute)!.surname} ${personById(person.substitute)!.name} ${personById(person.substitute)!.patronymic}`)}              
               {addStyledTableRow('Имя ключа ЛКЗИ', person.PKZI_name)}
               {addStyledTableRow('Дата действия сертификата ЛКЗИ', person.PKZI_date)}
               {addStyledTableRow('Примечания', person.description)}

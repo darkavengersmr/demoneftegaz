@@ -8,7 +8,9 @@ const PhoneBookPage: React.FC = () => {
     return (
       <>
         <Header />
-        <PhoneBook personsByFilter={persons.getPersonsByFilter.bind(persons)}/>
+        <PhoneBook personsByFilter={persons.getPersonsByFilter.bind(persons)}
+                   personById={persons.getById.bind(persons)}
+        />
         <Footer />  
       </>
       

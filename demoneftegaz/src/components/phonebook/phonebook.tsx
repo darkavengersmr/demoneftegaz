@@ -34,13 +34,14 @@ const tableCellStyle = {
     
 }
 
-const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'E-mail', 'Телефон']
+const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'E-mail', 'Телефон', 'Статус отсутствия']
 
 type PhoneBookProps = {
     personsByFilter: (filter: string) => IPerson[]
+    personById: (id: number) => IPerson | undefined
 }
 
-const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
+const PhoneBook = ({personsByFilter, personById}: PhoneBookProps) => {
     
     const [find, setFind] = useState("")
     const [filteredPersons, setFilteredPersons] = useState(personsByFilter(find))  
@@ -65,7 +66,7 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
                  onChange={(e) => handleFindField(e)}                 
                  value={find}
       />      
-      <Button variant="contained" sx={{ mt: 2, mb: 2 }}>Экспорт в Excel</Button>
+      <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>navigate('/new')}>Экспорт в Excel</Button>
       </Grid>
       { filteredPersons.length === 0 && 
         <Typography variant="body1" sx={{ mt: 2, ml: 2 }}>Сотрудники не найдены</Typography>
@@ -109,6 +110,11 @@ const PhoneBook = ({personsByFilter}: PhoneBookProps) => {
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
                   {person.phoneNumber}
+                </TableCell>
+                <TableCell component="th" scope="row" sx={tableCellStyle} width={180}>
+                    {person.absense_date_in && person.absense_date_out && `Отсутствует ${person.absense_date_in} - ${person.absense_date_in}`}
+                    {person.absense && ` (${person.absense}) `}                
+                    {person.substitute && `замещает: ${personById(person.substitute)!.surname} ${personById(person.substitute)!.name} ${personById(person.substitute)!.patronymic}`}              
                 </TableCell>
               </StyledTableRow>
             ))}           

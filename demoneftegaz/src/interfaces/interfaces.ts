@@ -21,6 +21,10 @@ export interface IUser {
     description: string
     map: string
     official: string
+    absense: string
+    absense_date_in: string   
+    absense_date_out: string
+    substitute?: number
 }
 
 export interface IPerfomanceIndicatorData {
@@ -61,7 +65,11 @@ export interface IPerson {
     map: string
     official: string
     rating?: number
-    rating_description?: string   
+    rating_description?: string
+    absense: string
+    absense_date_in: string   
+    absense_date_out: string
+    substitute?: number
 } 
 
 export interface INews {
@@ -73,6 +81,13 @@ export interface INews {
   content: string;
   typeOfNews: "news" | "main" | "hidden";
 }
+
+export interface INewsInstance {
+    news: INews[]    
+    getNews: () => INews[]
+    hasMainNews: () => boolean
+    getMainNews: () => INews[]
+  }
 
 export interface IVisitorRequest {
     id: number

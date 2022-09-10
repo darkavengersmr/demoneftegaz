@@ -479,6 +479,66 @@ export const initialFileStorage: IFileStorage[] = [
             "Комментарии": "книга"
         },
     },
+    {
+        id: "38",
+        filename: "Заявление на вступление в профсоюз.docx",
+        title: "Заявление на вступление в профсоюз",
+        create_date_time: "19.09.2022 11:40",
+        modify_date_time: "19.09.2022 11:40",
+        library: "Бланки профсоюза",
+        owner: 8,
+        meta: {
+            "Комментарии": ""
+        },
+    },
+    {
+        id: "39",
+        filename: "Заявление на выход из профсоюза.docx",
+        title: "Заявление на выход из профсоюза",
+        create_date_time: "19.09.2022 11:41",
+        modify_date_time: "19.09.2022 11:41",
+        library: "Бланки профсоюза",
+        owner: 8,
+        meta: {
+            "Комментарии": ""
+        },
+    },
+    {
+        id: "40",
+        filename: "План мероприятий на 2022.pdf",
+        title: "План мероприятий на 2022",
+        create_date_time: "19.09.2022 11:44",
+        modify_date_time: "19.09.2022 11:44",
+        library: "Бланки профсоюза",
+        owner: 8,
+        meta: {
+            "Комментарии": ""
+        },
+    },
+    {
+        id: "41",
+        filename: "Меню на сегодня.pdf",
+        title: "Меню на сегодня",
+        create_date_time: "19.09.2022 11:47",
+        modify_date_time: "19.09.2022 11:47",
+        library: "Столовая",
+        owner: 5,
+        meta: {
+            "Комментарии": ""
+        },
+    },
+    {
+        id: "42",
+        filename: "Меню на завтра.pdf",
+        title: "Меню на завтра",
+        create_date_time: "19.09.2022 11:48",
+        modify_date_time: "19.09.2022 11:48",
+        library: "Столовая",
+        owner: 5,
+        meta: {
+            "Комментарии": ""
+        },
+    },
 ]
     
 
