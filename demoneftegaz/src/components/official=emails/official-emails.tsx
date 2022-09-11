@@ -51,7 +51,7 @@ const OfficialEmails = ({officialEmailsByFilter}: OfficialEmailsProps) => {
 
     return (
       <>
-      <Container sx={{ mb: 10}}>
+      <Container sx={{ mb: 10, minHeight: "100%"}}>
       <Typography variant="h5" sx={{ mt: 3, mb: 1, fontWeight: 'bold'}}>
         Телефонный справочник / официальные ящики
         </Typography>

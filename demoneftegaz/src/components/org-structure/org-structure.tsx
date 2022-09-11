@@ -1,4 +1,4 @@
-import { Avatar, Container, Grid, Typography, TableContainer, Table, TableRow, TableCell, TableBody } from "@mui/material";
+import { Avatar, Container, Grid, Typography, TableContainer, Table, TableRow, TableCell, TableBody, Box } from "@mui/material";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -7,6 +7,7 @@ import { IDepartament, IPersonClass } from "../../interfaces/interfaces";
 import { useNavigate } from "react-router-dom";
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
+import OrgStructureImg from "../../img/org-structure.jpg"
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -34,10 +35,21 @@ const OrgStructure = ({departaments, persons}: OrgStructureProps) => {
   const navigate = useNavigate()
 
   return (
-    <Container sx={{ mt: 2, mb: 4, width: "100%", textAlign: "center" }} maxWidth="md">
-      <Typography align="center" variant="h5" sx={{m: 4}}>
+    <Container sx={{ mt: 2, mb: 4, width: "100%", textAlign: "center", minHeight: "100%" }} maxWidth="md">
+
+    <Grid container justifyContent="space-between">
+
+    <Typography align="center" variant="h5" sx={{mt: 12}}>
         Организационная структура АО "Демонефтегаз"
-      </Typography>
+    </Typography>
+    <Box sx={{ m: 2}}>
+        <img src={OrgStructureImg} width="150" alt="demoneftegaz"></img>
+    </Box>
+
+    </Grid>
+
+      
+      
       
         {
             departaments.map((departament) => (
@@ -171,8 +183,7 @@ const OrgStructure = ({departaments, persons}: OrgStructureProps) => {
                 </Accordion>
             ))
         }
-
-
+    
     </Container>
     )
 }

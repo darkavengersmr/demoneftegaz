@@ -45,7 +45,7 @@ const HallOfFame = ({persons}: PhoneBookProps) => {
 
     return (
       <>
-      <Container sx={{ mb: 10}}>
+      <Container sx={{ mb: 10, minHeight: "100%"}}>
       <Typography variant="h5" sx={{ mt: 3, mb: 3, fontWeight: 'bold'}}>
         Доска почета
         </Typography>

@@ -146,6 +146,7 @@ const FileStorage = ({storage,
 
   return (
     <>
+
     <Grid container justifyContent="space-between">
 
     {
@@ -210,7 +211,7 @@ const FileStorage = ({storage,
             >
                 Добавить файл                
         </Button>
-    </Grid>
+    </Grid>    
 
     <Dialog
         open={open}

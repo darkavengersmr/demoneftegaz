@@ -9,7 +9,7 @@ const NewsProfsouzPage: React.FC = () => {
     return (
       <>
         <Header />        
-          <Grid container justifyContent="center" columnSpacing={4}>
+          <Grid container justifyContent="center" columnSpacing={4} minHeight="100%">
             <Grid item sx={{ width: "95%"}}>
               <NewsComponent news={news} header="Новости Профсоюза"/>
             </Grid>                    

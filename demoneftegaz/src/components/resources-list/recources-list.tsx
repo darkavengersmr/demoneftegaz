@@ -49,7 +49,7 @@ export default function ResourceList({resourceList}: ResourceListProps) {
 
   return (
 
-    <Container sx={{ mt: "1rem", mb: "2rem", width: "90%" }}>      
+    <Container sx={{ mt: "1rem", mb: "2rem", width: "90%", minHeight: "100%" }}>      
       <Typography variant="h5" sx={{ mt: 3, mb: 3}}>Перечень информационных ресурсов Общества</Typography>
 
     <ImageList sx={{ width: "100%" }} cols={4}>
