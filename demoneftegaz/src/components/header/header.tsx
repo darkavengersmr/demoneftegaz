@@ -153,13 +153,14 @@ const Header: React.FC = observer(() => {
         </AccordionSummary>
         <AccordionDetails sx={{p: 0}}>
           <List>
-            {addMenuItem("Сотрудники", "/phonebook", { mt: -2, mb: -2, p: -2 })}
-            {addMenuItem("Официальные ящики", "/official-emails", { mt: -2, mb: -2, p: -2 })}            
-            {addMenuItem("Доска почета", "/hall-of-fame", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Сотрудники", "/phonebook", { mt: -2, mb: -2, p: -2 })}            
+            {addMenuItem("Официальные ящики", "/official-emails", { mt: -2, mb: -2, p: -2 })}                                    
           </List>  
         </AccordionDetails>
       </Accordion>
 
+      <List>{addMenuItem(`История АО "Демонефтегаз"`, "/org-history", { m: -2, p: -2 })}</List>
+      <List>{addMenuItem("Организационная структура", "/org-structure", { m: -2, p: -2 })}</List>
       <List>{addMenuItem("Перечень информационных ресурсов Общества", "/resource-list", { m: -2, p: -2 })}</List>
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
@@ -186,6 +187,7 @@ const Header: React.FC = observer(() => {
         </AccordionSummary>
         <AccordionDetails sx={{p: 0}}>
             {addMenuItem("Новости", "/news", { mt: -2, mb: -2, p: -2 })}
+            {addMenuItem("Доска почета", "/hall-of-fame", { mt: -2, mb: -2, p: -2 })}
             {addMenuItem("Новому сотруднику", "/fs-new-employee", { mt: -2, mb: -2, p: -2 })}  
             {addMenuItem("Молодому специалисту", "/fs-young-specialist", { mt: -2, mb: -2, p: -2 })}                       
             {addMenuItem("Еще...", "/new", { mt: -2, mb: -2, p: -2 }, "#BBBBBB")}                       

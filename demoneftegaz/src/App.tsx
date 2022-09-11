@@ -35,6 +35,8 @@ import NewsAhuPage from "./pages/news-ahu";
 import FSFoodPage from "./pages/fs-food";
 import SrPersonalContacts from "./pages/sr-personal-contacts";
 import SRHealthPage from "./pages/sr-health";
+import OrgHistoryPage from "./pages/org-history";
+import OrgStructurePage from "./pages/org-structure";
 
 const portalTheme = createTheme({
   typography: {
@@ -94,6 +96,9 @@ function App() {
           <Route path="news" element={<NewsPage />} />
           <Route path="news-profsouz" element={<NewsProfsouzPage />} />
           <Route path="news-ahu" element={<NewsAhuPage />} />
+
+          <Route path="org-history" element={<OrgHistoryPage />} />
+          <Route path="org-structure" element={<OrgStructurePage />} />
 
           <Route path="my-docs" element={<MyDocsPage />} />
           <Route path="resource-list" element={<ResourceListPage />} />

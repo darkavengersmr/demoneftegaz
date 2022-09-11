@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx"
-import { IPerson } from "../interfaces/interfaces"
+import { IPerson, IPersonClass } from "../interfaces/interfaces"
 import { initialPersons } from "./mock-data/persons"
 
-class Person {
+class Person implements IPersonClass {
     private data: IPerson[] = initialPersons
 
     constructor() {
@@ -19,6 +19,10 @@ class Person {
 
     getByTabnumber(tabnumber: string): IPerson | undefined{        
         return this.data.find((person) => person.tabnumber === tabnumber)        
+    }
+
+    getByDepartament(departament: string): IPerson[] {        
+        return this.data.filter((person) => person.departament === departament)        
     }
 
     getForHallOfFame(): IPerson[] {        

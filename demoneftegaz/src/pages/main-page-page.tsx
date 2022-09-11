@@ -7,10 +7,22 @@ import { initialPerfomanceIndicator, initialProductionData } from "../store/mock
 import Footer from "../components/footer";
 import NewDocs from "../components/new-docs";
 import NewTasks from "../components/new-tasks";
+import { useWindowDimensions } from "../hooks";
+import GoDesktop from "../components/go-desktop";
 
 const MainPagePage: React.FC = () => {
+
+    const windowDimension = useWindowDimensions()
+    
     return (
-      <>
+      <>        
+        {
+          windowDimension.width < windowDimension.height &&
+          <GoDesktop />
+        }
+        {
+          !(windowDimension.width < windowDimension.height) &&
+        <>
         <Header />
         <Grid container justifyContent="center" columnSpacing={4}>
           <Grid item sx={{ width: "55%"}}>
@@ -22,11 +34,12 @@ const MainPagePage: React.FC = () => {
             /> 
             <NewTasks />
             <NewDocs />
-          </Grid>
-          
+          </Grid>          
         </Grid>
-
-        <Footer />     
+        <Footer /> 
+        </>
+        }
+            
       </>
       )
   }

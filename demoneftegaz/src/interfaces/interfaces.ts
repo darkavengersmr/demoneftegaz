@@ -277,3 +277,22 @@ export interface IResourceList {
     owner?: string
 
 }
+
+export interface IDepartament {
+    id: number
+    org_index: string
+    title: string
+    departament_chief: number
+    offficial_email: number
+}
+
+export interface IPersonClass {
+    getAll: () => void
+    getById: (id: number) => IPerson | undefined
+    getByTabnumber: (tabnumber: string) => IPerson | undefined
+    getForHallOfFame: () => IPerson[]
+    getPersonsByFilter: (filter: string) => IPerson[]
+    likeToPerson: (id: number) => void
+    getOfficialEmailsByFilter: (filter: string) => IPerson[] 
+    getByDepartament: (departament: string) => IPerson[]
+}
