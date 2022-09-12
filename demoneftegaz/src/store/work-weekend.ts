@@ -28,6 +28,10 @@ class WorkWeekendRequest {
         )
     }
 
+    agreeRequest(id: number, status: string) {
+        this.data.map((item) => item.id === id ? item.status = status : null)    
+    }
+
     workWeekendRequest(request: INewWorkAbsenseWeekendRequest) {        
         this.data.push({
             id: this.data.length,

@@ -11,7 +11,7 @@ const WorkWeekendRequestRegistryPage: React.FC = () => {
         <Header />
         <WorkAbsenseWeekendRegistryForm workAbsenseRegistry={workWeekend.getAll()}
                                  personById={persons.getById.bind(persons)}
-                                 title="Реестр служебных записок на работу в выходной день"
+                                 title="Реестр служебных записок на работу в выходной день"                                 
         />
         <Footer />  
       </>

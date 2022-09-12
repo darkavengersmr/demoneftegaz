@@ -137,5 +137,22 @@ export const initialWorkAbsense: IWorkAbsenseWeekend[] = [
         agreement_date: "14.09.2022",
         agreement_time: "10:11"
     },
+    {
+        id: 8,
+        number: "ДНГ/О/9",
+        create_date: "15.09.2022",
+        create_time: "7:45",
+        person: 7,
+        justification: "Посещение спортивного мероприятия",
+        absense_date_in: "14.09.2022",
+        absense_date_out: "14.09.2022",
+        absense_time_in: "14:00",
+        absense_time_out: "17:00",
+        status: "На согласовании",
+        owner: 7,
+        agreement_person: 0,
+        agreement_date: "",
+        agreement_time: ""
+    },
 ]
 

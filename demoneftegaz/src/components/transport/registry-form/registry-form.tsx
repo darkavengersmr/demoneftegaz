@@ -1,8 +1,9 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { useState } from "react";
 import { IPerson, ITransport } from "../../../interfaces/interfaces";
-
+import system from "../../../store/system";
 import { localizedTextsMap } from "../../../localization/mui-datagrid"
 
 /*
@@ -29,10 +30,13 @@ import { localizedTextsMap } from "../../../localization/mui-datagrid"
 type TransportRequestRegistryFormProps = {
     transportRegistry: ITransport[], 
     personById: (id: number) => IPerson | undefined,
-    title: string    
+    title: string
+    agreeRequest?: (id: number, status: string) => void
 }
 
-const TransportRequestRegistryForm = ({transportRegistry, personById, title}: TransportRequestRegistryFormProps) => {
+const TransportRequestRegistryForm = ({transportRegistry, personById, title, agreeRequest}: TransportRequestRegistryFormProps) => {
+
+  const [selectedRequest, setSelectedRequest] = useState()
 
   const columns: GridColDef[] = [
     {
@@ -110,6 +114,13 @@ const TransportRequestRegistryForm = ({transportRegistry, personById, title}: Tr
 
   ];
 
+  const handleAgreeRequest = (status: string) => {
+    if (selectedRequest) {
+      agreeRequest!(selectedRequest, status)
+      system.sendNotification(`Заявка переведена в статус "${status}"`, "success")
+    }
+  }
+
   return (
     <>
     <Typography variant="h5" sx={{m: 4}}>{title}</Typography>
@@ -118,7 +129,8 @@ const TransportRequestRegistryForm = ({transportRegistry, personById, title}: Tr
       <DataGrid
         rows={transportRegistry}
         columns={columns}
-        pageSize={7}        
+        pageSize={7}
+        onRowClick={(e)=>setSelectedRequest(e.row.id)}        
         //getRowHeight={() => 'auto'}        
         rowsPerPageOptions={[7]}        
         experimentalFeatures={{ newEditingApi: true }}        
@@ -143,8 +155,27 @@ const TransportRequestRegistryForm = ({transportRegistry, personById, title}: Tr
           }}
       />
     </Box>
+    {
+      agreeRequest &&
+      <>
+      <Button variant="contained" 
+              disabled={!selectedRequest} 
+              sx={{ ml: 2, mb: 10 }} 
+              onClick={() => handleAgreeRequest("У диспетчера")}
+      >
+        Cогласовать
+      </Button>
+      <Button variant="contained" 
+              disabled={!selectedRequest} 
+              sx={{ ml: 2, mb: 10, background: '#e24826' }} 
+              onClick={() => handleAgreeRequest("Не согласовано")}
+      >
+        Не согласовано
+      </Button>
+      </>
+    }
     </>
     )
 }
-  
+
 export default TransportRequestRegistryForm;

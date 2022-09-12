@@ -49,6 +49,7 @@ const WorkAbsenseRequestPage: React.FC = () => {
           <WorkAbsenseRegistryForm workAbsenseRegistry={workAbsense.getAgreementedToMeByOwnerId(user.data.id)}
                                    personById={persons.getById.bind(persons)}                                   
                                    title="Cлужебные записки на отсутствие на рабочем месте / У меня на согласовании"
+                                   agreeRequest={workAbsense.agreeRequest.bind(workAbsense)}
           />
         }
         { tab === "agreementFromMe" &&

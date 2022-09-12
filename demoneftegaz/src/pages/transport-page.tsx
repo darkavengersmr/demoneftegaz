@@ -48,6 +48,7 @@ const TransportRequestPage: React.FC = () => {
           <TransportRequestRegistryForm transportRegistry={transport.getAgreementedToMeByOwnerId(user.data.id)}
                                    personById={persons.getById.bind(persons)}                                   
                                    title="Заявки на транспорт / У меня на согласовании"
+                                   agreeRequest={transport.agreeRequest.bind(transport)}
           />
         }
         { tab === "agreementFromMe" &&

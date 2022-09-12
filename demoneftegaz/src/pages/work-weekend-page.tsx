@@ -49,6 +49,7 @@ const WorkWeekendRequestPage: React.FC = () => {
           <WorkAbsenseWeekendRegistryForm workAbsenseRegistry={workWeekend.getAgreementedToMeByOwnerId(user.data.id)}
                                    personById={persons.getById.bind(persons)}                                   
                                    title="Служебные записки на работу в выходной день / У меня на согласовании"
+                                   agreeRequest={workWeekend.agreeRequest.bind(workWeekend)}
           />
         }
         { tab === "agreementFromMe" &&

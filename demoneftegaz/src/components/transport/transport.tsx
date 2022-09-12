@@ -60,7 +60,6 @@ const TransportRequest = ({user, persons, personById, getByTabnumber, transportR
                         agreement_time: ""
                     }
                     
-                    console.log(request)
                     transportRequest(request)
                                         
                     system.sendNotification("Заявка отправлена на согласование", "success")                

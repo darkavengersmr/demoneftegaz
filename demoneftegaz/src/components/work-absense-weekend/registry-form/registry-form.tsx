@@ -1,8 +1,9 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { useState } from "react";
 import { IPerson, IWorkAbsenseWeekend } from "../../../interfaces/interfaces";
-
+import system from "../../../store/system";
 import { localizedTextsMap } from "../../../localization/mui-datagrid"
 
 /*
@@ -27,9 +28,12 @@ type WorkAbsenseRegistryProps = {
     workAbsenseRegistry: IWorkAbsenseWeekend[], 
     personById: (id: number) => IPerson | undefined,
     title: string
+    agreeRequest?: (id: number, status: string) => void
 }
 
-const WorkAbsenseWeekendRegistryForm = ({workAbsenseRegistry, personById, title}: WorkAbsenseRegistryProps) => {
+const WorkAbsenseWeekendRegistryForm = ({workAbsenseRegistry, personById, title, agreeRequest}: WorkAbsenseRegistryProps) => {
+
+  const [selectedRequest, setSelectedRequest] = useState()
 
   const columns: GridColDef[] = [
     {
@@ -101,6 +105,13 @@ const WorkAbsenseWeekendRegistryForm = ({workAbsenseRegistry, personById, title}
 
   ];
 
+  const handleAgreeRequest = (status: string) => {
+    if (selectedRequest) {
+      agreeRequest!(selectedRequest, status)
+      system.sendNotification(`Служебная записка переведена в статус "${status}"`, "success")
+    }
+  }
+
   return (
     <>
     <Typography variant="h5" sx={{m: 4}}>{title}</Typography>
@@ -109,7 +120,8 @@ const WorkAbsenseWeekendRegistryForm = ({workAbsenseRegistry, personById, title}
       <DataGrid
         rows={workAbsenseRegistry}
         columns={columns}
-        pageSize={7}        
+        pageSize={7}
+        onRowClick={(e)=>setSelectedRequest(e.row.id)}         
         //getRowHeight={() => 'auto'}        
         rowsPerPageOptions={[7]}        
         experimentalFeatures={{ newEditingApi: true }}        
@@ -134,6 +146,25 @@ const WorkAbsenseWeekendRegistryForm = ({workAbsenseRegistry, personById, title}
           }}
       />
     </Box>
+    {
+      agreeRequest &&      
+      <>
+      <Button variant="contained" 
+              disabled={!selectedRequest} 
+              sx={{ ml: 2, mb: 10 }} 
+              onClick={() => handleAgreeRequest("Согласовано руководителем")}
+      >
+        Cогласовать
+      </Button>
+      <Button variant="contained" 
+              disabled={!selectedRequest} 
+              sx={{ ml: 2, mb: 10, background: '#e24826' }} 
+              onClick={() => handleAgreeRequest("Не согласовано")}
+      >
+        Не согласовано
+      </Button>
+      </>
+    }
     </>
     )
 }

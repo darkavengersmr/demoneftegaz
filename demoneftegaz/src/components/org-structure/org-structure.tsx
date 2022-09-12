@@ -37,7 +37,7 @@ const OrgStructure = ({departaments, persons}: OrgStructureProps) => {
   return (
     <Container sx={{ mt: 2, mb: 4, width: "100%", textAlign: "center", minHeight: "100%" }} maxWidth="md">
 
-    <Grid container justifyContent="space-between">
+    <Grid container justifyContent="space-between" sx={{ mb: 2 }}>
 
     <Typography align="center" variant="h5" sx={{mt: 12}}>
         Организационная структура АО "Демонефтегаз"
