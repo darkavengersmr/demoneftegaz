@@ -25,10 +25,6 @@ class Person implements IPersonClass {
         return this.data.filter((person) => person.departament === departament)        
     }
 
-    getForHallOfFame(): IPerson[] {        
-        return this.data.filter((person) => person.rating && person.rating_description)       
-    }
-
     getPersonsByFilter(filter: string): IPerson[] {
         if (filter === "") return this.data.filter((person) => person.official === "")
         return this.data.filter((person) => person.surname.indexOf(filter)+1 ||

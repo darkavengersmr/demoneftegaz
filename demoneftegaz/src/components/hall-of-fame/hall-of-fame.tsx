@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import { Avatar, Grid, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
-import { IPerson } from '../../interfaces/interfaces';
+import { IHallOfFame, IPersonClass } from '../../interfaces/interfaces';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -33,13 +33,15 @@ const tableCellStyle = {
     
 }
 
-const phoneBookTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'Достижения']
+const hallOfFameTableHead = ['', 'ФИО', 'Должность', 'Подразделение', 'Достижения']
 
 type PhoneBookProps = {
-  persons: IPerson[]
+  persons: IPersonClass
+  hallOfFame: IHallOfFame[]
+  title: string
 }
 
-const HallOfFame = ({persons}: PhoneBookProps) => {
+const HallOfFame = ({persons, hallOfFame, title}: PhoneBookProps) => {
     
     const navigate = useNavigate()  
 
@@ -47,21 +49,21 @@ const HallOfFame = ({persons}: PhoneBookProps) => {
       <>
       <Container sx={{ mb: 10, minHeight: "100%"}}>
       <Typography variant="h5" sx={{ mt: 3, mb: 3, fontWeight: 'bold'}}>
-        Доска почета
+        {title}
         </Typography>
       <Grid container justifyContent="space-between" >
 
-        { persons.length === 0 && 
-          <Typography variant="body1" sx={{ mt: 2, ml: 2 }}>Сотрудники не найдены</Typography>
+        { hallOfFame.length === 0 && 
+          <Typography variant="body1" sx={{ mt: 2, ml: 2 }}>Нет сотрудников с благодарностями</Typography>
         }
       </Grid>
       
-      { persons.length>0 && 
+      { hallOfFame.length>0 && 
       <TableContainer component={Paper}>
       <Table sx={{ minWidth: 800 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            {phoneBookTableHead.map((title) => (
+            {hallOfFameTableHead.map((title) => (
                 <TableCell sx={tableHeadStyle} key={title} align="left">
                     <Typography sx={{ fontWeight: 'bold' }}>{title}</Typography>
                 </TableCell>
@@ -69,28 +71,28 @@ const HallOfFame = ({persons}: PhoneBookProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-            { persons.map((person) =>(
-                <StyledTableRow key={person.login}>
+            { hallOfFame.map((award) =>(
+                <StyledTableRow key={award.id}>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>              
                         <Avatar alt="Фото" 
-                                src={person.photo? person.photo.slice(4, -1) : ""} 
+                                src={persons.getById(award.awarder_id)?.photo? persons.getById(award.awarder_id)?.photo.slice(4, -1) : ""} 
                                 sx={{ width: 120, height: 120, ml: 2 }}
                         />                    
                 </TableCell>
-                <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${person.id}`)}>
+                <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${persons.getById(award.awarder_id)?.id}`)}>
                     <Typography sx={{ ml: 2, fontWeight: 'bold', cursor: "pointer" }}>
-                        {person.surname} {person.name} {person.patronymic}
+                    {persons.getById(award.awarder_id)?.surname} {persons.getById(award.awarder_id)?.name} {persons.getById(award.awarder_id)?.patronymic}
                     </Typography>
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
-                  {person.jobTitle}
+                  {persons.getById(award.awarder_id)?.jobTitle}
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
-                  {person.departament}
+                  {persons.getById(award.awarder_id)?.departament}
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle}>
                   <Typography sx={{ fontWeight: 'bold', mr: 2 }}>
-                    {person.rating_description}
+                    {award.award}
                   </Typography>  
                 </TableCell>
               </StyledTableRow>

@@ -19,7 +19,7 @@ const NewsComponent = ({news, header, forciblyNarrow}: NewsComponentProps) => {
 
   return (
     <>
-      <Grid container spacing={2} sx={{p: 0, ml: 2, mt: 2}}>
+      <Grid container spacing={2} sx={{p: 0, ml: 2, mt: 2, mb: 10}}>
         {
           news.hasMainNews() &&
           <Grid item xs={12} sx={{h: 1}}>

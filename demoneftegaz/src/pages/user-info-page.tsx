@@ -5,6 +5,7 @@ import Header from "../components/header";
 import UserInfo from "../components/user-info";
 import persons from "../store/persons";
 import user from "../store/user"
+import hallOfHame from "../store/hall-of-hame";
 
 const UserInfoPage: React.FC = () => {
 
@@ -19,6 +20,7 @@ const UserInfoPage: React.FC = () => {
                   setDescription={user.setDescription.bind(user)} 
                   like={persons.likeToPerson.bind(persons)} 
                   personById={persons.getById.bind(persons)}
+                  addAward={hallOfHame.addAward.bind(hallOfHame)}
         />
         <Footer />  
       </>

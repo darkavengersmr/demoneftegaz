@@ -14,6 +14,10 @@ class WorkPermitRequest {
         return this.data.filter((item) => item.journal === journal)
     }
 
+    getNotCompletedInJournal(journal: string) {
+        return this.data.filter((item) => item.journal === journal && item.status === "Выдан")
+    }
+
     getByOwnerId(id: number) {
         return this.data.filter((item) => item.person_issued === id)
     }

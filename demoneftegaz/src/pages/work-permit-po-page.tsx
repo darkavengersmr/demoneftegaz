@@ -45,7 +45,7 @@ const WorkPermitPORequestPage: React.FC = () => {
           />
         }
         { tab === "receive" && 
-          <WorkPermitReceiveRequest workPermitsList={workPermit.getByJournal("Журнал регистрации нарядов-допусков на проведение работ повышенной опасности")}   
+          <WorkPermitReceiveRequest workPermitsList={workPermit.getNotCompletedInJournal("Журнал регистрации нарядов-допусков на проведение работ повышенной опасности")}   
                                     workPermitReceive={workPermit.workPermitReceive.bind(workPermit)}
                                     title="Журнал регистрации нарядов-допусков на проведение работ повышенной опасности"
                                     personById={persons.getById.bind(persons)}

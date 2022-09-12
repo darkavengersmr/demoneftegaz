@@ -26,7 +26,8 @@ import FSContractTemplatesPage from "./pages/fs-contract-templates"
 import FSRiskMatrixPage from "./pages/fs-risk-matrix"
 import MyDocsPage from "./pages/my-docs-page"
 import ResourceListPage from "./pages/resource-list-page";
-import HallOfFamePage from "./pages/hall-of-fame";
+import HallOfFameUnofficialPage from "./pages/hall-of-fame-unofficial";
+import HallOfFameOfficialPage from "./pages/hall-of-fame-official";
 import FSNewEmployeePage from "./pages/fs-new-employee";
 import FSYoungSpecialistPage from "./pages/fs-young-specialist";
 import NewsProfsouzPage from "./pages/news-profsouz";
@@ -102,7 +103,9 @@ function App() {
 
           <Route path="my-docs" element={<MyDocsPage />} />
           <Route path="resource-list" element={<ResourceListPage />} />
-          <Route path="hall-of-fame" element={<HallOfFamePage />} />
+
+          <Route path="hall-of-fame-unofficial" element={<HallOfFameUnofficialPage />} />
+          <Route path="hall-of-fame-official" element={<HallOfFameOfficialPage />} />
 
           <Route path="new" element={<NewComponentPage />} />
           <Route path="personal-contacts" element={<SrPersonalContacts />} />

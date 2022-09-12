@@ -65,7 +65,6 @@ export interface IPerson {
     map: string
     official: string
     rating?: number
-    rating_description?: string
     absense: string
     absense_date_in: string   
     absense_date_out: string
@@ -289,10 +288,25 @@ export interface IDepartament {
 export interface IPersonClass {
     getAll: () => void
     getById: (id: number) => IPerson | undefined
-    getByTabnumber: (tabnumber: string) => IPerson | undefined
-    getForHallOfFame: () => IPerson[]
+    getByTabnumber: (tabnumber: string) => IPerson | undefined    
     getPersonsByFilter: (filter: string) => IPerson[]
     likeToPerson: (id: number) => void
     getOfficialEmailsByFilter: (filter: string) => IPerson[] 
     getByDepartament: (departament: string) => IPerson[]
+}
+
+export interface IHallOfFame {
+    id?: number
+    awarder_id: number    
+    rewarder_id: number
+    award: string
+    official: boolean
+    create_date?: string
+    create_time?: string
+}
+
+export interface IHallOfFameClass {
+    getOfficial: () => IHallOfFame[]
+    getUnofficial: () => IHallOfFame[]
+    addAward: (award: IHallOfFame) => void
 }

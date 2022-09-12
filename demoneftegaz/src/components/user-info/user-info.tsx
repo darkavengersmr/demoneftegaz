@@ -8,10 +8,11 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import { IPerson } from '../../interfaces/interfaces';
+import { IHallOfFame, IPerson } from '../../interfaces/interfaces';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { useInput } from '../../hooks';
+import system from "../../store/system";
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -43,6 +44,7 @@ type personInfoProps = {
     like: (id: number) => void
     personById: (id: number) => IPerson | undefined
     setDescription: (description: string) => void
+    addAward: (award: IHallOfFame) => void
 }
 
 const addStyledTableRow = (param: string, value: string) => {
@@ -60,23 +62,53 @@ const addStyledTableRow = (param: string, value: string) => {
     )
 }
 
-const PersonInfo = ({person, user, like, personById, setDescription}: personInfoProps): JSX.Element => {
+const PersonInfo = ({person, user, like, personById, setDescription, addAward}: personInfoProps): JSX.Element => {
 
-    const [open, setOpen] = useState(false);
+    const [openComment, setOpenComment] = useState(false);
     // eslint-disable-next-line 
     const [newDescription, newDescriptionActions] = useInput(user?.description ? user?.description : "", "")
 
-    const handleClickOpen = () => {
-        setOpen(true);
+    const handleClickOpenComment = () => {
+        setOpenComment(true);
     };
 
-    const handleClose = () => {
-        setOpen(false);
+    const handleCloseComment = () => {
+        setOpenComment(false);
     };
 
-    const handleEdit = () => {
-        setDescription(newDescription.value);        
-        setOpen(false);
+    const handleEditComment = () => {
+        setDescription(newDescription.value);                  
+        setOpenComment(false);
+    };
+
+
+    const [openAward, setOpenAward] = useState(false);
+    // eslint-disable-next-line 
+    const [newAward, newAwardActions] = useInput("", "notNullText")
+
+    const handleClickOpenAward = () => {
+        setOpenAward(true);
+    };
+
+    const handleCloseAward = () => {
+        setOpenAward(false);
+    };
+
+    const handleEditAward = () => {
+        if (person && user && newAward.value.length>3) {
+            addAward ({
+                awarder_id: person?.id,
+                rewarder_id: user.id!,
+                award: newAward.value,
+                official: false
+            })
+            system.sendNotification("Благодарность отправлена", "success") 
+        } else {
+            system.sendNotification("Какая-то очень короткая благодарность, отправлять такую нельзя", "error") 
+        }
+
+        
+        setOpenAward(false);
     };
 
     return (
@@ -140,16 +172,20 @@ const PersonInfo = ({person, user, like, personById, setDescription}: personInfo
       </Table>
     </TableContainer>
     {  person.id === user?.id &&
-        <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>handleClickOpen()}>Изменить</Button>
+        <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>handleClickOpenComment()}>Изменить</Button>
     }
     
+    {  person.id !== user?.id &&
+        <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>handleClickOpenAward()}>Выразить благодарность</Button>
+    }
+
     </>
     }
     </Container>
 
     <Dialog
-        open={open}
-        onClose={handleClose}
+        open={openComment}
+        onClose={handleCloseComment}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
@@ -167,12 +203,42 @@ const PersonInfo = ({person, user, like, personById, setDescription}: personInfo
             />
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={handleClose}>Отмена</Button>
-          <Button variant="contained" onClick={handleEdit}>
+          <Button variant="contained" onClick={handleCloseComment}>Отмена</Button>
+          <Button variant="contained" onClick={handleEditComment}>
             Сохранить
           </Button>
         </DialogActions>
       </Dialog>
+
+      <Dialog
+        open={openAward}
+        onClose={handleCloseAward}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle>
+          Выразить благодарность
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Введите текст благодарности. Пожалуйста, придерживайтесь правил деловой речи
+          </DialogContentText>
+          <TextField   
+                label="Текст благодарности"
+                sx={{ mt: 1, width: "100%" }}
+                multiline
+                {...newAward}
+                rows={4}               
+            />
+        </DialogContent>
+        <DialogActions>
+          <Button variant="contained" onClick={handleCloseAward}>Отмена</Button>
+          <Button variant="contained" onClick={handleEditAward}>
+            Отправить
+          </Button>
+        </DialogActions>
+      </Dialog>
+
     </>
       )
   }
