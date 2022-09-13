@@ -9,6 +9,8 @@ import NewDocs from "../components/new-docs";
 import NewTasks from "../components/new-tasks";
 import { useWindowDimensions } from "../hooks";
 import GoDesktop from "../components/go-desktop";
+import TrafficStatistics from "../components/traffic-statictics";
+import { initialTrafficStatistics } from "../store/mock-data/traffic-statistics";
 
 const MainPagePage: React.FC = () => {
 
@@ -34,6 +36,7 @@ const MainPagePage: React.FC = () => {
             /> 
             <NewTasks />
             <NewDocs />
+            <TrafficStatistics trafficStatistics={initialTrafficStatistics} />
           </Grid>          
         </Grid>
         <Footer /> 

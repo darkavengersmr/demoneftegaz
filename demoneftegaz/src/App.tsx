@@ -38,6 +38,7 @@ import SrPersonalContacts from "./pages/sr-personal-contacts";
 import SRHealthPage from "./pages/sr-health";
 import OrgHistoryPage from "./pages/org-history";
 import OrgStructurePage from "./pages/org-structure";
+import PhotoGalleryPage from "./pages/photo-gallery-page";
 
 const portalTheme = createTheme({
   typography: {
@@ -110,6 +111,8 @@ function App() {
           <Route path="new" element={<NewComponentPage />} />
           <Route path="personal-contacts" element={<SrPersonalContacts />} />
           <Route path="static-pdf" element={<SRHealthPage />} />
+
+          <Route path="photo-gallery" element={<PhotoGalleryPage />} />
 
         </Routes>
       </BrowserRouter> 

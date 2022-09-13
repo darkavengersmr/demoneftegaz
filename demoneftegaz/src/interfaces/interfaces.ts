@@ -310,3 +310,18 @@ export interface IHallOfFameClass {
     getUnofficial: () => IHallOfFame[]
     addAward: (award: IHallOfFame) => void
 }
+
+export interface ITrafficStatistics {
+    days: string[];
+    data: {
+        title: string;
+        color: string;
+        params: number[];
+    }[];
+}
+
+export interface IPhotoGallery {
+    img: string
+    title: string
+    author: string
+}

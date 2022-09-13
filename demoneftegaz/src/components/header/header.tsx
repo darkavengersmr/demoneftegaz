@@ -1,7 +1,8 @@
 import { observer } from "mobx-react-lite"
 import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Badge, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SpeedDial, SpeedDialAction, SpeedDialIcon, SxProps, Toolbar, Tooltip, Typography } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+import ArticleIcon from '@mui/icons-material/Article';
+import FolderIcon from '@mui/icons-material/Folder';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -62,7 +63,7 @@ const Header: React.FC = observer(() => {
         <ListItem sx={{width: 1, ...sx}} onClick={navigate}>
           <ListItemButton>
           <ListItemIcon>
-              {url.length === 0 ? <MenuIcon /> : <InboxIcon />}              
+              {url.length === 0 ? <FolderIcon /> : <ArticleIcon />}              
           </ListItemIcon>
           <ListItemText primary={title} sx={{ color: {color}}} />
           </ListItemButton>
@@ -162,6 +163,7 @@ const Header: React.FC = observer(() => {
       <List>{addMenuItem(`История АО "Демонефтегаз"`, "/org-history", { m: -2, p: -2 })}</List>
       <List>{addMenuItem("Организационная структура", "/org-structure", { m: -2, p: -2 })}</List>
       <List>{addMenuItem("Перечень информационных ресурсов Общества", "/resource-list", { m: -2, p: -2 })}</List>
+      <List>{addMenuItem("Фотогалерея", "/photo-gallery", { m: -2, p: -2 })}</List>
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
