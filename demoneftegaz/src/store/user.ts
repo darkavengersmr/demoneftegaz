@@ -1,8 +1,8 @@
 import { makeAutoObservable } from "mobx"
-import { IUser } from "../interfaces/interfaces"
+import { IUser, IUserClass } from "../interfaces/interfaces"
 import { initialUser } from "./mock-data/user"
 
-class User {
+class User implements IUserClass {
     data: IUser = initialUser
 
     constructor() {
@@ -19,6 +19,10 @@ class User {
 
     getPhotoUrl() {
         return this.data.photo.slice(4, -1)
+    }
+
+    setTheme(theme: 'dark' | 'light') {        
+        this.data.settings = {...this.data.settings, theme}        
     }
 }
 

@@ -24,5 +24,8 @@ export const initialUser: IUser = {
     absense: "",
     absense_date_in: "",
     absense_date_out: "",
+    settings: {
+        theme: 'light'
+    }
 }
 

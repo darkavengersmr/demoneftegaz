@@ -11,7 +11,7 @@ type PhotoGalleryProps = {
 const PhotoGallery = ({itemData}: PhotoGalleryProps) => {
   return (
     <Box sx={{ width: "100%", height: "90%", overflowY: 'scroll', mb: 4 }}>
-      <ImageList variant="masonry" cols={3} gap={8}>
+      <ImageList variant="masonry" cols={3} gap={2}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img

@@ -39,27 +39,64 @@ import SRHealthPage from "./pages/sr-health";
 import OrgHistoryPage from "./pages/org-history";
 import OrgStructurePage from "./pages/org-structure";
 import PhotoGalleryPage from "./pages/photo-gallery-page";
-
-const portalTheme = createTheme({
-  typography: {
-    fontSize: 12        
-  },
-  palette: {
-    mode: 'light', 
-    primary: {
-      main: '#ffce07',
-      light: '#f37d01',
-      dark: '#d84f00',
-    },
-    secondary: {
-      main: '#e24826',
-      dark: '#ac202d',
-    },        
-  },
-  
-});
+import { observer } from "mobx-react-lite";
+import user from './store/user'
+import UserSettingsPage from "./pages/user-settings-page";
+import BacklogRequestPage from "./pages/backlog-request-page";
 
 function App() {
+
+  const portalTheme = createTheme({
+    typography: {
+      fontSize: 12        
+    },
+    palette: {
+      mode: user.data.settings?.theme ? user.data.settings?.theme : 'light', 
+      primary: {
+        main: '#ffce07',
+        light: '#ffce07',
+        dark: '#ffce07',
+      },
+      secondary: {
+        main: '#e24826',
+        light: '#e24826',
+        dark: '#e24826',
+      },        
+    },  
+    components: {
+      MuiCssBaseline: {
+        styleOverrides: {
+          body: {
+            scrollbarColor: "#E24825 #E24825",
+            "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+              backgroundColor: "#E24825",
+              width: "1em"
+            },
+            "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+              borderRadius: 0,
+              backgroundColor: "#FFCE07",
+              minHeight: 24,
+              border: "0px solid #AC202D",
+              
+            },
+            "&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus": {
+              backgroundColor: "#E24825",
+            },
+            "&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active": {
+              backgroundColor: "#E24825",
+            },
+            "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover": {
+              backgroundColor: "#E24825",
+            },
+            "&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner": {
+              backgroundColor: "#E24825",
+            },
+          },
+        },
+      },
+    },
+  });
+
   return (
     <ThemeProvider theme={portalTheme}> 
       <CssBaseline />
@@ -114,10 +151,13 @@ function App() {
 
           <Route path="photo-gallery" element={<PhotoGalleryPage />} />
 
+          <Route path="user-settings" element={<UserSettingsPage />} />
+          <Route path="backlog" element={<BacklogRequestPage />} />
+
         </Routes>
       </BrowserRouter> 
     </ThemeProvider>
   );
 }
 
-export default App;
+export default observer(App);

@@ -24,7 +24,7 @@ const NewsComponent = ({news, header, forciblyNarrow}: NewsComponentProps) => {
           news.hasMainNews() &&
           <Grid item xs={12} sx={{h: 1}}>
             <Typography variant="h4" component="div" sx={{px: 2, py: 1}}>
-              Главная
+              Главное
             </Typography>
             <Divider></Divider>
           </Grid>

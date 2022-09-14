@@ -338,7 +338,7 @@ export const initialFileStorage: IFileStorage[] = [
     {
         id: "26",
         filename: "Заявка на пропуск.pdf",
-        title: "Заявка на пропуск",
+        title: "Служебная записка на выдачу постоянного пропуска",
         create_date_time: "19.09.2022 11:16",
         modify_date_time: "19.09.2022 11:16",
         library: "Новому работнику",

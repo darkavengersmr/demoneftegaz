@@ -1,3 +1,4 @@
+import { PaletteMode } from "@mui/material"
 
 export type IRoles = 'admin' | 'user' | 'guest'
 
@@ -25,6 +26,17 @@ export interface IUser {
     absense_date_in: string   
     absense_date_out: string
     substitute?: number
+    settings?: {
+        theme?: PaletteMode | undefined
+    }
+}
+
+export interface IUserClass {
+    data: IUser
+    getSurnameNP: () => string
+    setDescription: (description: string) => void
+    getPhotoUrl: () => string
+    setTheme: (theme: 'dark' | 'light') => void
 }
 
 export interface IPerfomanceIndicatorData {
@@ -324,4 +336,18 @@ export interface IPhotoGallery {
     img: string
     title: string
     author: string
+}
+
+export interface IBacklogRequest {
+    id?: number
+    requirement: string
+    owner: number
+    create_date?: string
+    create_time?: string        
+    status?: string
+}
+
+export interface IBacklogRequestClass {
+    getAll: () => IBacklogRequest[]
+    addBacklogRequest: (request: IBacklogRequest) => void
 }

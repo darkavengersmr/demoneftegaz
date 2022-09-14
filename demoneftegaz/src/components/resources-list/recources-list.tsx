@@ -5,7 +5,7 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { IResourceList } from '../../interfaces/interfaces';
-import { Box, Button, Container, Modal, Typography } from '@mui/material';
+import { Box, Button, Modal, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 type ResourceListProps = {
@@ -49,10 +49,10 @@ export default function ResourceList({resourceList}: ResourceListProps) {
 
   return (
 
-    <Container sx={{ mt: "1rem", mb: "2rem", width: "90%", minHeight: "100%" }}>      
+    <Box sx={{ mt: "2rem", mb: "2rem", ml: "4rem", mr: "4rem"}}>      
       <Typography variant="h5" sx={{ mt: 3, mb: 3}}>Перечень информационных ресурсов Общества</Typography>
 
-    <ImageList sx={{ width: "100%" }} cols={4}>
+    <ImageList cols={4}>
 
       {resourceList.map((item) => (        
         <ImageListItem key={item.img}>
@@ -111,7 +111,7 @@ export default function ResourceList({resourceList}: ResourceListProps) {
           <Button variant="contained" sx={{ mt: 2, ml: 2 }} onClick={()=>navigate('/new')}>Перейти к системе</Button>
         </Box>
       </Modal>
-    </Container>
+    </Box>
   );
 }
 

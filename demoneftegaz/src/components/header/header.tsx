@@ -39,6 +39,11 @@ const Header: React.FC = observer(() => {
       setAnchorEl(null);
     }
 
+    const handleToMySettings = () => {      
+      navigate(`/user-settings`)
+      setAnchorEl(null);
+    }
+
     const toggleDrawer = (event: boolean) => setMenu(event)
 
     const navigateAndCloseDrawer = (url: string): void => {
@@ -79,7 +84,8 @@ const Header: React.FC = observer(() => {
         <Toolbar style={{ backgroundImage: `url(${headerBackground})`, 
                           backgroundSize: "auto 100%", 
                           backgroundRepeat: "no-repeat", 
-                          backgroundPosition: "center right", 
+                          backgroundPosition: "center right",
+                          background: "#FFCE07" 
                         }}>
           <IconButton
             size="large"
@@ -125,7 +131,7 @@ const Header: React.FC = observer(() => {
               >
                 <MenuItem onClick={handleToProfile}>Мой профиль</MenuItem>
                 <MenuItem onClick={handleToMyDocs}>Мои документы</MenuItem>
-                <MenuItem onClick={handleClose}>Настройки</MenuItem>
+                <MenuItem onClick={handleToMySettings}>Настройки</MenuItem>
               </Menu>
             </div>
 
@@ -139,7 +145,8 @@ const Header: React.FC = observer(() => {
     onClose={() => toggleDrawer(false)}
     PaperProps={{
       sx: {
-        width: 450
+        width: 450,
+        overflowX: "hidden"
       }
     }}
     >   
@@ -315,7 +322,7 @@ const Header: React.FC = observer(() => {
             {addMenuItem("Матрицы рисков и контрольных процедур", "/fs-risk-matrix", { mt: -2, mb: -2, p: -2 })}            
       </List>
       
-      
+      <List>{addMenuItem(`Доработка портала`, "/backlog", { m: -2, p: -2, color: 'red' })}</List>
 
     </Drawer>    
 
