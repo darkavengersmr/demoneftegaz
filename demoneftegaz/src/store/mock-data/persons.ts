@@ -19,6 +19,7 @@ import SekurovaML from "../../img/SekurovaML.png"
 import KoderovIP from "../../img/KoderovIP.jpg"
 import AssemblerovaVP from "../../img/AssemblerovaVP.jpg"
 import BasicovAB from "../../img/BasicovAB.jpg"
+import { dateNow } from "../../helpers/helpers";
 
 export const initialPersons: IPerson[] = [
     {
@@ -91,8 +92,8 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         absense: "больничный",
-        absense_date_in: "12.09.2022",
-        absense_date_out: "24.09.2022",
+        absense_date_in: dateNow(0),
+        absense_date_out: dateNow(7),
         substitute: 1,
     },
     {
@@ -214,8 +215,8 @@ export const initialPersons: IPerson[] = [
         official: "",
         rating: 3,         
         absense: "командировка",
-        absense_date_in: "22.09.2022",
-        absense_date_out: "30.09.2022",
+        absense_date_in: dateNow(-2),
+        absense_date_out: dateNow(3),
     },
     {
         id: 8,
@@ -310,8 +311,8 @@ export const initialPersons: IPerson[] = [
         map: "",
         official: "",
         absense: "обучение",
-        absense_date_in: "29.09.2022",
-        absense_date_out: "30.09.2022",
+        absense_date_in: dateNow(1),
+        absense_date_out: dateNow(3),
     },
     {
         id: 12,

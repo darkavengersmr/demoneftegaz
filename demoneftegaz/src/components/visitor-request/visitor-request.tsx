@@ -10,7 +10,7 @@ type VisitorRequestProps = {
   visitorRequest: (request: INewVisitorRequest) => void
 }
 
-const steps = ['Создание заявки', 'Вклчюение в списки на проходной', 'Выдача временного пропуска посетителю'];
+const steps = ['Создание заявки', 'Включение в списки на проходной', 'Выдача временного пропуска посетителю'];
 
 const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
@@ -53,7 +53,7 @@ const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
   return (
     <>
-    <Grid container justifyContent="center" sx={{m: 4}}>
+    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
       <Stepper>
         {steps.map((label) => {
           return (

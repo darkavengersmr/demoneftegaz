@@ -89,7 +89,7 @@ const WorkAbsenseWeekendRequest = ({user, persons, title, personById, getByTabnu
   return (
     <>
 
-    <Grid container justifyContent="center" sx={{m: 4}}>
+    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
       <Stepper>
         {steps.map((label) => {
           return (

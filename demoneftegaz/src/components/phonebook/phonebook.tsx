@@ -112,7 +112,7 @@ const PhoneBook = ({personsByFilter, personById}: PhoneBookProps) => {
                   {person.phoneNumber}
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle} width={180}>
-                    {person.absense_date_in && person.absense_date_out && `Отсутствует ${person.absense_date_in} - ${person.absense_date_in}`}
+                    {person.absense_date_in && person.absense_date_out && `Отсутствует ${person.absense_date_in} - ${person.absense_date_out}`}
                     {person.absense && ` (${person.absense}) `}                
                     {person.substitute && `замещает: ${personById(person.substitute)!.surname} ${personById(person.substitute)!.name} ${personById(person.substitute)!.patronymic}`}              
                 </TableCell>

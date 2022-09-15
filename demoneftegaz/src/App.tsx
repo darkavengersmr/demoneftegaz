@@ -3,8 +3,8 @@ import { Suspense, lazy } from "react";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import user from './store/user'
-import MainPagePage from "./pages/main-page-page";
 import LoadingSpinnerPage from "./pages/loading-spinner-page";
+const MainPagePage = lazy(() => import("./pages/main-page-page"));
 const VisitorRequestPage = lazy(() => import("./pages/visitor-request-page"));
 const NewComponentPage = lazy(() => import("./pages/new-component-page"));
 const PhoneBookPage = lazy(() => import("./pages/phonebook-page"));

@@ -16,7 +16,7 @@ type TransportRequestProps = {
   transportRequest: (request: INewTransportRequest) => void  
 }
 
-const steps = ['Создание заявки', 'Согласование руководителем', 'Согласование специалиста по транспорту', "Назначенные актомобиль и водитель"];
+const steps = ['Создание заявки', 'Согласование руководителем', 'В работе у диспетчера', "Назначены актомобиль и водитель"];
 
 const TransportRequest = ({user, persons, personById, getByTabnumber, transportRequest}: TransportRequestProps) => {
 
@@ -99,7 +99,7 @@ const TransportRequest = ({user, persons, personById, getByTabnumber, transportR
 
   return (
     <>
-    <Grid container justifyContent="center" sx={{m: 4}}>
+    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
       <Stepper>
         {steps.map((label) => {
           return (
