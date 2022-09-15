@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite"
-import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Badge, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SpeedDial, SpeedDialAction, SpeedDialIcon, SxProps, Toolbar, Tooltip, Typography } from "@mui/material";
+import { Accordion, AccordionDetails, AccordionSummary, AppBar, Avatar, Badge, Box, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Menu, MenuItem, SpeedDial, SpeedDialAction, SpeedDialIcon, SxProps, Toolbar, Tooltip, Typography, useTheme } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
 import ArticleIcon from '@mui/icons-material/Article';
 import FolderIcon from '@mui/icons-material/Folder';
@@ -17,6 +17,9 @@ import system from "../../store/system"
 import user from "../../store/user";
 
 const Header: React.FC = observer(() => {
+
+    const theme = useTheme()
+
     const [menu, setMenu] = useState(false);
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const navigate = useNavigate();
@@ -81,11 +84,10 @@ const Header: React.FC = observer(() => {
     <>
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="sticky">
-        <Toolbar style={{ backgroundImage: `url(${headerBackground})`, 
+        <Toolbar style={{ backgroundImage: theme.palette.mode === "light" ? `url(${headerBackground})` : '', 
                           backgroundSize: "auto 100%", 
                           backgroundRepeat: "no-repeat", 
-                          backgroundPosition: "center right",
-                          background: "#FFCE07" 
+                          backgroundPosition: "center right"
                         }}>
           <IconButton
             size="large"
