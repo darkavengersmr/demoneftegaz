@@ -1,48 +1,50 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Suspense, lazy } from "react";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
-import MainPagePage from "./pages/main-page-page";
-import VisitorRequestPage from "./pages/visitor-request-page";
-import NewComponentPage from "./pages/new-component-page";
-import PhoneBookPage from "./pages/phonebook-page";
-import NewsPage from "./pages/news-main-page";
-import UserInfoPage from "./pages/user-info-page";
-import OfficialEmailsPage from "./pages/official-emails.page";
-import VisitorRequestRegistryPage from "./pages/visitors-request-registry-page";
-import WorkAbsensePage from "./pages/work-absense-page";
-import WorkAbsenseRegistryPage from "./pages/work-absense-registry-page";
-import WorkWeekendRequestRegistryPage from "./pages/work-weekend-registry-page";
-import WorkWeekendRequestPage from "./pages/work-weekend-page";
-import CdsRequestPage from "./pages/cds-request-page";
-import TransportRequestPage from "./pages/transport-page";
-import TransportRequestRegistryPage from "./pages/transport-registry-page";
-import AskChiefPage from "./pages/ask-chief-page";
-import AskChiefRegistryPage from "./pages/ask-chief-registry-page";
-import WorkPermitGORequestPage from "./pages/work-permit-go-page";
-import WorkPermitOGRequestPage from "./pages/work-permit-og-page";
-import WorkPermitVSRequestPage from "./pages/work-permit-vs-page";
-import WorkPermitPORequestPage from "./pages/work-permit-po-page";
-import FSDocsTemplatesPage from "./pages/fs-docs-templates";
-import FSContractTemplatesPage from "./pages/fs-contract-templates"
-import FSRiskMatrixPage from "./pages/fs-risk-matrix"
-import MyDocsPage from "./pages/my-docs-page"
-import ResourceListPage from "./pages/resource-list-page";
-import HallOfFameUnofficialPage from "./pages/hall-of-fame-unofficial";
-import HallOfFameOfficialPage from "./pages/hall-of-fame-official";
-import FSNewEmployeePage from "./pages/fs-new-employee";
-import FSYoungSpecialistPage from "./pages/fs-young-specialist";
-import NewsProfsouzPage from "./pages/news-profsouz";
-import FsProfsouzTemplates from "./pages/fs-profsouz-templates";
-import NewsAhuPage from "./pages/news-ahu";
-import FSFoodPage from "./pages/fs-food";
-import SrPersonalContacts from "./pages/sr-personal-contacts";
-import SRHealthPage from "./pages/sr-health";
-import OrgHistoryPage from "./pages/org-history";
-import OrgStructurePage from "./pages/org-structure";
-import PhotoGalleryPage from "./pages/photo-gallery-page";
 import { observer } from "mobx-react-lite";
 import user from './store/user'
-import UserSettingsPage from "./pages/user-settings-page";
-import BacklogRequestPage from "./pages/backlog-request-page";
+import MainPagePage from "./pages/main-page-page";
+import LoadingSpinnerPage from "./pages/loading-spinner-page";
+const VisitorRequestPage = lazy(() => import("./pages/visitor-request-page"));
+const NewComponentPage = lazy(() => import("./pages/new-component-page"));
+const PhoneBookPage = lazy(() => import("./pages/phonebook-page"));
+const NewsPage = lazy(() => import("./pages/news-main-page"));
+const UserInfoPage = lazy(() => import("./pages/user-info-page"));
+const OfficialEmailsPage = lazy(() => import("./pages/official-emails.page"));
+const VisitorRequestRegistryPage = lazy(() => import("./pages/visitors-request-registry-page"));
+const WorkAbsensePage = lazy(() => import("./pages/work-absense-page"));
+const WorkAbsenseRegistryPage = lazy(() => import("./pages/work-absense-registry-page"));
+const WorkWeekendRequestRegistryPage = lazy(() => import("./pages/work-weekend-registry-page"));
+const WorkWeekendRequestPage = lazy(() => import("./pages/work-weekend-page"));
+const CdsRequestPage = lazy(() => import("./pages/cds-request-page"));
+const TransportRequestPage = lazy(() => import("./pages/transport-page"));
+const TransportRequestRegistryPage = lazy(() => import("./pages/transport-registry-page"));
+const AskChiefPage = lazy(() => import("./pages/ask-chief-page"));
+const AskChiefRegistryPage = lazy(() => import("./pages/ask-chief-registry-page"));
+const WorkPermitGORequestPage = lazy(() => import("./pages/work-permit-go-page"));
+const WorkPermitOGRequestPage = lazy(() => import("./pages/work-permit-og-page"));
+const WorkPermitVSRequestPage = lazy(() => import("./pages/work-permit-vs-page"));
+const WorkPermitPORequestPage = lazy(() => import("./pages/work-permit-po-page"));
+const FSDocsTemplatesPage = lazy(() => import("./pages/fs-docs-templates"));
+const FSContractTemplatesPage = lazy(() => import("./pages/fs-contract-templates"));
+const FSRiskMatrixPage = lazy(() => import("./pages/fs-risk-matrix"));
+const MyDocsPage = lazy(() => import("./pages/my-docs-page"));
+const ResourceListPage = lazy(() => import("./pages/resource-list-page"));
+const HallOfFameUnofficialPage = lazy(() => import("./pages/hall-of-fame-unofficial"));
+const HallOfFameOfficialPage = lazy(() => import("./pages/hall-of-fame-official"));
+const FSNewEmployeePage = lazy(() => import("./pages/fs-new-employee"));
+const FSYoungSpecialistPage = lazy(() => import("./pages/fs-young-specialist"));
+const NewsProfsouzPage = lazy(() => import("./pages/news-profsouz"));
+const FsProfsouzTemplates = lazy(() => import("./pages/fs-profsouz-templates"));
+const NewsAhuPage = lazy(() => import("./pages/news-ahu"));
+const FSFoodPage = lazy(() => import("./pages/fs-food"));
+const SrPersonalContacts = lazy(() => import("./pages/sr-personal-contacts"));
+const SRHealthPage = lazy(() => import("./pages/sr-health"));
+const OrgHistoryPage = lazy(() => import("./pages/org-history"));
+const OrgStructurePage = lazy(() => import("./pages/org-structure"));
+const PhotoGalleryPage = lazy(() => import("./pages/photo-gallery-page"));
+const UserSettingsPage = lazy(() => import("./pages/user-settings-page"));
+const BacklogRequestPage = lazy(() => import("./pages/backlog-request-page"));
 
 function App() {
 
@@ -101,7 +103,8 @@ function App() {
     <ThemeProvider theme={portalTheme}> 
       <CssBaseline />
       <BrowserRouter> 
-        <Routes>
+        <Suspense fallback={<LoadingSpinnerPage />}>
+        <Routes>          
           <Route path="/" element={<MainPagePage />} />
           <Route path="phonebook" element={<PhoneBookPage />} />                    
           <Route path="official-emails" element={<OfficialEmailsPage />} />
@@ -145,16 +148,19 @@ function App() {
           <Route path="hall-of-fame-unofficial" element={<HallOfFameUnofficialPage />} />
           <Route path="hall-of-fame-official" element={<HallOfFameOfficialPage />} />
 
-          <Route path="new" element={<NewComponentPage />} />
-          <Route path="personal-contacts" element={<SrPersonalContacts />} />
-          <Route path="static-pdf" element={<SRHealthPage />} />
+          <Route path="personal-contacts" element={<SrPersonalContacts />} />          
 
           <Route path="photo-gallery" element={<PhotoGalleryPage />} />
 
           <Route path="user-settings" element={<UserSettingsPage />} />
-          <Route path="backlog" element={<BacklogRequestPage />} />
+          
+          <Route path="backlog" element={<BacklogRequestPage />} />          
 
+          <Route path="new" element={<NewComponentPage />} />
+          <Route path="static-pdf" element={<SRHealthPage />} />
+          <Route path="loading" element={<LoadingSpinnerPage />} /> 
         </Routes>
+        </Suspense>
       </BrowserRouter> 
     </ThemeProvider>
   );
