@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Button, Container, TextField, Typography } from "@mui/material";
+import { Button, Container, Grid, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -9,6 +9,8 @@ type BacklogRequestProps = {
     user: IUser
     backlog: IBacklogRequestClass
 }
+
+const steps = ['Создание запроса на доработку', 'Рассмотрение запроса проектной командой', 'Разработка функционала и тестирование', 'Функционал разработан'];
 
 const BacklogRequest = ({user, backlog}: BacklogRequestProps) => {
 
@@ -33,7 +35,17 @@ const BacklogRequest = ({user, backlog}: BacklogRequestProps) => {
 
   return (
     <>
-
+    <Grid container justifyContent="center" sx={{m: 4}}>
+      <Stepper>
+        {steps.map((label) => {
+          return (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+    </Grid>
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Запрос на доработку функционала портала</Typography>
 

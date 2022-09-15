@@ -86,11 +86,11 @@ const PhoneBook = ({personsByFilter, personById}: PhoneBookProps) => {
         <TableBody>
             { filteredPersons.map((person) =>(
                 <StyledTableRow key={person.login}>
-                <TableCell component="th" scope="row" sx={tableCellStyle}>
+                <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${person.id}`)}>
                     <Badge badgeContent={person.rating}>
                         <Avatar alt="Фото" 
                                 src={person.photo? person.photo.slice(4, -1) : ""} 
-                                sx={{ width: 56, height: 56 }}
+                                sx={{ width: 56, height: 56, cursor: "pointer" }}
                         />
                     </Badge>
                 </TableCell>

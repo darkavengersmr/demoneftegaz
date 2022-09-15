@@ -22,14 +22,14 @@ const BacklogRequestRegistryForm = ({backlog, title, personById}: BacklogTypePro
     {
       field: 'requirement',
       headerName: 'Запрос на доработку',
-      width: 400,
+      width: 500,
       editable: false,
       renderCell: (params) => multiline(params)  
     },
     {
       field: 'status',
       headerName: 'Статус запроса',    
-      width: 400,
+      width: 300,
       editable: false,
       renderCell: (params) => multiline(params)
     },

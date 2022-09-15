@@ -151,15 +151,15 @@ const Header: React.FC = observer(() => {
     }}
     >   
 
-      <List sx={{mt: 1}}>{addMenuItem("Главная", "/", { m: -2, p: -2 })}</List>
+      <List sx={{mt: 1}}>{addMenuItem("Главная", "/", { mx: -2, height: "30px" })}</List>
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary 
-          sx={{ mx: -2, height: "60px"}}             
+          sx={{ mx: -2, height: "40px"}}             
         >
-          <List sx={{width: 1}}>{addMenuItem("Телефонный справочник", "", { m: -2, p: -2 })}</List>
+          <List sx={{width: 1}}>{addMenuItem("Телефонный справочник", "", { mx: -2, height: "40px" })}</List>
         </AccordionSummary>
-        <AccordionDetails sx={{p: 0}}>
+        <AccordionDetails sx={{ m: -2, p: -2 }}>
           <List>
             {addMenuItem("Сотрудники", "/phonebook", { mt: -2, mb: -2, p: -2 })}            
             {addMenuItem("Официальные ящики", "/official-emails", { mt: -2, mb: -2, p: -2 })}                                    
@@ -167,14 +167,14 @@ const Header: React.FC = observer(() => {
         </AccordionDetails>
       </Accordion>
 
-      <List>{addMenuItem(`История АО "Демонефтегаз"`, "/org-history", { m: -2, p: -2 })}</List>
-      <List>{addMenuItem("Организационная структура", "/org-structure", { m: -2, p: -2 })}</List>
-      <List>{addMenuItem("Перечень информационных ресурсов Общества", "/resource-list", { m: -2, p: -2 })}</List>
-      <List>{addMenuItem("Фотогалерея", "/photo-gallery", { m: -2, p: -2 })}</List>
+      <List>{addMenuItem(`История АО "Демонефтегаз"`, "/org-history", { mx: -2, height: "30px" })}</List>
+      <List>{addMenuItem("Организационная структура", "/org-structure", { mx: -2, height: "30px" })}</List>
+      <List>{addMenuItem("Перечень информационных ресурсов Общества", "/resource-list", { mx: -2, height: "30px" })}</List>
+      <List>{addMenuItem("Фотогалерея", "/photo-gallery", { mx: -2, height: "30px" })}</List>
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          sx={{ m: -2, p: -2 }}
+          sx={{ mx: -2, height: "40px" }}
         >
           <List sx={{width: 1}}>{addMenuItem("Награды и благодарности", "", { m: -2, p: -2 })}</List>
         </AccordionSummary>
@@ -188,7 +188,7 @@ const Header: React.FC = observer(() => {
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          sx={{ m: -2, p: -2 }}
+          sx={{ mx: -2, height: "40px" }}
         >
           <List sx={{width: 1}}>{addMenuItem("Профсоюз", "", { m: -2, p: -2 })}</List>
         </AccordionSummary>
@@ -204,7 +204,7 @@ const Header: React.FC = observer(() => {
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          sx={{ mx: -2, height: "60px"}}             
+          sx={{ mx: -2, height: "40px"}}             
         >
           <List sx={{width: 1}}>{addMenuItem("Корпоративные коммуникации", "", { m: -2, p: -2 })}</List>
         </AccordionSummary>
@@ -218,7 +218,7 @@ const Header: React.FC = observer(() => {
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          sx={{ m: -2, height: "60px" }}
+          sx={{ mx: -2, height: "40px" }}
         >
           <List sx={{width: 1}}>{addMenuItem("Кадровые вопросы", "", { m: -2, p: -2 })}</List>
         </AccordionSummary>
@@ -234,7 +234,7 @@ const Header: React.FC = observer(() => {
 
       <Accordion TransitionProps={{ unmountOnExit: true }}>
         <AccordionSummary
-          sx={{ mx: -2, height: "60px"}}             
+          sx={{ mx: -2, height: "40px"}}             
         >
           <List sx={{width: 1}}>{addMenuItem("Подразделения", "", { m: -2, p: -2})}</List>
         </AccordionSummary>
@@ -242,7 +242,7 @@ const Header: React.FC = observer(() => {
 
           <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              sx={{ mx: -2, height: "60px"}}             
+              sx={{ mx: -2, height: "40px"}}             
             >
               <List sx={{width: 1}}>{addMenuItem("АХУ", "", { m: -2, ml: 0, p: -2 })}</List>
             </AccordionSummary>
@@ -255,7 +255,7 @@ const Header: React.FC = observer(() => {
 
           <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              sx={{ mx: -2, height: "60px"}}             
+              sx={{ mx: -2, height: "40px"}}             
             >
               <List sx={{width: 1}}>{addMenuItem("Бюро пропусков", "", { m: -2, ml: 0, p: -2})}</List>
             </AccordionSummary>
@@ -268,7 +268,7 @@ const Header: React.FC = observer(() => {
 
           <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              sx={{ mx: -2, height: "60px"}}             
+              sx={{ mx: -2, height: "40px"}}             
             >
               <List sx={{width: 1}}>{addMenuItem("Приемная ГД", "", { m: -2, ml: 0, p: -2 })}</List>
             </AccordionSummary>
@@ -279,7 +279,7 @@ const Header: React.FC = observer(() => {
 
           <Accordion TransitionProps={{ unmountOnExit: true }}>
             <AccordionSummary
-              sx={{ mx: -2, height: "60px"}}             
+              sx={{ mx: -2, height: "40px"}}             
             >
               <List sx={{width: 1}}>{addMenuItem("Транспортное управление", "", { m: -2, ml: 0, p: -2 })}</List>
             </AccordionSummary>
@@ -307,7 +307,7 @@ const Header: React.FC = observer(() => {
               <AccordionSummary
                 sx={{ m: -2, p: -2 }}
               >
-                <List>{addMenuItem("Журналы регистрации нарядов-допусков", "", { m: -2, ml: 0, p: -2 })}</List>
+                <List sx={{width: 1}}>{addMenuItem("Журналы регистрации нарядов-допусков", "", { m: -2, ml: 0, p: -2 })}</List>
               </AccordionSummary>
               <AccordionDetails sx={{ m: -2, p: -2 }}>
                   {addMenuItem("Газоопасные работы", "/work-permit-go", { mt: -2, ml: 2, p: -2 })}

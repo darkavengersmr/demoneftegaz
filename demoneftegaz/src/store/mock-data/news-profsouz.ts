@@ -2,6 +2,7 @@ import { INews } from "../../interfaces/interfaces";
 
 import profSouz1 from "../../img/profsouz1.jpg";
 import profSouz2 from "../../img/profsouz2.jpg"
+import { dateNow } from "../../helpers/helpers";
 
 export const someNews: INews[] = [
   {
@@ -9,7 +10,7 @@ export const someNews: INews[] = [
     typeOfNews: "news",
     coverImageUrl: profSouz1,
     title: "Конференция по развитию талантов",
-    date: "14.09.2022",
+    date: dateNow(-1),
     description: "10 сентября в Центре ДемоСфера прошла конференция по развитию талантов",
     content: `Формирование экосистем внутри организаций. Компания — экосистема. 
     Развитие персонала — основной драйвер развития компании. 
@@ -22,7 +23,7 @@ export const someNews: INews[] = [
     typeOfNews: "news",
     coverImageUrl: profSouz2,
     title: "Экскурсия выходного дня в г.Новодемовск",
-    date: "16.09.2022",
+    date: dateNow(-2),
     description: `14 сентября состоялась долгожданная поездка в г.Новодемовск с осмотром 
     достопримечательностей и культурной программой`,
     content: `Экскурсия прошла на достойном уровне. Много интересной, разнообразной информации, 
