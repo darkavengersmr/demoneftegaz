@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Autocomplete, Button, Container, Grid, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
+import { Autocomplete, Button, Container, Box, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -89,7 +89,7 @@ const WorkAbsenseWeekendRequest = ({user, persons, title, personById, getByTabnu
   return (
     <>
 
-    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
       <Stepper>
         {steps.map((label) => {
           return (
@@ -99,7 +99,7 @@ const WorkAbsenseWeekendRequest = ({user, persons, title, personById, getByTabnu
           );
         })}
       </Stepper>
-    </Grid>
+    </Box>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>{title}</Typography>

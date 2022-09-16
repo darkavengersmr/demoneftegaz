@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Button, Container, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
+import { Button, Container, FormControl, FormHelperText, Box, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -10,7 +10,7 @@ type VisitorRequestProps = {
   visitorRequest: (request: INewVisitorRequest) => void
 }
 
-const steps = ['Создание заявки', 'Включение в списки на проходной', 'Выдача временного пропуска посетителю'];
+const steps = ['Проверка на право подавать заявки', 'Создание заявки', 'Включение в списки на проходной', 'Выдача временного пропуска посетителю'];
 
 const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
@@ -53,7 +53,7 @@ const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
   return (
     <>
-    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
       <Stepper>
         {steps.map((label) => {
           return (
@@ -63,7 +63,7 @@ const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
           );
         })}
       </Stepper>
-    </Grid>
+    </Box>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Заявка на пропуск посетителя</Typography>

@@ -307,7 +307,7 @@ const Header: React.FC = observer(() => {
             
             <Accordion TransitionProps={{ unmountOnExit: true }}>
               <AccordionSummary
-                sx={{ m: -2, p: -2 }}
+                sx={{ mx: -2, height: "40px"}} 
               >
                 <List sx={{width: 1}}>{addMenuItem("Журналы регистрации нарядов-допусков", "", { m: -2, ml: 0, p: -2 })}</List>
               </AccordionSummary>

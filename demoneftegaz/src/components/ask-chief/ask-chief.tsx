@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Button, Container, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
+import { Button, Container, FormControl, FormHelperText, Box, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -49,7 +49,7 @@ const AskChiefRequest = ({user, askChiefRequests}: AskChiefProps) => {
 
   return (
     <>
-    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
       <Stepper>
         {steps.map((label) => {
           return (
@@ -59,7 +59,8 @@ const AskChiefRequest = ({user, askChiefRequests}: AskChiefProps) => {
           );
         })}
       </Stepper>
-    </Grid>
+    </Box>
+
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Задать вопрос Генеральному Директору</Typography>
 

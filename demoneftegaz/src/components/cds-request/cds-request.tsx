@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 import { useInput } from "../../hooks";
 import { ICdsRequest, IUser } from "../../interfaces/interfaces";
 import system from "../../store/system"
@@ -41,7 +41,7 @@ const CdsRequest = ({user, cdsRequest}: CdsRequestProps) => {
   return (
     <>
 
-    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
       <Stepper>
         {steps.map((label) => {
           return (
@@ -51,7 +51,7 @@ const CdsRequest = ({user, cdsRequest}: CdsRequestProps) => {
           );
         })}
       </Stepper>
-    </Grid>
+    </Box>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Заявка в ЕДС</Typography>

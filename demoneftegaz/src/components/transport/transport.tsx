@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Autocomplete, Button, Checkbox, Container, FormControl, FormControlLabel, FormGroup, Grid, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
+import { Autocomplete, Box, Button, Checkbox, Container, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -99,17 +99,17 @@ const TransportRequest = ({user, persons, personById, getByTabnumber, transportR
 
   return (
     <>
-    <Grid container justifyContent="center" sx={{m: 4, width: "95%"}}>
-      <Stepper>
-        {steps.map((label) => {
-          return (
-            <Step key={label}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          );
-        })}
-      </Stepper>
-    </Grid>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
+        <Stepper>
+          {steps.map((label) => {
+            return (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>     
+    </Box>
       
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">
 
