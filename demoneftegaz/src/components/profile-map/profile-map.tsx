@@ -1,9 +1,7 @@
-import { Avatar, Box, Container, Typography } from "@mui/material";
-import { width } from "@mui/system";
+import { Avatar, Box } from "@mui/material";
 import { observer } from "mobx-react-lite";
-import { useRef, useState } from "react";
-import comingSoon from "../../img/coming-soon.jpg"
-import { IPerson, IUser } from "../../interfaces/interfaces";
+import { useRef } from "react";
+import { IPerson } from "../../interfaces/interfaces";
 
 interface MapComponentProps {
   user: IPerson,

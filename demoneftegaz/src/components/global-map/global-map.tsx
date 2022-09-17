@@ -1,8 +1,7 @@
-import { Avatar, Box, Container, Tooltip, Typography } from "@mui/material";
+import { Avatar, Box, Tooltip, } from "@mui/material";
 import { observer } from "mobx-react-lite";
-import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IPerson, IUser } from "../../interfaces/interfaces";
+import { IPerson } from "../../interfaces/interfaces";
 
 interface MapComponentProps {
   users: IPerson[],

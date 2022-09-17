@@ -18,7 +18,6 @@ import SikvelovEZ from "../../img/SikvelovEZ.jpg"
 import SekurovaML from "../../img/SekurovaML.png"
 import KoderovIP from "../../img/KoderovIP.jpg"
 import AssemblerovaVP from "../../img/AssemblerovaVP.jpg"
-import BasicovAB from "../../img/BasicovAB.jpg"
 import map1 from "../../img/maps/1.jpg"
 import { dateNow } from "../../helpers/helpers";
 
