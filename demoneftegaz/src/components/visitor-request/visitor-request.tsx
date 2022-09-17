@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Button, Container, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Button, Container, FormControl, FormHelperText, Box, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -9,6 +9,8 @@ type VisitorRequestProps = {
   user: IUser
   visitorRequest: (request: INewVisitorRequest) => void
 }
+
+const steps = ['Проверка на право подавать заявки', 'Создание заявки', 'Включение в списки на проходной', 'Выдача временного пропуска посетителю'];
 
 const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
@@ -51,6 +53,17 @@ const VisitorRequest = ({user, visitorRequest}: VisitorRequestProps) => {
 
   return (
     <>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
+      <Stepper>
+        {steps.map((label) => {
+          return (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+    </Box>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Заявка на пропуск посетителя</Typography>

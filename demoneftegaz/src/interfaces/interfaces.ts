@@ -1,33 +1,46 @@
-export type IRoles = "admin" | "user" | "guest";
+import { PaletteMode } from "@mui/material"
+
+export type IRoles = 'admin' | 'user' | 'guest'
 
 export interface IUser {
-  id: number;
-  tabnumber: string;
-  surname: string;
-  name: string;
-  patronymic: string;
-  login: string;
-  email: string;
-  photo: string;
-  jobTitle: string;
-  departament: string;
-  departament_chief: number;
-  phoneNumber: string;
-  role: IRoles[];
-  PKZI_name: string;
-  PKZI_date: string;
-  adress: string;
-  description: string;
-  map: string;
-  location?: {
-    x: number;
-    y: number;
-  };
-  official: string;
-  absense: string;
-  absense_date_in: string;
-  absense_date_out: string;
-  substitute?: number;
+    id: number
+    tabnumber: string    
+    surname: string
+    name: string
+    patronymic: string
+    login: string
+    email: string
+    photo: string
+    jobTitle: string
+    departament: string
+    departament_chief: number
+    phoneNumber: string
+    role: IRoles[]
+    PKZI_name: string
+    PKZI_date: string
+    adress: string
+    description: string
+    map: string
+    location?: {
+      x: number
+      y: number
+    }
+    official: string
+    absense: string
+    absense_date_in: string   
+    absense_date_out: string
+    substitute?: number
+    settings?: {
+        theme?: PaletteMode | undefined
+    }
+}
+
+export interface IUserClass {
+    data: IUser
+    getSurnameNP: () => string
+    setDescription: (description: string) => void
+    getPhotoUrl: () => string
+    setTheme: (theme: 'dark' | 'light') => void
 }
 
 export interface IPerfomanceIndicatorData {
@@ -315,7 +328,36 @@ export interface IHallOfFame {
 }
 
 export interface IHallOfFameClass {
-  getOfficial: () => IHallOfFame[];
-  getUnofficial: () => IHallOfFame[];
-  addAward: (award: IHallOfFame) => void;
+    getOfficial: () => IHallOfFame[]
+    getUnofficial: () => IHallOfFame[]
+    addAward: (award: IHallOfFame) => void
+}
+
+export interface ITrafficStatistics {
+    days: string[];
+    data: {
+        title: string;
+        color: string;
+        params: number[];
+    }[];
+}
+
+export interface IPhotoGallery {
+    img: string
+    title: string
+    author: string
+}
+
+export interface IBacklogRequest {
+    id?: number
+    requirement: string
+    owner: number
+    create_date?: string
+    create_time?: string        
+    status?: string
+}
+
+export interface IBacklogRequestClass {
+    getAll: () => IBacklogRequest[]
+    addBacklogRequest: (request: IBacklogRequest) => void
 }

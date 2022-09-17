@@ -168,7 +168,7 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward, s
               {addStyledTableRow('Телефон', person.phoneNumber)}
               {addStyledTableRow('Адрес', person.adress)}                                    
               {person.absense && addStyledTableRow('Отсутствие на работе', person.absense)}
-              {person.absense_date_in && person.absense_date_out && addStyledTableRow('Период отсутствия', `${person.absense_date_in} - ${person.absense_date_in}`)}
+              {person.absense_date_in && person.absense_date_out && addStyledTableRow('Период отсутствия', `${person.absense_date_in} - ${person.absense_date_out}`)}
               {person.substitute && addStyledTableRow('Отсутствие на работе', `${personById(person.substitute)!.surname} ${personById(person.substitute)!.name} ${personById(person.substitute)!.patronymic}`)}              
               {addStyledTableRow('Имя ключа ЛКЗИ', person.PKZI_name)}
               {addStyledTableRow('Дата действия сертификата ЛКЗИ', person.PKZI_date)}

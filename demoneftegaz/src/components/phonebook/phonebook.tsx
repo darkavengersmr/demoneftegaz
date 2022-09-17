@@ -86,11 +86,11 @@ const PhoneBook = ({personsByFilter, personById}: PhoneBookProps) => {
         <TableBody>
             { filteredPersons.map((person) =>(
                 <StyledTableRow key={person.login}>
-                <TableCell component="th" scope="row" sx={tableCellStyle}>
+                <TableCell component="th" scope="row" sx={tableCellStyle} onClick={() => navigate(`/userinfo/${person.id}`)}>
                     <Badge badgeContent={person.rating}>
                         <Avatar alt="Фото" 
                                 src={person.photo? person.photo.slice(4, -1) : ""} 
-                                sx={{ width: 56, height: 56 }}
+                                sx={{ width: 56, height: 56, cursor: "pointer" }}
                         />
                     </Badge>
                 </TableCell>
@@ -112,7 +112,7 @@ const PhoneBook = ({personsByFilter, personById}: PhoneBookProps) => {
                   {person.phoneNumber}
                 </TableCell>
                 <TableCell component="th" scope="row" sx={tableCellStyle} width={180}>
-                    {person.absense_date_in && person.absense_date_out && `Отсутствует ${person.absense_date_in} - ${person.absense_date_in}`}
+                    {person.absense_date_in && person.absense_date_out && `Отсутствует ${person.absense_date_in} - ${person.absense_date_out}`}
                     {person.absense && ` (${person.absense}) `}                
                     {person.substitute && `замещает: ${personById(person.substitute)!.surname} ${personById(person.substitute)!.name} ${personById(person.substitute)!.patronymic}`}              
                 </TableCell>

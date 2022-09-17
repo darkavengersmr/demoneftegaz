@@ -1,6 +1,5 @@
 import { IUser } from "../../interfaces/interfaces";
 import TestovDM from "../../img/TestovDM.jpg";
-
 import map from "../../img/maps/1.jpg";
 
 export const initialUser: IUser = {

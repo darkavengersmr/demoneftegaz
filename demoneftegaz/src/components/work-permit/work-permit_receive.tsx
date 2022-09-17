@@ -47,7 +47,7 @@ const WorkPermitReceiveRequest = ({title, workPermitsList, workPermitReceive, pe
           >
             {
               workPermitsList.map((item) => (
-                <MenuItem key={item.id} value={item.id}>{`${item.number} ${personById(item.person_received)?.surname} ${personById(item.person_received)?.name} ${personById(item.person_received)?.patronymic}`}</MenuItem>
+                <MenuItem key={item.id} value={item.id}>{`${item.number} выдан ${personById(item.person_received)?.surname} ${personById(item.person_received)?.name} ${personById(item.person_received)?.patronymic} ${item.create_date} ${item.create_time}`}</MenuItem>
               ))
             }
                       

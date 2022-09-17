@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Autocomplete, Button, Checkbox, Container, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Autocomplete, Box, Button, Checkbox, Container, FormControl, FormControlLabel, FormGroup, InputLabel, MenuItem, Select, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -15,6 +15,8 @@ type TransportRequestProps = {
   getByTabnumber: (id: string) => IPerson | undefined  
   transportRequest: (request: INewTransportRequest) => void  
 }
+
+const steps = ['Создание заявки', 'Согласование руководителем', 'В работе у диспетчера', "Назначены актомобиль и водитель"];
 
 const TransportRequest = ({user, persons, personById, getByTabnumber, transportRequest}: TransportRequestProps) => {
 
@@ -97,8 +99,20 @@ const TransportRequest = ({user, persons, personById, getByTabnumber, transportR
 
   return (
     <>
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
+        <Stepper>
+          {steps.map((label) => {
+            return (
+              <Step key={label}>
+                <StepLabel>{label}</StepLabel>
+              </Step>
+            );
+          })}
+        </Stepper>     
+    </Box>
+      
+    <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">
 
-    <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Заявка на транспорт</Typography>
 
         <Autocomplete

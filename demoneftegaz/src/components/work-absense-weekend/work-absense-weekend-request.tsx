@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import { Autocomplete, Button, Container, TextField, Typography } from "@mui/material";
+import { Autocomplete, Button, Container, Box, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 
 import system from "../../store/system";
 import { useInput } from "../../hooks";
@@ -14,6 +14,8 @@ type WorkAbsenseRequestProps = {
   workAbsenseRequest: (request: INewWorkAbsenseWeekendRequest) => void
   title: string
 }
+
+const steps = ['Создание служебной записки', 'Согласование руководителем', 'Согласование специалиста по экономической безопасности', 'Включение в списки на проходной'];
 
 const WorkAbsenseWeekendRequest = ({user, persons, title, personById, getByTabnumber, workAbsenseRequest}: WorkAbsenseRequestProps) => {
 
@@ -86,6 +88,18 @@ const WorkAbsenseWeekendRequest = ({user, persons, title, personById, getByTabnu
 
   return (
     <>
+
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
+      <Stepper>
+        {steps.map((label) => {
+          return (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+    </Box>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>{title}</Typography>

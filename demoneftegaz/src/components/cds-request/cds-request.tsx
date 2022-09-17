@@ -1,4 +1,4 @@
-import { Button, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, Step, StepLabel, Stepper, TextField, Typography } from "@mui/material";
 import { useInput } from "../../hooks";
 import { ICdsRequest, IUser } from "../../interfaces/interfaces";
 import system from "../../store/system"
@@ -7,6 +7,8 @@ type CdsRequestProps = {
     user: IUser,
     cdsRequest: (request: ICdsRequest) => void
 }
+
+const steps = ['Создание заявки', 'Маршрутизация заявки диспетчером', 'Выполнение заявки специалистом поддержки', "Заявка выполнена"];
 
 const CdsRequest = ({user, cdsRequest}: CdsRequestProps) => {
     
@@ -38,6 +40,18 @@ const CdsRequest = ({user, cdsRequest}: CdsRequestProps) => {
 
   return (
     <>
+
+    <Box sx={{mt: 4, mb: 4, ml: 20, mr: 20}}>
+      <Stepper>
+        {steps.map((label) => {
+          return (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+    </Box>
 
     <Container sx={{ mt: "1rem", mb: "2rem", width: "100%" }} maxWidth="sm">      
       <Typography variant="h5" sx={{ mt: 3}}>Заявка в ЕДС</Typography>

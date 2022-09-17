@@ -6,22 +6,6 @@ import { IPerson, IWorkPermit } from "../../../interfaces/interfaces";
 
 import { localizedTextsMap } from "../../../localization/mui-datagrid"
 
-/*
-    id: number
-    journal: string
-    number: string
-    create_date: string
-    create_time: string
-    process_departament: string
-    person_issued: number
-    person_received: number
-    workplace: string
-    work_nature: string
-    status: string
-    complete_date: string
-    complete_time: string
-*/
-
 type WorkPermitRegistryProps = {
     workPermitRegistry: IWorkPermit[], 
     personById: (id: number) => IPerson | undefined,

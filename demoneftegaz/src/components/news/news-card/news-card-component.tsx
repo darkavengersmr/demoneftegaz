@@ -5,12 +5,12 @@ const NewsCardComponent = ({news, open}: {news: INews, open: {(news: INews): voi
     return (
       <Card key={news.id} sx={{ display: "flex", flexDirection: "row" }}>
         <CardMedia
-          sx={{maxWidth: "50%", p: 1, borderRadius: 3, objectFit: "contain" }}
+          sx={{maxWidth: "40%", p: 1, borderRadius: 3, objectFit: "contain" }}
           component="img"
           image={news.coverImageUrl}
         >
         </CardMedia>
-        <CardContent>
+        <CardContent sx={{maxWidth: "60%"}}>
           <Typography variant="h5" component="div">
             {news.title}
           </Typography>
