@@ -119,7 +119,7 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward, s
 
     return (
       <>
-      <Container sx={{ p: 1 }}>      
+      <Box sx={{ mx: 5, p: 1 }}>      
       <Grid container justifyContent="space-between" >
 
       <Typography variant="h5" sx={{ mt: 16, fontWeight: 'bold'}}>
@@ -192,7 +192,7 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward, s
 
     </>
     }
-    </Container>
+    </Box>
 
 
     <Dialog

@@ -35,7 +35,10 @@ const GlobalMapComponent = ({users, maxWidth}: MapComponentProps) => {
         {
           users.map((user) => (
             user.location &&
-            <Tooltip title={user.surname} onClick={() => navigate(`/userinfo/${user.id}`)}>
+            <Tooltip 
+              title={`${user.surname} ${user.name} ${user.patronymic} (${user.jobTitle})`} 
+              onClick={() => navigate(`/userinfo/${user.id}`)}
+            >
               <Avatar
                 sx={{
                   position: 'absolute',
