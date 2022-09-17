@@ -57,7 +57,7 @@ const TrafficStatistics = ({trafficStatistics}: TrafficStatisticsProps) => {
     return (
       <>
         
-        <Container sx={{ mt: "3rem", mb: "2rem" }}>
+        <Container sx={{ mt: "3rem", mb: "5rem" }}>
             <Typography variant="h5" sx={{mb: 1}}>
                 Статистика посещаемости за {dateNow(-6)}-{dateNow(0)}
                 </Typography>
