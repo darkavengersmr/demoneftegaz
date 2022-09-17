@@ -14,7 +14,6 @@ import { useState } from 'react';
 import { useInput } from '../../hooks';
 import system from "../../store/system";
 import ProfileMapComponent from '../profile-map';
-import { observer } from 'mobx-react-lite';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
