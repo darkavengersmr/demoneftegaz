@@ -1,6 +1,5 @@
 import { IUser } from "../../interfaces/interfaces";
 import TestovDM from "../../img/TestovDM.jpg";
-import map from "../../img/maps/1.jpg";
 
 export const initialUser: IUser = {
   id: 0,
@@ -20,7 +19,7 @@ export const initialUser: IUser = {
   PKZI_date: "2023-07-11",
   adress: "г.Демо, Продуктовый проспект, 40",
   description: "6 этаж, к.632",
-  map: map,
+  map: 0,
   location: {
     x: 0,
     y: 0,

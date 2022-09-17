@@ -1,10 +1,11 @@
 import { Avatar, Box } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { useRef } from "react";
-import { IPerson } from "../../interfaces/interfaces";
+import { IMapClass, IPerson } from "../../interfaces/interfaces";
 
 interface MapComponentProps {
-  user: IPerson,
+  user: IPerson
+  maps: IMapClass
   setLocation: {
     (location: {
       x: number, 
@@ -13,7 +14,7 @@ interface MapComponentProps {
   }
 }
 
-const ProfileMapComponent = ({user, setLocation}: MapComponentProps) => {
+const ProfileMapComponent = ({user, setLocation, maps}: MapComponentProps) => {
   const map = useRef(null);
   const avatarSize: number = 30
 
@@ -23,7 +24,6 @@ const ProfileMapComponent = ({user, setLocation}: MapComponentProps) => {
       x: (event.clientX - bounds.left - (avatarSize/2))/bounds.width,
       y: (event.clientY - bounds.top - (avatarSize/2))/bounds.height
     })
-    console.log(user.location)
   }
 
   return (
@@ -37,7 +37,7 @@ const ProfileMapComponent = ({user, setLocation}: MapComponentProps) => {
           sx={{
             maxWidth: 1
           }}
-          src={user.map}
+          src={maps.getById(user.map)?.map}
           onClick={relativeCoords}
         >
         </Box>

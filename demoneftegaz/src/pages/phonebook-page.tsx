@@ -6,6 +6,7 @@ import GlobalMapComponent from "../components/global-map";
 import Header from "../components/header";
 import PhoneBook from "../components/phonebook";
 import persons from "../store/persons";
+import maps from "../store/maps";
 
 const PhoneBookPage: React.FC = () => {
 
@@ -35,14 +36,16 @@ const PhoneBookPage: React.FC = () => {
         {
           tab === 'map' &&
           <Box sx={{maxHeight: 0.95}}>
-            <GlobalMapComponent users={persons.getAll()}></GlobalMapComponent>
+            <GlobalMapComponent users={persons.getAll()}
+                                maps={maps}
+            />
         </Box>
         }
 
         {
           tab === 'phonebook' &&
           <PhoneBook personsByFilter={persons.getPersonsByFilter.bind(persons)}
-                   personById={persons.getById.bind(persons)}
+                     personById={persons.getById.bind(persons)}
           />
         }
                 

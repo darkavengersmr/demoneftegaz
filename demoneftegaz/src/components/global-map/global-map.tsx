@@ -1,19 +1,42 @@
 import { Avatar, Box, Tooltip, } from "@mui/material";
+import { FormControl, InputLabel, MenuItem, Select, Typography } from "@mui/material";
 import { observer } from "mobx-react-lite";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { IPerson } from "../../interfaces/interfaces";
+import { IMapClass, IPerson } from "../../interfaces/interfaces";
 
 interface MapComponentProps {
   users: IPerson[],
-  maxWidth?: string
+  maps: IMapClass
 }
 
-const GlobalMapComponent = ({users, maxWidth}: MapComponentProps) => {
+const GlobalMapComponent = ({users, maps}: MapComponentProps) => {
   const navigate = useNavigate();
   const avatarSize: number = 60
 
+  const [currentMap, setCurrentMap] = useState(0)
+
   return (
     <>
+      <Box textAlign="right">
+        <FormControl sx={{ m: 2, minWidth: 400, textAlign: "left"}}>
+          <InputLabel id="select-helper-label">Выберите адрес</InputLabel>
+          <Select
+            labelId="select-helper-label"
+            id="select-helper"          
+            value={currentMap}
+            onChange={(e)=>setCurrentMap(e.target.value as number)}
+          >
+            {
+              maps.getAll().map((item) => (
+                <MenuItem key={item.id} value={item.id}>{item.title}</MenuItem>
+              ))
+            }
+                      
+          </Select>          
+        </FormControl>
+      </Box>
+
       <Box
         component="div"
         sx={{
@@ -28,16 +51,17 @@ const GlobalMapComponent = ({users, maxWidth}: MapComponentProps) => {
             objectFit: "cover",
             userSelect: 'none'
           }}
-          src={users[0].map}
+          src={maps.getById(currentMap)?.map}
         >
         </Box>
 
         {
           users.map((user) => (
-            user.location &&
+            user.location && user.map === currentMap &&
             <Tooltip 
+              sx={{ fontSize: 40}}
               key={user.id}
-              title={`${user.surname} ${user.name} ${user.patronymic} (${user.jobTitle})`} 
+              title={<Typography fontSize={16}>{user.surname} {user.name} {user.patronymic} ({user.jobTitle})`</Typography>} 
               onClick={() => navigate(`/userinfo/${user.id}`)}
             >
               <Avatar

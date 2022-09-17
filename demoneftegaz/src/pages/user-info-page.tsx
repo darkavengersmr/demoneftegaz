@@ -6,6 +6,7 @@ import UserInfo from "../components/user-info";
 import persons from "../store/persons";
 import user from "../store/user"
 import hallOfHame from "../store/hall-of-hame";
+import maps from "../store/maps";
 
 const UserInfoPage: React.FC = () => {
 
@@ -22,6 +23,7 @@ const UserInfoPage: React.FC = () => {
                   personById={persons.getById.bind(persons)}
                   setPersonLocation={persons.setPersonLocation.bind(persons)}
                   addAward={hallOfHame.addAward.bind(hallOfHame)}
+                  maps={maps}
         />
         <Footer />  
       </>

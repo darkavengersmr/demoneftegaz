@@ -72,7 +72,6 @@ class Person implements IPersonClass {
         person.location = location;
       }
     });
-    console.log(this.data.find((person) => person.id === personId));
   }
 }
 

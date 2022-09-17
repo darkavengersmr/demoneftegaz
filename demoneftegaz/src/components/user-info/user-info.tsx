@@ -8,7 +8,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
-import { IHallOfFame, IPerson } from '../../interfaces/interfaces';
+import { IHallOfFame, IMapClass, IPerson } from '../../interfaces/interfaces';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { useInput } from '../../hooks';
@@ -42,6 +42,7 @@ const phoneBookTableHead = ['', ' ']
 type personInfoProps = {
     person: IPerson | undefined
     user: IPerson | undefined
+    maps: IMapClass
     like: (id: number) => void
     personById: (id: number) => IPerson | undefined
     setDescription: (description: string) => void
@@ -67,7 +68,7 @@ const addStyledTableRow = (param: string, value: string) => {
     )
 }
 
-const PersonInfo = ({person, user, like, personById, setDescription, addAward, setPersonLocation}: personInfoProps): JSX.Element => {
+const PersonInfo = ({person, user, maps, like, personById, setDescription, addAward, setPersonLocation}: personInfoProps): JSX.Element => {
 
     const [openComment, setOpenComment] = useState(false);
     // eslint-disable-next-line 
@@ -179,6 +180,7 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward, s
         <ProfileMapComponent 
           user={person} 
           setLocation={(location) => {setPersonLocation(person.id, location)}}
+          maps={maps}
         ></ProfileMapComponent>
       </Container> 
     </TableContainer>

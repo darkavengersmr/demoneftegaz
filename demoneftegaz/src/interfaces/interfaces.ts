@@ -20,7 +20,7 @@ export interface IUser {
     PKZI_date: string
     adress: string
     description: string
-    map: string
+    map: number
     location?: {
       x: number
       y: number
@@ -78,7 +78,7 @@ export interface IPerson {
   PKZI_date: string;
   adress: string;
   description: string;
-  map: string;
+  map: number;
   location?: {
     x: number;
     y: number;
@@ -360,4 +360,15 @@ export interface IBacklogRequest {
 export interface IBacklogRequestClass {
     getAll: () => IBacklogRequest[]
     addBacklogRequest: (request: IBacklogRequest) => void
+}
+
+export interface IMap {
+  id: number
+  map: string
+  title: string
+}
+
+export interface IMapClass {
+  getAll: () => IMap[]
+  getById: (id: number) => IMap | undefined;
 }
