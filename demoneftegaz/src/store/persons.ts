@@ -1,60 +1,79 @@
-import { makeAutoObservable } from "mobx"
-import { IPerson, IPersonClass } from "../interfaces/interfaces"
-import { initialPersons } from "./mock-data/persons"
+import { makeAutoObservable } from "mobx";
+import { IPerson, IPersonClass } from "../interfaces/interfaces";
+import { initialPersons } from "./mock-data/persons";
 
 class Person implements IPersonClass {
-    private data: IPerson[] = initialPersons
+  private data: IPerson[] = initialPersons;
 
-    constructor() {
-        makeAutoObservable(this)
-    }
-    
-    getAll() {
-        return this.data
-    }
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-    getById(id: number): IPerson | undefined{        
-        return this.data.find((person) => person.id === id)        
-    }
+  getAll() {
+    return this.data;
+  }
 
-    getByTabnumber(tabnumber: string): IPerson | undefined{        
-        return this.data.find((person) => person.tabnumber === tabnumber)        
-    }
+  getById(id: number): IPerson | undefined {
+    return this.data.find((person) => person.id === id);
+  }
 
-    getByDepartament(departament: string): IPerson[] {        
-        return this.data.filter((person) => person.departament === departament)        
-    }
+  getByTabnumber(tabnumber: string): IPerson | undefined {
+    return this.data.find((person) => person.tabnumber === tabnumber);
+  }
 
-    getPersonsByFilter(filter: string): IPerson[] {
-        if (filter === "") return this.data.filter((person) => person.official === "")
-        return this.data.filter((person) => person.surname.indexOf(filter)+1 ||
-                                            person.name.indexOf(filter)+1 ||
-                                            person.patronymic.indexOf(filter)+1 ||
-                                            person.email.indexOf(filter)+1 ||
-                                            person.phoneNumber.indexOf(filter)+1 ||
-                                            person.departament.indexOf(filter)+1
-        ).filter((person) => person.official === "")
-    }
+  getByDepartament(departament: string): IPerson[] {
+    return this.data.filter((person) => person.departament === departament);
+  }
 
-    likeToPerson(id: number) {
-        this.data = this.data.map((person) => {
-            if (person.id === id) {
-                const rating = person.rating ? person.rating+1 : 1
-                return {...person, rating}
-            } else return person
-        })        
-    }
+  getPersonsByFilter(filter: string): IPerson[] {
+    if (filter === "")
+      return this.data.filter((person) => person.official === "");
+    return this.data
+      .filter(
+        (person) =>
+          person.surname.indexOf(filter) + 1 ||
+          person.name.indexOf(filter) + 1 ||
+          person.patronymic.indexOf(filter) + 1 ||
+          person.email.indexOf(filter) + 1 ||
+          person.phoneNumber.indexOf(filter) + 1 ||
+          person.departament.indexOf(filter) + 1
+      )
+      .filter((person) => person.official === "");
+  }
 
-    getOfficialEmailsByFilter(filter: string): IPerson[] {
-        if (filter === "") return this.data.filter((person) => person.official !== "")
-        return this.data.filter((person) => person.surname.indexOf(filter)+1 ||
-                                            person.name.indexOf(filter)+1 ||
-                                            person.patronymic.indexOf(filter)+1 ||
-                                            person.email.indexOf(filter)+1 ||
-                                            person.phoneNumber.indexOf(filter)+1 ||
-                                            person.departament.indexOf(filter)+1
-        ).filter((person) => person.official !== "")
-    }
+  likeToPerson(id: number) {
+    this.data = this.data.map((person) => {
+      if (person.id === id) {
+        const rating = person.rating ? person.rating + 1 : 1;
+        return { ...person, rating };
+      } else return person;
+    });
+  }
+
+  getOfficialEmailsByFilter(filter: string): IPerson[] {
+    if (filter === "")
+      return this.data.filter((person) => person.official !== "");
+    return this.data
+      .filter(
+        (person) =>
+          person.surname.indexOf(filter) + 1 ||
+          person.name.indexOf(filter) + 1 ||
+          person.patronymic.indexOf(filter) + 1 ||
+          person.email.indexOf(filter) + 1 ||
+          person.phoneNumber.indexOf(filter) + 1 ||
+          person.departament.indexOf(filter) + 1
+      )
+      .filter((person) => person.official !== "");
+  }
+
+  setPersonLocation(personId: number, location: { x: number; y: number }) {
+    this.data.forEach((person) => {
+      if (person.id === personId) {
+        person.location = location;
+      }
+    });
+    console.log(this.data.find((person) => person.id === personId));
+  }
 }
 
-export default new Person()
+export default new Person();

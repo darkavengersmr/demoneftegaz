@@ -20,6 +20,7 @@ const UserInfoPage: React.FC = () => {
                   setDescription={user.setDescription.bind(user)} 
                   like={persons.likeToPerson.bind(persons)} 
                   personById={persons.getById.bind(persons)}
+                  setPersonLocation={persons.setPersonLocation.bind(persons)}
                   addAward={hallOfHame.addAward.bind(hallOfHame)}
         />
         <Footer />  
