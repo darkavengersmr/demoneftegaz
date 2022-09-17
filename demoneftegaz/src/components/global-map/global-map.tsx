@@ -32,10 +32,12 @@ const GlobalMapComponent = ({users, maxWidth}: MapComponentProps) => {
           src={users[0].map}
         >
         </Box>
+
         {
           users.map((user) => (
             user.location &&
             <Tooltip 
+              key={user.id}
               title={`${user.surname} ${user.name} ${user.patronymic} (${user.jobTitle})`} 
               onClick={() => navigate(`/userinfo/${user.id}`)}
             >
