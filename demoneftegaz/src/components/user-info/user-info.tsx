@@ -6,13 +6,15 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { Avatar, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
+import { Avatar, Box, Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid, TextField, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { IHallOfFame, IPerson } from '../../interfaces/interfaces';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { useState } from 'react';
 import { useInput } from '../../hooks';
 import system from "../../store/system";
+import ProfileMapComponent from '../profile-map';
+import { observer } from 'mobx-react-lite';
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
     '&:nth-of-type(odd)': {
@@ -45,6 +47,10 @@ type personInfoProps = {
     personById: (id: number) => IPerson | undefined
     setDescription: (description: string) => void
     addAward: (award: IHallOfFame) => void
+    setPersonLocation: (
+      personId: number,
+      location: { x: number; y: number }
+    ) => void;
 }
 
 const addStyledTableRow = (param: string, value: string) => {
@@ -62,7 +68,7 @@ const addStyledTableRow = (param: string, value: string) => {
     )
 }
 
-const PersonInfo = ({person, user, like, personById, setDescription, addAward}: personInfoProps): JSX.Element => {
+const PersonInfo = ({person, user, like, personById, setDescription, addAward, setPersonLocation}: personInfoProps): JSX.Element => {
 
     const [openComment, setOpenComment] = useState(false);
     // eslint-disable-next-line 
@@ -113,7 +119,7 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward}: 
 
     return (
       <>
-      <Container sx={{ mb: 10}}>      
+      <Container sx={{ p: 1 }}>      
       <Grid container justifyContent="space-between" >
 
       <Typography variant="h5" sx={{ mt: 16, fontWeight: 'bold'}}>
@@ -131,8 +137,8 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward}: 
       } 
       { person &&
       <>         
-      <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 800 }} aria-label="customized table">
+      <TableContainer component={Paper} sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly'}}>
+      <Table aria-label="customized table">
         <TableHead>
           <TableRow>
             {phoneBookTableHead.map((title) => (
@@ -170,11 +176,16 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward}: 
                                 
         </TableBody>
       </Table>
+      <Container sx={{overflow: 'hidden'}}>
+        <ProfileMapComponent 
+          user={person} 
+          setLocation={(location) => {setPersonLocation(person.id, location)}}
+        ></ProfileMapComponent>
+      </Container> 
     </TableContainer>
     {  person.id === user?.id &&
         <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>handleClickOpenComment()}>Изменить</Button>
     }
-    
     {  person.id !== user?.id &&
         <Button variant="contained" sx={{ mt: 2, mb: 2 }} onClick={()=>handleClickOpenAward()}>Выразить благодарность</Button>
     }
@@ -182,6 +193,7 @@ const PersonInfo = ({person, user, like, personById, setDescription, addAward}: 
     </>
     }
     </Container>
+
 
     <Dialog
         open={openComment}
